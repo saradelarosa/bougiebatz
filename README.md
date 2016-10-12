@@ -1,2 +1,0 @@
-# bougiebatz
-visual news
