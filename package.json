@@ -4,7 +4,11 @@
   "description": "visual news application",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "build": "webpack -p",
+    "dev": "webpack -d --watch",
+    "webpack": "webpack --progress --colors --watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,28 @@
   "bugs": {
     "url": "https://github.com/bougiebatz/bougiebatz/issues"
   },
-  "homepage": "https://github.com/bougiebatz/bougiebatz#readme"
+  "homepage": "https://github.com/bougiebatz/bougiebatz#readme",
+  "dependencies": {
+    "axios": "^0.15.0",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-1": "^6.16.0",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "nodemon": "^1.11.0",
+    "parse": "^1.9.2",
+    "path": "^0.12.7",
+    "react": "^15.3.2",
+    "react-bootstrap": "^0.30.5",
+    "react-dom": "^15.3.2",
+    "react-router": "^2.8.1",
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  }
 }
