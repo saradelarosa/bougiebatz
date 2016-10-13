@@ -31,23 +31,23 @@ People have long judged books by their covers. The time has come to judge articl
 
 ## Problem ##
   > Describe the problem your product solves.
-Short attention spans make traditional text based news sites unpleasant to interact with.
+> Short attention spans make traditional text based news sites unpleasant to interact with.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
-Visual News takes top headlines from major news sources and transforms them into images whose size conveys  when the story was published. This creates an interactive and lively display in the process.
+> Visual News takes top headlines from major news sources and transforms them into images whose size conveys  when the story was published. This creates an interactive and lively display in the process.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
-"Visual News is a site for the visually minded. The vast majority of news sites take after the newspaper in terms of form and content with titles and abstracts. We turn tradition on its head and give users an image to interact with."
+> "Visual News is a site for the visually minded. The vast majority of news sites take after the newspaper in terms of form and content with titles and abstracts. We turn tradition on its head and give users an image to interact with."
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
-npm start
+> npm start
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-"I loved the visual display. The site was intuitive with the larger and smaller images. The site made browsing and choosing articles fun!"
+> "I loved the visual display. The site was intuitive with the larger and smaller images. The site made browsing and choosing articles fun!"
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
