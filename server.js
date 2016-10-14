@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var cors = require('cors');
+var api = require('./api-router');
 
 var bodyParser = require('body-parser');
 
@@ -11,6 +12,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+app.use('/api', api);
 
 
 // webpack loads index.html, looks for script src
