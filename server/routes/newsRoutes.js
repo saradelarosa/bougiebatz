@@ -24,7 +24,7 @@ router.get('/homepage', (req, res) => {
   request(options, (error, response, body) => {
     if (error) throw new Error(error);
     console.log(body);
-    res.send(response)
+    res.send(response);
   });
 
 
