@@ -12,6 +12,7 @@ router.use(bodyParser.urlencoded({
 }));
 
 router.get('/homepage', (req, res) => {
+
   var options = { method: 'GET',
     url: 'https://newsapi.org/v1/articles',
     qs: {
@@ -23,7 +24,10 @@ router.get('/homepage', (req, res) => {
   request(options, (error, response, body) => {
     if (error) throw new Error(error);
     console.log(body);
+    res.send(response)
   });
+
+
 });
 
 module.exports = router;
