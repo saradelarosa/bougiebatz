@@ -29,11 +29,17 @@ class Large extends React.Component {
 //get params and organize them, add them to req.body
     .get('api/Large', {
         params: {
-          source: source || 'all',
-          section: section || 'all',
-          time: time || '24',
-          limit: limit || 4
+          source: 'all',
+          section: 'all',
+          time: '24',
+          limit: 4
         }
+        // params: {
+        //   source: source || 'all',
+        //   section: section || 'all',
+        //   time: time || '24',
+        //   limit: limit || 4
+        // }
     })
     .then( (response) => {
       var multimediaPhotos = response.data.results

@@ -12,9 +12,9 @@ router.use(bodyParser.urlencoded({
 }));
 
 router.get('/Large', (req, res) => {
-  console.log('GOT++++++')
+  console.log('GOT++++++', req.query.source)
   var reqUrl = 'http://api.nytimes.com/svc/news/v3/content/'
-    + req.params.source + '/' + req.params.section + '/' + req.params.time + '.json' + '?limit=' + req.params.limit
+    + req.query.source + '/' + req.query.section + '/' + req.query.time + '.json' + '?limit=' + req.query.limit
 console.log('lline 17 server req.url', reqUrl)
   var options = { method: 'GET',
     url: reqUrl
