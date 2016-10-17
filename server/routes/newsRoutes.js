@@ -11,26 +11,7 @@ router.use(bodyParser.urlencoded({
   extended: true
 }));
 
-// router.get('/homepage', (req, res) => {
-//
-//   var options = { method: 'GET',
-//     url: 'https://newsapi.org/v1/articles',
-//     qs: {
-//       source: 'the-next-web',
-//       sortBy: 'latest',
-//       apiKey: '9c17e308110847d4895ee9c93907a4b1'
-//     }
-//   };
-//   request(options, (error, response, body) => {
-//     if (error) throw new Error(error);
-//     console.log(body);
-//     res.send(response);
-//   });
-//
-//
-// });
-
-router.get('/homepage', (req, res) => {
+router.get('/Large', (req, res) => {
   var reqUrl = 'http://api.nytimes.com/svc/news/v3/content/'
     + req.body.source + '/' + req.body.section + '/' + req.body.time + '.json' + '?limit=' + req.body.limit
   var options = { method: 'GET',
