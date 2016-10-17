@@ -11,15 +11,35 @@ router.use(bodyParser.urlencoded({
   extended: true
 }));
 
-router.get('/homepage', (req, res) => {
+// router.get('/homepage', (req, res) => {
+//
+//   var options = { method: 'GET',
+//     url: 'https://newsapi.org/v1/articles',
+//     qs: {
+//       source: 'the-next-web',
+//       sortBy: 'latest',
+//       apiKey: '9c17e308110847d4895ee9c93907a4b1'
+//     }
+//   };
+//   request(options, (error, response, body) => {
+//     if (error) throw new Error(error);
+//     console.log(body);
+//     res.send(response);
+//   });
+//
+//
+// });
 
+router.get('/homepage', (req, res) => {
+  var reqUrl = 'http://api.nytimes.com/svc/news/v3/content/'
+    + req.body.source + '/' + req.body.section + '/' + req.body.time + '.json' + '?limit=' + req.body.limit
   var options = { method: 'GET',
-    url: 'https://newsapi.org/v1/articles',
-    qs: {
-      source: 'the-next-web',
-      sortBy: 'latest',
-      apiKey: '9c17e308110847d4895ee9c93907a4b1'
-    }
+    url: reqUrl
+    // first all: all, nyt or iht
+    // second all: section
+    // then ? after json: limit= one through 20
+    //do source || all,    category || all, .... in react copmponents, timeFrame || 24, limit || 20
+//example: 'http://api.nytimes.com/svc/news/v3/content/nyt/business/72.json?limit=15'
   };
   request(options, (error, response, body) => {
     if (error) throw new Error(error);
@@ -27,7 +47,9 @@ router.get('/homepage', (req, res) => {
     res.send(response);
   });
 
-
 });
+
+
+
 
 module.exports = router;
