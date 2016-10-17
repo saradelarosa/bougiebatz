@@ -19,6 +19,7 @@ router.get('/Large', (req, res) => {
     + req.query.time + '.json'
     + '?limit=' + req.query.limit;
 
+console.log('lline 17 server req.url', reqUrl)
   var options = { method: 'GET',
     url: reqUrl
   };
