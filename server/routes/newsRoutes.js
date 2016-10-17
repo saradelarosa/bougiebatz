@@ -12,23 +12,26 @@ router.use(bodyParser.urlencoded({
 }));
 
 router.get('/Large', (req, res) => {
+  console.log('GOT++++++')
   var reqUrl = 'http://api.nytimes.com/svc/news/v3/content/'
-    + req.body.source + '/' + req.body.section + '/' + req.body.time + '.json' + '?limit=' + req.body.limit
+    + req.params.source + '/' + req.params.section + '/' + req.params.time + '.json' + '?limit=' + req.params.limit
+console.log('lline 17 server req.url', reqUrl)
   var options = { method: 'GET',
     url: reqUrl
-    // first all: all, nyt or iht
-    // second all: section
-    // then ? after json: limit= one through 20
-    //do source || all,    category || all, .... in react copmponents, timeFrame || 24, limit || 20
-//example: 'http://api.nytimes.com/svc/news/v3/content/nyt/business/72.json?limit=15'
   };
   request(options, (error, response, body) => {
+    console.log(response, "+++++body+++++");
     if (error) throw new Error(error);
-    console.log(body);
     res.send(response);
   });
 
 });
+//for url in request:
+// first all: all, nyt or iht
+// second all: section
+// then ? after json: limit= one through 20
+//do source || all,    category || all, .... in react copmponents, timeFrame || 24, limit || 20
+//example: 'http://api.nytimes.com/svc/news/v3/content/nyt/business/72.json?limit=15'
 
 
 
