@@ -5,7 +5,6 @@ import React from 'react'
 const PhotoEntry = ({photo}) => (
 	<div className="photo-entry">
 	<img className="media-object" src={photo.url} onClick={()go to hyperlink pg => }>
-
 )
 
 
