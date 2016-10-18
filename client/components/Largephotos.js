@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import axios from 'axios';
 import Select from 'react-select';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 class Large extends React.Component {
   static contextTypes = {
@@ -171,19 +172,23 @@ class Large extends React.Component {
     return (
       <div>
       <div className="select">
-        <Select
-          placeholder=""
-          options={this.state.options}
-          autosize={false}
-          onInputChange={this.getNewImages.bind(this)}
-          scrollMenuIntoView={false}
-          searchable={true}
-          matchProp={'value'}
-          menuRenderer={function(){}}
-          optionRenderer={function(){}}
-        />
+      {/* Select is an npm module that creates... look it up */}
+       <Col xs={1} xsOffset={0}>
+          <Select
+            placeholder=""
+            options={this.state.options}
+            autosize={false}
+            onInputChange={this.getNewImages.bind(this)}
+            scrollMenuIntoView={false}
+            searchable={true}
+            matchProp={'value'}
+            //uncomment these to remove the drop down list filter search
+            // menuRenderer={function(){}}
+            // optionRenderer={function(){}}
+          />
+        </Col>
+
       </div>
-        <div>HELLO THERE TEST</div>
         <LargePhotos
           photos={this.state.photos}
           handleSearchParamChange={this.getPhotos.bind(this)}
@@ -193,17 +198,27 @@ class Large extends React.Component {
 
   }
 }
-
+//stateless functional component for rendering images
 var LargePhotos = ({ photos, handleSearchParamChange }) => (
   <div className="Large Photos">
    {photos.map((photo, i) =>
-     <div key={i} > {photo.abstract}
+     <Row>
+     <Col xs={5} xsOffset={i % 2 === 0 ? 2 : 5}>
+     <div style={LargeStyles} key={i} > {photo.abstract}
        <a href={photo.url}>
          <img className="grow" src={photo.multimedia[3].url} />
        </a>
-    </div>
+       <div className={i}>{photo.title}</div>
+       </div>
+       </Col>
+    </Row>
    )}
  </div>
 )
+//styles to attach to style attribute of elements
+var LargeStyles = {
+    color: 'black',
+    'fontFamily': 'sans-serif',
+}
 
 export default Large;
