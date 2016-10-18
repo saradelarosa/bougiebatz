@@ -12,17 +12,20 @@ router.use(bodyParser.urlencoded({
 }));
 
 router.get('/Large', (req, res) => {
-  console.log('GOT++++++', req.query.source)
+  // console.log('GOT++++++', req.query.source)
   var reqUrl = 'http://api.nytimes.com/svc/news/v3/content/'
-    + req.query.source + '/' + req.query.section + '/' + req.query.time + '.json' + '?limit=' + req.query.limit
-console.log('lline 17 server req.url', reqUrl)
+    + req.query.source + '/'
+    + req.query.section + '/'
+    + req.query.time + '.json'
+    + '?limit=' + req.query.limit;
+
   var options = { method: 'GET',
     url: reqUrl
   };
   request(options, (error, response, body) => {
-    console.log(response, "+++++body+++++");
+    console.log(body, "+++++body+++++");
     if (error) throw new Error(error);
-    res.send(response);
+    res.send(body);
   });
 
 });
@@ -32,8 +35,5 @@ console.log('lline 17 server req.url', reqUrl)
 // then ? after json: limit= one through 20
 //do source || all,    category || all, .... in react copmponents, timeFrame || 24, limit || 20
 //example: 'http://api.nytimes.com/svc/news/v3/content/nyt/business/72.json?limit=15'
-
-
-
 
 module.exports = router;

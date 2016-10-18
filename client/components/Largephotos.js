@@ -32,7 +32,9 @@ class Large extends React.Component {
           source: 'all',
           section: 'all',
           time: '24',
-          limit: 4
+          //only rendering 4, but sometimes the articles do not have photos
+          //so retrieve extra and then select 4 later
+          limit: 8
         }
         // params: {
         //   source: source || 'all',
@@ -44,8 +46,9 @@ class Large extends React.Component {
     .then( (response) => {
       var multimediaPhotos = response.data.results
         .filter((photo) => photo.multimedia.length === 4 )
-      console.log(multimediaPhotos, "LargePhoto client response.body");
-      //there is a problem because some articles multimedia is ''
+        .splice(0,4)
+      //there was a problem because some articles multimedia is ''
+      //only want to render 4 images so splice
       this.setState({
         photos: multimediaPhotos
       })
@@ -75,8 +78,8 @@ class Large extends React.Component {
 
 var LargePhotos = ({ photos, handleSearchParamChange }) => (
   <div className="Large Photos">
-   {photos.map((photo) =>
-     <div> {photo.abstract}
+   {photos.map((photo, i) =>
+     <div key={i} > {photo.abstract}
        <a href={photo.url}>
          <img src={photo.multimedia[2].url} />
        </a>
