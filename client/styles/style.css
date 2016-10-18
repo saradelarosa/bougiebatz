@@ -1,6 +1,4 @@
 
-
-
 h1 {
 	font-family: Helvetica, Arial, sans-serif;
 }
@@ -14,3 +12,35 @@ ul.header {
    background-color: #111;
       padding: 0;
     }
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.4); }
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.grow {
+  position: relative;
+
+  border: 1px solid #333;
+  margin: 2%;
+  overflow: hidden;
+  width: 540px;
+}
+.grow img {
+  max-width: 100%;
+
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.grow:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
