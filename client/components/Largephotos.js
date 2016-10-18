@@ -81,6 +81,7 @@ var LargePhotos = ({ photos, handleSearchParamChange }) => (
    {photos.map((photo, i) =>
      <div key={i} > {photo.abstract}
        <a href={photo.url}>
+         <img src={photo.multimedia[2].url} />
          <img className="grow" src={photo.multimedia[2].url} />
        </a>
     </div>
