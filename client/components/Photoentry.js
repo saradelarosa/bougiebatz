@@ -2,9 +2,16 @@ import React from 'react'
 
 //creating template f
 
-const PhotoEntry = ({photo}) => (
-	<div className="photo-entry">
-	<img className="media-object" src={photo.url} onClick={()go to hyperlink pg => }>
+var PhotoEntry = ({photos, handleSearchParamChange}) => (
+	<div className="Small Photos"> 
+	{photos.map((photo, i) =>
+     <div key={i}>
+       <a href={photo.url}>
+         <img className="" src={photo.multimedia[0].url} />
+       </a>
+    </div>
+   )}
+ </div>
 )
 
 
