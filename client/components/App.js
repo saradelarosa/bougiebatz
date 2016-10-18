@@ -2,6 +2,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import Large from './Largephotos.js';
+import css from '../styles/style.css';
+
 
 class App extends React.Component {
   constructor() {
@@ -31,5 +33,3 @@ render((
 ), document.getElementById('treetop'))
 
 export default App;
-
-
