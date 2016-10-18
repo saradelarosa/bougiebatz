@@ -35,14 +35,13 @@ class Tab extends React.Component {
 //If it is not on same tag, I need to change urls, and change state of current
 //I need to figure out where to do this	
 
-
-
 	render(){
 		return(
 		<li><a href={this.props.url}>{this.props.name}</a></li>
 		);
 	}
 }
+
 
 //need to add Click event to Tab
 
