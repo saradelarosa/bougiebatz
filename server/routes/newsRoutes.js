@@ -19,12 +19,11 @@ router.get('/Large', (req, res) => {
     + req.query.time + '.json'
     + '?limit=' + req.query.limit;
 
-console.log('lline 17 server req.url', reqUrl)
   var options = { method: 'GET',
     url: reqUrl
   };
   request(options, (error, response, body) => {
-    console.log(response, "+++++body+++++");
+    console.log(body, "+++++body+++++");
     if (error) throw new Error(error);
     res.send(body);
   });
