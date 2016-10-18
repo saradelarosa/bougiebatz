@@ -36,7 +36,7 @@ class Medium extends React.Component {
         time: '24',
         //only rendering 8, but sometimes the articles do not have photos
         //so retrieve extra and then select 8 later
-        limit: 16
+        limit: 30
       }
       // params: {
       //   source: source || 'all',
@@ -46,10 +46,9 @@ class Medium extends React.Component {
       // }
     })
     .then((response) => {
-      console.log(response.data, "RESPONSEEEE")
       var multimediaPhotos = response.data.results
       .filter((photo) => photo.multimedia.length === 4 )
-      .splice(0,8)
+      .splice(4,20)
       //there was a problem because some articles multimedia is ''
       //only want to render 8 images so splice
       this.setState({
