@@ -3,13 +3,4 @@
 
 
 
-ul.header li {
-	display: inline;
-	list-style-type: none;
-	margin: 0;
-}
 
-ul.header {
-	background-color: #111;
-	padding: 0;
-}
