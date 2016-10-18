@@ -26,8 +26,11 @@ router.get('/Large', (req, res) => {
     if (error) throw new Error(error);
     res.send(body);
   });
-
 });
+
+
+
+
 //for url in request:
 // first all: all, nyt or iht
 // second all: section

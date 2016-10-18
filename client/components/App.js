@@ -15,13 +15,15 @@ class App extends React.Component {
     return (
       <div>
         <h1>Visual News</h1>
-        <ul>
+        <ul className="header">
           <li><Link to="/Large">Large</Link></li>
           <li><Link to="/Medium">Medium</Link></li>
           <li><Link to="/Small">Small</Link></li>
         </ul>
+        <div className="content">
         {this.props.children}
       </div>
+    </div>  
     )
   }
 }
@@ -36,4 +38,4 @@ render((
   </Router>
 ), document.getElementById('treetop'))
 
-export default App;
+export default App; 
