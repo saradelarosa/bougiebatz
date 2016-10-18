@@ -17,7 +17,7 @@ class App extends React.Component {
         <h1>Visual News</h1>
         <ul>
           <li><Link to="/Large">Large</Link></li>
-          <li><Link to="/BAD">BAD</Link></li>
+          <li><Link to="/Medium">Medium</Link></li>
           <li><Link to="/Small">Small</Link></li>
         </ul>
         {this.props.children}
