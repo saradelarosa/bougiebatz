@@ -1,39 +1,71 @@
-import React from 'react'
-import axios from 'axios'
-
-// import PhotoEntry from 'PhotoEntry'
+import React from 'react';
+import {render} from 'react-dom';
+import { Router, Route, Link, browserHistory } from 'react-router';
+import axios from 'axios';
+import PhotoEntry from './Photoentry.js'
 
 class Small extends React.Component {
+	static contextTypes = {
+    router: React.PropTypes.object
+  }
 	constructor(props) {
 		super(props)
 			this.state = {
-				photos: []
-			};
+				photos: [],
+				searchParams: {
+					source: 'all',
+					section: 'all',
+					time: '24',
+					limit: 24
+				}
+			}
 	}
+	
+	getPhotos(source, section, time, limit) {	
+		axios.get('api/Large', {
+			params: {
+				source: 'all',
+				section:'all',
+				time: '24',
+				limit: 24
+			}
+		})
+		.then((response )=>{
+			var multimediaPhotos = response.data.results
+        .filter((photo) => photo.multimedia.length === 4 )
+        .splice(0,16)
+ 
+      this.setState({
+        photos: multimediaPhotos
+      })
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
-	componentDidMount(){
-		axios.get('http://api.nytimes.com/svc/news/v3/content/all/all.json')
-		.then((res)=>{
-			this.setState({
-				photos:res.data
-			})
-		})
-		.catch((error)=>{
-			console.log(error);
-		})
-	}
+  componentDidMount() {
+    this.getPhotos();
+    console.log()
+  }
 
 	render() {
 		return (
-			<div id="SmallPhotos">
-				<h1>News From the Month</h1>
-				<ul>{this.state.photos.map((photo, i) =>
-				<PhotoEntry photo={photo} key={i}/>
-				)}
-				</ul>
+			<div>
+				<h1>New From the Month</h1>
+				<PhotoEntry photos={this.state.photos}/>
 			</div>
 			)
 		}
 	}
 
+
+
 	export default Small;
+
+
+
+
+
+
+

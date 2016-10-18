@@ -1,2 +1,15 @@
 .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.4); }
+
+
+
+ul.header li {
+	display: inline;
+	list-style-type: none;
+	margin: 0;
+}
+
+ul.header {
+	background-color: #111;
+	padding: 0;
+}
