@@ -34,3 +34,5 @@ class Medium extends React.Component {
     )
   }
 }
+
+export default Medium
