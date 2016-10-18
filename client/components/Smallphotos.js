@@ -16,7 +16,7 @@ class Small extends React.Component {
 					source: 'all',
 					section: 'all',
 					time: '24',
-					limit: 24
+					limit: 50
 				}
 			}
 	}
@@ -27,14 +27,14 @@ class Small extends React.Component {
 				source: 'all',
 				section:'all',
 				time: '24',
-				limit: 24
+				limit: 50
 			}
 		})
 		.then((response )=>{
 			var multimediaPhotos = response.data.results
         .filter((photo) => photo.multimedia.length === 4 )
-        .splice(0,16)
- 
+        .splice(0,50)
+
       this.setState({
         photos: multimediaPhotos
       })
