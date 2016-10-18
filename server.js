@@ -14,8 +14,11 @@ app.use(bodyParser.urlencoded({
 
 
 var newsRoutes = require('./server/routes/newsRoutes');
+// var userRoutes = require('./server/routes/userRoutes');
 
 app.use('/api', newsRoutes);
+
+// app.use('/api', userRoutes);
 
 
 // webpack loads index.html, looks for script src
