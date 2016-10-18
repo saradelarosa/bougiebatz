@@ -35,6 +35,7 @@ class Large extends React.Component {
           //only rendering 4, but sometimes the articles do not have photos
           //so retrieve extra and then select 4 later
           limit: 8
+
         }
         // params: {
         //   source: source || 'all',
