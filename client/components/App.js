@@ -4,6 +4,8 @@ import { Router, Route, Link, browserHistory } from 'react-router';
 import Large from './Largephotos.js';
 import Medium from './Mediumphotos.js';
 import Small from './Smallphotos.js';
+import css from '../styles/style.css';
+
 
 class App extends React.Component {
   constructor() {
@@ -23,7 +25,7 @@ class App extends React.Component {
         <div className="content">
         {this.props.children}
       </div>
-    </div>  
+    </div>
     )
   }
 }
