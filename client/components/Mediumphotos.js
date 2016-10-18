@@ -30,6 +30,11 @@ class Medium extends React.Component {
     return (
       <div>
         <h1>News from the Past Week</h1>
+          {mediumPhotos.map((mediumPhoto) => {
+            <MediumPhotoEntry
+
+            />
+          })}
       </div>
     )
   }
