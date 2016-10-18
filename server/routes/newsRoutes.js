@@ -23,7 +23,6 @@ router.get('/Large', (req, res) => {
     url: reqUrl
   };
   request(options, (error, response, body) => {
-    console.log(body, "+++++body+++++");
     if (error) throw new Error(error);
     res.send(body);
   });
