@@ -120,14 +120,7 @@ class Large extends React.Component {
         { value: 'well', label: 'well' },
         { value: 'world', label: 'world' },
         { value: 'your money', label: 'your money' }
-      ],
-          //default search parameters
-      searchParams: {
-        source: 'all',
-        section: 'all',
-        time: '24',
-        limit: 4
-      }
+      ]
     }
   }
   getNewImages(value) {
