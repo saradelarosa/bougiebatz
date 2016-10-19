@@ -4,7 +4,7 @@ import { Router, Route, Link, browserHistory } from 'react-router';
 import Large from './Largephotos.js';
 import Medium from './Mediumphotos.js';
 import Small from './Smallphotos.js';
-import css from '../styles/style.css';
+// import css from '../styles/style.css';
 
 
 class App extends React.Component {
@@ -16,7 +16,6 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <h1>Visual News</h1>
         <ul className="header">
           <li><Link to="/Large">Large</Link></li>
           <li><Link to="/Medium">Medium</Link></li>
