@@ -37,19 +37,7 @@ class PhotoStory extends React.Component {
       this.setState({
         photos: multimediaPhotos,
         currentPhotos: multimediaPhotos.slice(0, this.state.currentPhotoIndex)
-        // ,
-        // currentPhotoIndex: 1
       })
-      console.log(this.state.currentPhotoIndex, '++')
-      // var index = this.state.currentPhotoIndex += 1
-      // this.setState({
-      //   currentPhotoIndex: index
-      // })
-      // var photoStory = this.state.photos.slice(0, index)
-      // this.setState({
-      //   currentPhotos: photoStory
-      // })
-      // console.log(this.state.currentPhotos, "++++++++++")
     })
     .catch(function (error) {
       console.log(error);
@@ -57,40 +45,46 @@ class PhotoStory extends React.Component {
   }
 
   getNextPhoto(e) {
-    console.log(this.state.currentPhotoIndex, "CURRENT INDEX");
     var index = this.state.currentPhotoIndex + 1
-    var photos = this.state.photos.slice(0, index)
+    var photos = this.state.photos.slice(index - 1, index)
     this.setState({
       currentPhotoIndex: index,
       currentPhotos: photos
     })
     e.preventDefault()
-      console.log("state index",this.state.currentPhotoIndex,'index', index, 'photos', photos, 'state photos', this.state.currentPhotos);
   }
 
-  componentDidMount() {
-    this.getPhotos('all', 'all', '24');
+  getPreviousPhoto(e) {
+    var index = this.state.currentPhotoIndex - 1
+    var photos = this.state.photos.slice(index - 1, index)
+    this.setState({
+      currentPhotoIndex: index,
+      currentPhotos: photos
+    })
+    e.preventDefault()
   }
 // add emthods to call get photos again and it will automatically increment, or remove
-//that auto increment and make different functions for that
-  // removeArticle={()=> this.removeArticle()}
-  // nextArticle={()=> this.nextArticle()}
+componentDidMount() {
+  this.getPhotos('all', 'all', '24');
+}
+
 
   render() {
     return (
       <div>
         {this.state.currentPhotos.map((photo, i) =>
           <Row key={i}>
-            <Col xs={5} xsOffset={i % 2 === 0 ? 2 : 5}>
-              <div style={LargeStyles} key={i} > {photo.abstract}
+            <Col xs={8} xsOffset={2}>
+              <div style={LargeStyles} key={i} >
+                <span>{photo.abstract}</span>
                 <a href={photo.url}>
                   <img className="grow" src={photo.multimedia[3].url} />
                 </a>
-                <div className={i}>{photo.title}</div>
+                <div>{photo.title}</div>
                 <div>
                   <form>
                     <button onClick={this.getNextPhoto.bind(this)}>Next Article</button>
-                    {/* <button onClick={removeArticle}>Remove Article</button> */}
+                    <button onClick={this.getPreviousPhoto.bind(this)}>Previous Article</button>
                   </form>
                </div>
               </div>
