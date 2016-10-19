@@ -17,19 +17,21 @@ class Small extends React.Component {
 				searchParams: {
 					source: 'all',
 					section: 'all',
-					time: '24',
-					limit: 50
+					time: '168',
+					limit: 50,
+					offest: '40'
 				}
 			}
 	}
-	
-	getPhotos(source, section, time, limit) {	
+
+	getPhotos(source, section, time, limit) {
 		axios.get('api/Large', {
 			params: {
 				source: 'all',
 				section:'all',
-				time: '24',
-				limit: 50
+				time: '168',
+				limit: 50,
+				offset: '50'
 			}
 		})
 		.then((response )=>{
@@ -64,10 +66,3 @@ class Small extends React.Component {
 
 
 	export default Small;
-
-
-
-
-
-
-
