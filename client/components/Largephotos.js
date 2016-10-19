@@ -15,6 +15,7 @@ class Large extends React.Component {
     this.state = {
       photos: [],
       values: {
+        all: 'all',
         admin: 'admin',
         'afternoon update': 'afternoon update',
         arts: 'arts',
@@ -144,7 +145,7 @@ class Large extends React.Component {
           source: source || 'all',
           section: section || 'all',
           time: time || '24',
-          limit: 8
+          limit: 20
           //only rendering 4, but sometimes the articles do not have photos
           //so retrieve extra and then select 4 later
         }
@@ -152,7 +153,7 @@ class Large extends React.Component {
     .then((response) => {
       var multimediaPhotos = response.data.results
         .filter((photo) => photo.multimedia.length === 4)
-        .splice(0,4)
+        // .splice(0,4)
       //there was a problem because some articles multimedia is ''
       //only want to render 4 images so splice
       this.setState({
