@@ -15,6 +15,7 @@ class Large extends React.Component {
     this.state = {
       photos: [],
       values: {
+        all: 'all',
         admin: 'admin',
         'afternoon update': 'afternoon update',
         arts: 'arts',
@@ -118,15 +119,8 @@ class Large extends React.Component {
         { value: 'week in review', label: 'week in review' },
         { value: 'well', label: 'well' },
         { value: 'world', label: 'world' },
-        { value: 'your money', label: 'your money' }
-      ],
-          //default search parameters
-      searchParams: {
-        source: 'all',
-        section: 'all',
-        time: '24',
-        limit: 4
-      }
+        { value: 'yougr money', label: 'your money' }
+      ]
     }
   }
   getNewImages(value) {
@@ -144,7 +138,7 @@ class Large extends React.Component {
           source: source || 'all',
           section: section || 'all',
           time: time || '24',
-          limit: 8
+          limit: 20
           //only rendering 4, but sometimes the articles do not have photos
           //so retrieve extra and then select 4 later
         }
@@ -152,7 +146,7 @@ class Large extends React.Component {
     .then((response) => {
       var multimediaPhotos = response.data.results
         .filter((photo) => photo.multimedia.length === 4)
-        .splice(0,4)
+        // .splice(0,4)
       //there was a problem because some articles multimedia is ''
       //only want to render 4 images so splice
       this.setState({
@@ -189,27 +183,30 @@ class Large extends React.Component {
         </Col>
 
       </div>
+      <Col xs={8} xsOffset={0}>
         <LargePhotos
           photos={this.state.photos}
-          handleSearchParamChange={this.getPhotos.bind(this)}
+          removeArticle={()=> this.removeArticle()}
+          nextArticle={()=> this.nextArticle()}
         />
+      </Col>
       </div>
     )
 
   }
 }
 //stateless functional component for rendering images
-var LargePhotos = ({ photos, handleSearchParamChange }) => (
+var LargePhotos = ({ photos, nextArticle, removeArticle }) => (
   <div className="Large Photos">
    {photos.map((photo, i) =>
      <Row>
-     <Col xs={5} xsOffset={i % 2 === 0 ? 2 : 5}>
-     <div style={LargeStyles} key={i} > {photo.abstract}
-       <a href={photo.url}>
-         <img className="grow" src={photo.multimedia[3].url} />
-       </a>
-       <div className={i}>{photo.title}</div>
-       </div>
+       <Col xs={5} xsOffset={i % 2 === 0 ? 2 : 5}>
+         <div style={LargeStyles} key={i} > {photo.abstract}
+           <a href={photo.url}>
+             <img className="grow" src={photo.multimedia[3].url} />
+           </a>
+           <div className={i}>{photo.title}</div>
+         </div>
        </Col>
     </Row>
    )}
