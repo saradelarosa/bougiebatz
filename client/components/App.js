@@ -7,7 +7,6 @@ import Small from './Smallphotos.js';
 import PhotoStory from './PhotoStory.js'
 import css from '../styles/style.css';
 
-
 class App extends React.Component {
   constructor() {
     super()

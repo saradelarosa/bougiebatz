@@ -64,4 +64,10 @@ class Small extends React.Component {
 	}
 
 
+<<<<<<< 9ed91ff3931994b2cc725d09ef0659e99a4c7a84
+=======
+
+
+
+>>>>>>> Small photos rendering and styled correctly, Nav bar styling in progress
 	export default Small;
