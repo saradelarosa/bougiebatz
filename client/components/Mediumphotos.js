@@ -19,8 +19,8 @@ class Medium extends React.Component {
       searchParams: {
         source: 'all',
         section: 'all',
-        time: '24',
-        limit: 8
+        time: '24-168',
+        limit: 20
       }
     }
   }
@@ -33,10 +33,11 @@ class Medium extends React.Component {
       params: {
         source: 'all',
         section: 'all',
-        time: '24',
+        time: '89',
         //only rendering 8, but sometimes the articles do not have photos
         //so retrieve extra and then select 8 later
-        limit: 30
+        limit: 30,
+        offset: '30'
       }
       // params: {
       //   source: source || 'all',
@@ -47,7 +48,7 @@ class Medium extends React.Component {
     })
     .then((response) => {
       var multimediaPhotos = response.data.results
-      .filter((photo) => photo.multimedia.length === 4 )
+      .filter((photo) => photo.multimedia.length === 4 || photo.multimedia.length === 3  )
       .splice(4,20)
       //there was a problem because some articles multimedia is ''
       //only want to render 8 images so splice

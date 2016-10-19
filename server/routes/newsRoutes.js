@@ -17,7 +17,8 @@ router.get('/Large', (req, res) => {
     + req.query.source + '/'
     + req.query.section + '/'
     + req.query.time + '.json'
-    + '?limit=' + req.query.limit;
+    + '?limit=' + req.query.limit
+    + '&offset=' + req.query.offset;
 
   var options = { method: 'GET',
     url: reqUrl

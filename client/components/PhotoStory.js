@@ -25,7 +25,8 @@ class PhotoStory extends React.Component {
         source: source || 'all',
         section: section || 'all',
         time: time || '24',
-        limit: 3
+        limit: 20,
+        offset: 0
       }
     })
     .then((response) => {
