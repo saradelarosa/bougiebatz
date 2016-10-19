@@ -1,10 +1,10 @@
 import React from 'react';
 
 var MediumPhotoEntry = ({mediumPhotos}) => (
-  <div className="Medium Photos">
+  <div className="medium-photos">
     {mediumPhotos.map((photo) =>
       <a href={photo.url}>
-        <img className="grow" src={photo.multimedia[2].url} />
+        <img className="medium-item" src={photo.multimedia[2].url} />
       </a>
     )}
   </div>
