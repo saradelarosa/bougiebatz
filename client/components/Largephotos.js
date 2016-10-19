@@ -119,7 +119,7 @@ class Large extends React.Component {
         { value: 'week in review', label: 'week in review' },
         { value: 'well', label: 'well' },
         { value: 'world', label: 'world' },
-        { value: 'your money', label: 'your money' }
+        { value: 'yougr money', label: 'your money' }
       ]
     }
   }
