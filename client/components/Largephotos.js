@@ -190,27 +190,30 @@ class Large extends React.Component {
         </Col>
 
       </div>
+      <Col xs={8} xsOffset={0}>
         <LargePhotos
           photos={this.state.photos}
-          handleSearchParamChange={this.getPhotos.bind(this)}
+          removeArticle={()=> this.removeArticle()}
+          nextArticle={()=> this.nextArticle()}
         />
+      </Col>
       </div>
     )
 
   }
 }
 //stateless functional component for rendering images
-var LargePhotos = ({ photos, handleSearchParamChange }) => (
+var LargePhotos = ({ photos, nextArticle, removeArticle }) => (
   <div className="Large Photos">
    {photos.map((photo, i) =>
      <Row>
-     <Col xs={5} xsOffset={i % 2 === 0 ? 2 : 5}>
-     <div style={LargeStyles} key={i} > {photo.abstract}
-       <a href={photo.url}>
-         <img className="grow" src={photo.multimedia[3].url} />
-       </a>
-       <div className={i}>{photo.title}</div>
-       </div>
+       <Col xs={5} xsOffset={i % 2 === 0 ? 2 : 5}>
+         <div style={LargeStyles} key={i} > {photo.abstract}
+           <a href={photo.url}>
+             <img className="grow" src={photo.multimedia[3].url} />
+           </a>
+           <div className={i}>{photo.title}</div>
+         </div>
        </Col>
     </Row>
    )}
