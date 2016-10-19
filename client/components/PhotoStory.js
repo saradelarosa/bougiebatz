@@ -25,15 +25,12 @@ class PhotoStory extends React.Component {
         source: source || 'all',
         section: section || 'all',
         time: time || '24',
-        limit: 20
+        limit: 3
       }
     })
     .then((response) => {
       var multimediaPhotos = response.data.results
       .filter((photo) => photo.multimedia.length === 4)
-      // .splice(0,4)
-      //there was a problem because some articles multimedia is ''
-      //only want to render 4 images so splice
       this.setState({
         photos: multimediaPhotos,
         currentPhotos: multimediaPhotos.slice(0, this.state.currentPhotoIndex)
@@ -46,6 +43,11 @@ class PhotoStory extends React.Component {
 
   getNextPhoto(e) {
     var index = this.state.currentPhotoIndex + 1
+    var last = this.state.photos.length - 1
+    if(index > last) {
+      e.preventDefault()
+      return null
+    }
     var photos = this.state.photos.slice(index - 1, index)
     this.setState({
       currentPhotoIndex: index,
@@ -56,6 +58,7 @@ class PhotoStory extends React.Component {
 
   getPreviousPhoto(e) {
     var index = this.state.currentPhotoIndex - 1
+    if(index < 1) {e.preventDefault(); return null}
     var photos = this.state.photos.slice(index - 1, index)
     this.setState({
       currentPhotoIndex: index,
@@ -63,10 +66,10 @@ class PhotoStory extends React.Component {
     })
     e.preventDefault()
   }
-// add emthods to call get photos again and it will automatically increment, or remove
-componentDidMount() {
-  this.getPhotos('all', 'all', '24');
-}
+
+  componentDidMount() {
+    this.getPhotos('all', 'all', '24');
+  }
 
 
   render() {
