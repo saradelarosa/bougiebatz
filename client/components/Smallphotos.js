@@ -55,13 +55,15 @@ class Small extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<h1>New From the Month</h1>
-      		<PhotoEntry photos={this.state.photos}/>
-			</div>
-			)
-		}
+		<div>	
+		<h1> News From the Month </h1>	
+	     <PhotoEntry photos={this.state.photos} />
+	    </div> 
+		)
+	  }
 	}
+
+
 
 
 

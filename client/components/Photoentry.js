@@ -3,11 +3,11 @@ import React from 'react'
 //creating template f
 
 var PhotoEntry = ({photos, handleSearchParamChange}) => (
-	<div className="Small Photos"> 
+	<div className="smallPhotos"> 
 	{photos.map((photo, i) =>
      <div key={i}>
        <a href={photo.url}>
-         <img className="" src={photo.multimedia[0].url} />
+         <img className="flex-item" src={photo.multimedia[0].url} />
        </a>
     </div>
    )}
