@@ -4,13 +4,9 @@ import { Router, Route, Link, browserHistory } from 'react-router';
 import Large from './Largephotos.js';
 import Medium from './Mediumphotos.js';
 import Small from './Smallphotos.js';
-<<<<<<< HEAD
 import PhotoStory from './PhotoStory.js'
 import css from '../styles/style.css';
-=======
 
-
->>>>>>> smallphotos
 
 class App extends React.Component {
   constructor() {
@@ -22,10 +18,7 @@ class App extends React.Component {
     return (
       <div>
         <ul className="header">
-<<<<<<< HEAD
           <li><Link to="/PhotoStory">Go at Your Own Pace</Link></li>
-=======
->>>>>>> smallphotos
           <li><Link to="/" className="newsLink"> NEWS</Link></li>
           <li><Link to="/Large" className="links">Current</Link></li>
           <li><Link to="/Medium" className="links">Last Week</Link></li>
