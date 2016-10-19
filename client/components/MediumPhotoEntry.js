@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Row, Col, rounded} from 'react-bootstrap';
+import {Grid, Row, Col} from 'react-bootstrap';
 
 var MediumPhotoEntry = ({mediumPhotos}) => (
   <div className="Medium Photos">
