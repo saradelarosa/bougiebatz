@@ -18,10 +18,11 @@ class App extends React.Component {
     return (
       <div>
         <ul className="header">
-          <li><Link to="/Large">Large</Link></li>
-          <li><Link to="/Medium">Medium</Link></li>
-          <li><Link to="/Small">Small</Link></li>
           <li><Link to="/PhotoStory">Go at Your Own Pace</Link></li>
+          <li><Link to="/" className="newsLink"> NEWS</Link></li>
+          <li><Link to="/Large" className="links">Current</Link></li>
+          <li><Link to="/Medium" className="links">Last Week</Link></li>
+          <li><Link to="/Small" className="links">This Month</Link></li>
         </ul>
         <div className="content">
         {this.props.children}

@@ -1,18 +1,52 @@
 
 h1 {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: georgia, serif;
   color: black;
 }
 
-ul.header li {
-      display: inline;
-      list-style-type: none;
-      margin: 0;
-    }
 ul.header {
-   background-color: #111;
-      padding: 0;
-    }
+  background-color: #111;
+  padding: 0;
+  margin: 15px;
+  overflow: hidden;
+  list-style-type: none;
+}
+.links {
+  display: block;
+  float: left;
+  color: white;
+  font-size: 20px;
+  font-family: georgia, serif;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px 12px;
+}
+.newsLink {
+  /*display: block;
+  float: left;*/
+  color: white;
+  font-size: 40px;
+  font-family: georgia, serif;
+  /*text-decoration: none;*/
+  /*text-align: center;*/
+  padding: 10px 12px;
+}
+
+.smallPhotos {
+ padding: 0;
+ margin: 0;
+ list-style: none;
+ display: flex;
+ -webkit-flex-flow: row wrap;
+}
+
+.flex-item {
+ background: white;
+ padding: 1px;
+ width: 90px;
+ height: 90px;
+}
+
 
 .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.4); }
@@ -27,11 +61,11 @@ ul.header {
 
 .grow {
   position: relative;
-
+  column-count: 4;
   border: 1px solid #333;
   margin: 2%;
   overflow: hidden;
-  width: 540px;
+  /*width: 540px;*/
 }
 .grow img {
   max-width: 100%;
