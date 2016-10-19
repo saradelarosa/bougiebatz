@@ -1,13 +1,13 @@
 
 h1 {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: georgia, serif;
   color: black;
 }
 
 ul.header {
   background-color: #111;
   padding: 0;
-  margin: 0;
+  margin: 15px;
   overflow: hidden;
   list-style-type: none;
 }
@@ -15,15 +15,22 @@ ul.header {
   display: block;
   float: left;
   color: white;
-  font-size: 40;
+  font-size: 20px;
+  font-family: georgia, serif;
   text-decoration: none;
   text-align: center;
-  padding: 12px 14px;
+  padding: 10px 12px;
 }
-
-
-
- 
+.newsLink {
+  /*display: block;
+  float: left;*/
+  color: white;
+  font-size: 40px;
+  font-family: georgia, serif;
+  /*text-decoration: none;*/
+  /*text-align: center;*/
+  padding: 10px 12px;
+}
 .smallPhotos {
  padding: 0;
  margin: 0;
