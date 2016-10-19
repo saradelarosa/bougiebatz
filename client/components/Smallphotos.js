@@ -64,7 +64,4 @@ class Small extends React.Component {
 	}
 
 
-
-
-
 	export default Small;
