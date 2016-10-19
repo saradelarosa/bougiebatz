@@ -4,7 +4,7 @@ import { Router, Route, Link, browserHistory } from 'react-router';
 import Large from './Largephotos.js';
 import Medium from './Mediumphotos.js';
 import Small from './Smallphotos.js';
-// import css from '../styles/style.css';
+
 
 
 class App extends React.Component {
@@ -17,9 +17,9 @@ class App extends React.Component {
     return (
       <div>
         <ul className="header">
-          <li><Link to="/Large">Large</Link></li>
-          <li><Link to="/Medium">Medium</Link></li>
-          <li><Link to="/Small">Small</Link></li>
+          <li><Link to="/Large" className="links">Large</Link></li>
+          <li><Link to="/Medium" className="links">Medium</Link></li>
+          <li><Link to="/Small" className="links">Small</Link></li>
         </ul>
         <div className="content">
         {this.props.children}
