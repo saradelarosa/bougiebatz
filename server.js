@@ -26,7 +26,7 @@ app.get('/public/bundle.js', function(req, res){
   res.sendFile(path.join(__dirname, 'client/public/bundle.js'));
 });
 
-app.get('client/styles/style.css', function(req, res){
+app.get('/styles/style.css', function(req, res){
   res.sendFile(path.join(__dirname, 'client/styles/style.css'));
 });
 

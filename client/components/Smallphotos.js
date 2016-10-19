@@ -2,7 +2,9 @@ import React from 'react';
 import {render} from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import axios from 'axios';
-import PhotoEntry from './Photoentry.js'
+import PhotoEntry from './Photoentry.js';
+import ImageLayout from 'react-image-layout';
+// import react-component-gallery from "react-component-gallery";
 
 class Small extends React.Component {
 	static contextTypes = {
@@ -53,7 +55,7 @@ class Small extends React.Component {
 		return (
 			<div>
 				<h1>New From the Month</h1>
-				<PhotoEntry photos={this.state.photos}/>
+      		<PhotoEntry photos={this.state.photos}/>
 			</div>
 			)
 		}
