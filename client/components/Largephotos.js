@@ -4,6 +4,7 @@ import { Router, Route, Link, browserHistory } from 'react-router';
 import axios from 'axios';
 import Select from 'react-select';
 import { default as Fade } from 'react-fade';
+import $ from 'jquery';
 
 class Large extends React.Component {
   static contextTypes = {
@@ -126,14 +127,15 @@ class Large extends React.Component {
   }
 
   saveLink(e) {
-    console.log(e.currentTarget, "++++++++")
-    axios.post({
-      method: 'POST',
-      url: 'api/articles',
-      data: {
-        articleImageUrl: url
-      }
+    console.log($(e.currentTarget).attr('src'), "++++++++")
+    axios.post('api/article', {
+      articleImageUrl: $(e.currentTarget).attr('src')
     })
+    .then((res) => console.log('sucess from large photos')
+    )
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   render() {
@@ -168,7 +170,7 @@ var LargePhotos = ({ photos, saveLink }) => (
   <div className="largePhotos">
    {photos.map((photo, i) =>
          <div className="largePhoto"  key={i} >
-           <a href={photo.url}>
+           <a href={photo.url} target="_blank">
              <img className="grow" onClick={saveLink} src={photo.multimedia[3].url} />
            </a>
            <div style={hide}> {photo.abstract} </div>
