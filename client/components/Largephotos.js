@@ -168,7 +168,6 @@ class Large extends React.Component {
       <div>
       <div className="select">
       {/* Select is an npm module that creates... look it up */}
-       <Col xs={1} xsOffset={0}>
           <Select
             placeholder=""
             options={this.state.options}
@@ -181,42 +180,34 @@ class Large extends React.Component {
             // menuRenderer={function(){}}
             // optionRenderer={function(){}}
           />
-        </Col>
-
       </div>
-      <Col xs={8} xsOffset={0}>
+      <div>
         <LargePhotos
           photos={this.state.photos}
-          removeArticle={()=> this.removeArticle()}
-          nextArticle={()=> this.nextArticle()}
         />
-      </Col>
+      </div>
       </div>
     )
 
   }
 }
 //stateless functional component for rendering images
-var LargePhotos = ({ photos, nextArticle, removeArticle }) => (
-  <div className="Large Photos">
+var LargePhotos = ({ photos }) => (
+  <div className="largePhotos">
    {photos.map((photo, i) =>
-     <Row>
-       <Col xs={5} xsOffset={i % 2 === 0 ? 2 : 5}>
-         <div style={LargeStyles} key={i} > {photo.abstract}
+         <div className="largePhoto"  key={i} >
+           {/* <span> {photo.abstract} </span> add this on hover */}
            <a href={photo.url}>
              <img className="grow" src={photo.multimedia[3].url} />
            </a>
-           <div className={i}>{photo.title}</div>
          </div>
-       </Col>
-    </Row>
    )}
- </div>
+   </div>
 )
 //styles to attach to style attribute of elements
-var LargeStyles = {
-    color: 'black',
-    'fontFamily': 'sans-serif',
-}
+// var LargeStyles = {
+//     color: 'black',
+//     'fontFamily': 'sans-serif',
+// }
 
 export default Large;
