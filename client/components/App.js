@@ -6,7 +6,7 @@ import Medium from './Mediumphotos.js';
 import Small from './Smallphotos.js';
 import PhotoStory from './PhotoStory.js'
 import css from '../styles/style.css';
-
+import Home from './home.js'
 
 class App extends React.Component {
   constructor() {
@@ -18,11 +18,11 @@ class App extends React.Component {
     return (
       <div>
         <ul className="header">
-          <li><Link to="/PhotoStory">Go at Your Own Pace</Link></li>
-          <li><Link to="/" className="newsLink"> NEWS</Link></li>
+          <li><Link to="/home" className="newsLink"> NEWS</Link></li>
           <li><Link to="/Large" className="links">Current</Link></li>
           <li><Link to="/Medium" className="links">Last Week</Link></li>
           <li><Link to="/Small" className="links">This Month</Link></li>
+          <li><Link to="/PhotoStory" className="links">PhotoStory</Link></li>
         </ul>
         <div className="content">
         {this.props.children}
@@ -35,6 +35,7 @@ class App extends React.Component {
 render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
+      <Route path="home" component={Home} />
       <Route path="Large" component={Large} />
       <Route path="Medium" component={Medium} />
       <Route path="Small" component={Small} />
