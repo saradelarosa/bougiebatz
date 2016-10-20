@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import axios from 'axios';
 import { Grid, Row, Col } from 'react-bootstrap';
+import { default as Fade } from 'react-fade';
 
 class PhotoStory extends React.Component {
   static contextTypes = {
@@ -76,6 +77,7 @@ class PhotoStory extends React.Component {
   render() {
     return (
       <div>
+        <Fade duration={.8}>
         {this.state.currentPhotos.map((photo, i) =>
               <div style={divStyles} key={i} >
                 <a style={center} href={photo.url}>
@@ -88,6 +90,7 @@ class PhotoStory extends React.Component {
                 <div style={centerAbstract}>{photo.abstract}</div>
               </div>
         )}
+        </Fade>
       </div>
     )
 

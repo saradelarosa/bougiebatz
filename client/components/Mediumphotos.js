@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import axios from 'axios';
 import MediumPhotoEntry from './MediumPhotoEntry.js';
+import { default as Fade } from 'react-fade';
 
 
 
@@ -81,10 +82,12 @@ class Medium extends React.Component {
   render() {
     return (
       <div>
+      <Fade duration={.6}>
         <h1>News from the Past Few Days</h1>
           <MediumPhotoEntry
             mediumPhotos={this.state.mediumPhotos}
           />
+      </Fade>
       </div>
     )
   }

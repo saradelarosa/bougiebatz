@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { default as Fade } from 'react-fade';
 
 //creating template f
 
 var PhotoEntry = ({photos, handleSearchParamChange}) => (
-	<div className="smallPhotos"> 
+	<Fade duration={.8}>
+	<div className="smallPhotos">
 	{photos.map((photo, i) =>
      <div key={i}>
        <a href={photo.url}>
@@ -12,6 +14,7 @@ var PhotoEntry = ({photos, handleSearchParamChange}) => (
     </div>
    )}
  </div>
+ </Fade>
 )
 
 

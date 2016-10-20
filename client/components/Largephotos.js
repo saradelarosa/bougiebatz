@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import axios from 'axios';
 import Select from 'react-select';
+import { default as Fade } from 'react-fade';
 
 class Large extends React.Component {
   static contextTypes = {
@@ -151,6 +152,7 @@ class Large extends React.Component {
 }
 //stateless functional component for rendering images
 var LargePhotos = ({ photos }) => (
+        <Fade duration={.8}>
   <div className="largePhotos">
    {photos.map((photo, i) =>
          <div className="largePhoto"  key={i} >
@@ -161,6 +163,7 @@ var LargePhotos = ({ photos }) => (
          </div>
    )}
    </div>
+   </Fade>
 )
 
 var hide = {
