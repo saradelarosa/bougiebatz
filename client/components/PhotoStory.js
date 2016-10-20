@@ -104,7 +104,9 @@ var center = {
 var centerAbstract = {
      'width': '50%',
      'height': '50%',
-      'margin': '0 auto'
+     'margin': '0 auto',
+     'font-family': 'avenir',
+     'font-size': '1.2em',
 }
 var buttonRight = {
   'background-color': 'white',
