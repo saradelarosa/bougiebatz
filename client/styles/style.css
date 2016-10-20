@@ -37,6 +37,7 @@ ul.header {
  margin: 0;
  list-style: none;
  display: flex;
+ justify-content: center;
  -webkit-flex-flow: row wrap;
 }
 
