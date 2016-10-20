@@ -40,13 +40,14 @@ ul.header {
  -webkit-flex-flow: row wrap;
 }
 
-.flex-item {
+.smallPhotoItem {
  background: white;
  padding: 1px;
  width: 90px;
- height: 90px;
+ height: 80px;
 }
-
+.smallPhotoItem { transition: all .1s ease-in-out; }
+.smallPhotoItem:hover { transform: scale(2.4); }
 
 .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.4); }

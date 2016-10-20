@@ -7,7 +7,7 @@ var PhotoEntry = ({photos, handleSearchParamChange}) => (
 	{photos.map((photo, i) =>
      <div key={i}>
        <a href={photo.url}>
-         <img className="flex-item" src={photo.multimedia[0].url} />
+         <img className="smallPhotoItem" src={photo.multimedia[2].url} />
        </a>
     </div>
    )}
