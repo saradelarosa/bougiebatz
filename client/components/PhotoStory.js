@@ -77,23 +77,18 @@ class PhotoStory extends React.Component {
     return (
       <div>
         {this.state.currentPhotos.map((photo, i) =>
-          <Row key={i}>
-            <Col xs={8} xsOffset={2}>
-              <div style={LargeStyles} key={i} >
-                <span>{photo.abstract}</span>
-                <a href={photo.url}>
+              <div style={divStyles} key={i} >
+                <a style={center} href={photo.url}>
                   <img className="grow" src={photo.multimedia[3].url} />
                 </a>
-                <div>{photo.title}</div>
                 <div>
-                  <form>
-                    <button onClick={this.getNextPhoto.bind(this)}>Next Article</button>
-                    <button onClick={this.getPreviousPhoto.bind(this)}>Previous Article</button>
-                  </form>
-               </div>
+                  {/* <div style={divStyles}> */}
+                    <button style={buttonRight} onClick={this.getNextPhoto.bind(this)}>Next</button>
+                    <button style={buttonLeft} onClick={this.getPreviousPhoto.bind(this)}>Previous</button>
+                  {/* </div> */}
+                </div>
+                <div style={centerAbstract}>{photo.abstract}</div>
               </div>
-            </Col>
-          </Row>
         )}
       </div>
     )
@@ -102,9 +97,39 @@ class PhotoStory extends React.Component {
 }
 
 //styles to attach to style attribute of elements
-var LargeStyles = {
-  color: 'black',
+var center = {
+  'text-align': 'center'
+}
+var centerAbstract = {
+     'width': '50%',
+     'height': '50%',
+      'margin': '0 auto'
+}
+var buttonRight = {
+  'background-color': 'white',
+   'border-radius': '8px',
+   'margin': '3px',
+   'width': '20%',
+   'float': 'right'
+}
+var buttonLeft = {
+  'background-color': 'white',
+   'border-radius': '8px',
+   'margin': '3px',
+   'width': '20%',
+   'float': 'left'
+}
+var divStyles = {
+  'color': 'black',
   'fontFamily': 'sans-serif',
+  'display': 'flex',
+  'justify-content': 'center',
+  'flex-direction':'column',
+  'align-text': 'center',
+  'padding': '5px',
+  'margin': '5px'
+  // 'width': '80%',
+  // 'height': '90%'
 }
 
 export default PhotoStory;
