@@ -138,7 +138,7 @@ class Large extends React.Component {
           source: source || 'all',
           section: section || 'all',
           time: time || '24',
-          limit: 26,
+          limit: 20,
           offset: 0
           //only rendering 4, but sometimes the articles do not have photos
           //so retrieve extra and then select 4 later

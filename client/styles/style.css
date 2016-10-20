@@ -132,7 +132,7 @@ div .largePhoto {
 
 div .select {
 	position:absolute;
-	left:1%;
+	left:3px;
 	/*float:left;*/
 	width:10%
 }
