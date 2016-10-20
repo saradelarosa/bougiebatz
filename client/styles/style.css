@@ -97,8 +97,16 @@ ul.header {
 .smallPhotoItem { transition: all .1s ease-in-out; }
 .smallPhotoItem:hover { transform: scale(2.4); }
 
-.grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.4); }
+.grow {
+	transition: all .3s ease-in-out;
+}
+.grow:hover {
+	 transform: scale(1.4);
+	 z-index: 1;
+	 border-radius: 10px;
+	 border-color: white;
+	 border-width: thick;
+}
 
 * {
   -moz-box-sizing: border-box;
