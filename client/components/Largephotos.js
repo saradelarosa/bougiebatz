@@ -125,6 +125,17 @@ class Large extends React.Component {
     this.getPhotos('all', this.state.val, '24');
   }
 
+  saveLink(e) {
+    console.log(e.currentTarget, "++++++++")
+    axios.post({
+      method: 'POST',
+      url: 'api/articles',
+      data: {
+        articleImageUrl: url
+      }
+    })
+  }
+
   render() {
     return (
       <div>
@@ -143,6 +154,7 @@ class Large extends React.Component {
       <div>
         <LargePhotos
           photos={this.state.photos}
+          saveLink={this.saveLink.bind(this)}
         />
       </div>
       </div>
@@ -151,13 +163,13 @@ class Large extends React.Component {
   }
 }
 //stateless functional component for rendering images
-var LargePhotos = ({ photos }) => (
-        <Fade duration={.8}>
+var LargePhotos = ({ photos, saveLink }) => (
+  <Fade duration={.8}>
   <div className="largePhotos">
    {photos.map((photo, i) =>
          <div className="largePhoto"  key={i} >
            <a href={photo.url}>
-             <img className="grow" src={photo.multimedia[3].url} />
+             <img className="grow" onClick={saveLink} src={photo.multimedia[3].url} />
            </a>
            <div style={hide}> {photo.abstract} </div>
          </div>

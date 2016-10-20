@@ -115,7 +115,7 @@ ul.header {
 	transition: all .3s ease-in-out;
 }
 .grow:hover {
-	 transform: scale(1.4);
+	 transform: scale(1.6);
 	 z-index: 1;
 	 border-radius: 10px;
 	 border-color: white;
