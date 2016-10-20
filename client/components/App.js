@@ -18,7 +18,7 @@ class App extends React.Component {
     return (
       <div>
         <ul className="header">
-          <li><Link to="/home" className="newsLink"> NEWS</Link></li>
+          <li><Link to="/home" className="newsLink"> Visual News </Link></li>
           <li><Link to="/Large" className="links">Current</Link></li>
           <li><Link to="/Medium" className="links">Last Week</Link></li>
           <li><Link to="/Small" className="links">This Month</Link></li>
