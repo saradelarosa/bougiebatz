@@ -5,7 +5,7 @@ import axios from 'axios';
 import Select from 'react-select';
 import { Grid, Row, Col } from 'react-bootstrap';
 
-class Large extends React.Component {
+class Double extends React.Component {
   static contextTypes = {
     router: React.PropTypes.object
   }
@@ -223,4 +223,4 @@ var LargeStyles = {
     'fontFamily': 'sans-serif',
 }
 
-export default Large;
+export default Double;
