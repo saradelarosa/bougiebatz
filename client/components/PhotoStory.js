@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import axios from 'axios';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Button } from 'react-bootstrap';
 
 class PhotoStory extends React.Component {
   static contextTypes = {
@@ -87,8 +87,8 @@ class PhotoStory extends React.Component {
                 <div>{photo.title}</div>
                 <div>
                   <form>
-                    <button onClick={this.getNextPhoto.bind(this)}>Next Article</button>
-                    <button onClick={this.getPreviousPhoto.bind(this)}>Previous Article</button>
+                    <Button onClick={this.getNextPhoto.bind(this)}>Next Article</Button>
+                    <Button onClick={this.getPreviousPhoto.bind(this)}>Previous Article</Button>
                   </form>
                </div>
               </div>

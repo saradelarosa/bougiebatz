@@ -5,7 +5,7 @@ import axios from 'axios';
 import Select from 'react-select';
 import { Grid, Row, Col } from 'react-bootstrap';
 
-class Large extends React.Component {
+class Double extends React.Component {
   static contextTypes = {
     router: React.PropTypes.object
   }
@@ -199,7 +199,7 @@ class Large extends React.Component {
 //stateless functional component for rendering images
 var LargePhotos = ({ photos, nextArticle, removeArticle }) => (
   //for get initial state set a "mouse inside" variable
-  //in your render you can make a function/component that returns the button.
+  //in render make a function/component that returns the button.
   //pass in href data into the function
   <div className="Large Photos">
    {photos.map((photo, i) =>
@@ -223,4 +223,4 @@ var LargeStyles = {
     'fontFamily': 'sans-serif',
 }
 
-export default Large;
+export default Double;
