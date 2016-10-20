@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import axios from 'axios';
 import Select from 'react-select';
-import { Grid, Row, Col } from 'react-bootstrap';
 
 class Large extends React.Component {
   static contextTypes = {
@@ -16,39 +15,20 @@ class Large extends React.Component {
       photos: [],
       values: {
         all: 'all',
-        admin: 'admin',
-        'afternoon update': 'afternoon update',
         arts: 'arts',
-        automobiles: 'automobiles',
-        autos: 'autos',
         blogs: 'blogs',
         books: 'books',
         briefing: 'briefing',
         business: 'business',
-        'business day': 'business day',
-        corrections: 'corrections',
-        'crosswords & games': 'crosswords & games',
-        'crosswords/games': 'crosswords/games',
-        education: 'education',
-        'fashion & style': 'fashion & style',
         food: 'food',
-        giving: 'giving',
-        'great homes & destinations': 'great homes & destinations',
         health: 'health',
-        'home & garden': 'home & garden',
-        'international home': 'international home',
-        'job market': 'job market',
         magazine: 'magazine',
-        membercenter: 'membercenter',
         movies: 'movies',
-        multimedia: 'multimedia',
-        'multimedia/photos': 'multimedia/photos',
-        'n.y. / region': 'n.y. / region',
-        'nyt now': 'nyt now',
+        'photos': 'multimedia/photos',
+        'n.y.': 'n.y. / region',
         obituaries: 'obituaries',
         open: 'open',
         opinion: 'opinion',
-        podcasts: 'podcasts',
         'public editor': 'public editor',
         'real estate': 'real estate',
         science: 'science',
@@ -56,13 +36,8 @@ class Large extends React.Component {
         style: 'style',
         'sunday review': 'sunday review',
         't magazine': 't magazine',
-        't:style': 't:style',
         technology: 'technology',
-        'the learning network': 'the learning network',
-        'the upshot': 'the upshot',
         theater: 'theater',
-        'times insider': 'times insider',
-        'times topics': 'times topics',
         'today’s paper': 'today’s paper',
         travel: 'travel',
         'u.s.': 'u.s.',
@@ -76,43 +51,29 @@ class Large extends React.Component {
       options: [
         { value:  'all', label: 'all' },
         { value: 'arts', label: 'arts' },
-        { value: 'automobiles', label: 'automobiles' },
         { value: 'blogs', label: 'blogs' },
         { value: 'books', label: 'books' },
         { value: 'briefing', label: 'briefing' },
         { value: 'business', label: 'business' },
-        { value: 'education', label: 'education' },
-        { value: 'fashion & style', label: 'fashion & style' },
         { value: 'food', label: 'food' },
         { value: 'health', label: 'health' },
-        { value: 'home & garden', label: 'home & garden' },
-        { value: 'international home', label: 'international home' },
-        { value: 'job market', label: 'job market' },
         { value: 'magazine', label: 'magazine' },
-        { value: 'membercenter', label: 'membercenter' },
         { value: 'movies', label: 'movies' },
         { value: 'multimedia', label: 'multimedia' },
-        { value: 'multimedia/photos', label: 'multimedia/photos' },
-        { value: 'n.y. / region', label: 'n.y. / region' },
-        { value: 'nyt now', label: 'nyt now' },
+        { value: 'multimedia/photos', label: 'photos' },
+        { value: 'n.y. / region', label: 'new york' },
         { value: 'obituaries', label: 'obituaries' },
         { value: 'open', label: 'open' },
         { value: 'opinion', label: 'opinion' },
-        { value: 'podcasts', label: 'podcasts' },
         { value: 'public editor', label: 'public editor' },
         { value: 'real estate', label: 'real estate' },
         { value: 'science', label: 'science' },
         { value: 'sports', label: 'sports' },
         { value: 'style', label: 'style' },
         { value: 'sunday review', label: 'sunday review' },
-        { value: 't:style', label: 't:style' },
         { value: 'technology', label: 'technology' },
-        { value: 'the learning network', label: 'the learning network' },
-        { value: 'the upshot', label: 'the upshot' },
         { value: 'theater', label: 'theater' },
-        { value: 'times insider', label: 'times insider' },
-        { value: 'times topics', label: 'times topics' },
-        { value: 'today’s paper', label: 'today’s paper' },
+        { value: 'today’s paper', label: 'today' },
         { value: 'travel', label: 'travel' },
         { value: 'u.s.', label: 'u.s.' },
         { value: 'washington', label: 'washington' },
@@ -168,7 +129,6 @@ class Large extends React.Component {
       <div>
       <div className="select">
       {/* Select is an npm module that creates... look it up */}
-       <Col xs={1} xsOffset={0}>
           <Select
             placeholder=""
             options={this.state.options}
@@ -181,46 +141,34 @@ class Large extends React.Component {
             // menuRenderer={function(){}}
             // optionRenderer={function(){}}
           />
-        </Col>
-
       </div>
-      <Col xs={8} xsOffset={0}>
+      <div>
         <LargePhotos
           photos={this.state.photos}
-          removeArticle={()=> this.removeArticle()}
-          nextArticle={()=> this.nextArticle()}
         />
-      </Col>
+      </div>
       </div>
     )
 
   }
 }
 //stateless functional component for rendering images
-var LargePhotos = ({ photos, nextArticle, removeArticle }) => (
-  //for get initial state set a "mouse inside" variable
-  //in render make a function/component that returns the button.
-  //pass in href data into the function
-  <div className="Large Photos">
+var LargePhotos = ({ photos }) => (
+  <div className="largePhotos">
    {photos.map((photo, i) =>
-     <Row>
-       <Col xs={11} xsOffset={i % 2 === 0 ? 2 : 5}>
-         <div style={LargeStyles} key={i} > <span>{photo.abstract} </span>
+         <div className="largePhoto"  key={i} >
+           {/* <span> {photo.abstract} </span> add this on hover */}
            <a href={photo.url}>
              <img className="grow" src={photo.multimedia[3].url} />
            </a>
-           <div className={i}>{photo.title}</div>
          </div>
-       </Col>
-       //button goes here
-    </Row>
    )}
- </div>
+   </div>
 )
 //styles to attach to style attribute of elements
-var LargeStyles = {
-    color: 'black',
-    'fontFamily': 'sans-serif',
-}
+// var LargeStyles = {
+//     color: 'black',
+//     'fontFamily': 'sans-serif',
+// }
 
 export default Large;
