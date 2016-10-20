@@ -137,9 +137,6 @@ class Large extends React.Component {
             scrollMenuIntoView={false}
             searchable={true}
             matchProp={'value'}
-            //uncomment these to remove the drop down list filter search
-            // menuRenderer={function(){}}
-            // optionRenderer={function(){}}
           />
       </div>
       <div>
@@ -157,18 +154,17 @@ var LargePhotos = ({ photos }) => (
   <div className="largePhotos">
    {photos.map((photo, i) =>
          <div className="largePhoto"  key={i} >
-           {/* <span> {photo.abstract} </span> add this on hover */}
            <a href={photo.url}>
              <img className="grow" src={photo.multimedia[3].url} />
            </a>
+           <div style={hide}> {photo.abstract} </div>
          </div>
    )}
    </div>
 )
-//styles to attach to style attribute of elements
-// var LargeStyles = {
-//     color: 'black',
-//     'fontFamily': 'sans-serif',
-// }
+
+var hide = {
+  'display':'none',
+}
 
 export default Large;

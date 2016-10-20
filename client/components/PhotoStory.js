@@ -82,10 +82,8 @@ class PhotoStory extends React.Component {
                   <img className="grow" src={photo.multimedia[3].url} />
                 </a>
                 <div>
-                  {/* <div style={divStyles}> */}
                     <button style={buttonRight} onClick={this.getNextPhoto.bind(this)}>Next</button>
                     <button style={buttonLeft} onClick={this.getPreviousPhoto.bind(this)}>Previous</button>
-                  {/* </div> */}
                 </div>
                 <div style={centerAbstract}>{photo.abstract}</div>
               </div>
@@ -128,8 +126,6 @@ var divStyles = {
   'align-text': 'center',
   'padding': '5px',
   'margin': '5px'
-  // 'width': '80%',
-  // 'height': '90%'
 }
 
 export default PhotoStory;
