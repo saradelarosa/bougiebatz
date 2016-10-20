@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import axios from 'axios';
 import Select from 'react-select';
+import { default as Fade } from 'react-fade';
 
 class Large extends React.Component {
   static contextTypes = {
@@ -137,9 +138,6 @@ class Large extends React.Component {
             scrollMenuIntoView={false}
             searchable={true}
             matchProp={'value'}
-            //uncomment these to remove the drop down list filter search
-            // menuRenderer={function(){}}
-            // optionRenderer={function(){}}
           />
       </div>
       <div>
@@ -154,21 +152,22 @@ class Large extends React.Component {
 }
 //stateless functional component for rendering images
 var LargePhotos = ({ photos }) => (
+        <Fade duration={.8}>
   <div className="largePhotos">
    {photos.map((photo, i) =>
          <div className="largePhoto"  key={i} >
-           {/* <span> {photo.abstract} </span> add this on hover */}
            <a href={photo.url}>
              <img className="grow" src={photo.multimedia[3].url} />
            </a>
+           <div style={hide}> {photo.abstract} </div>
          </div>
    )}
    </div>
+   </Fade>
 )
-//styles to attach to style attribute of elements
-// var LargeStyles = {
-//     color: 'black',
-//     'fontFamily': 'sans-serif',
-// }
+
+var hide = {
+  'display':'none',
+}
 
 export default Large;
