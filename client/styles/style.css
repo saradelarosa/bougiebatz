@@ -4,6 +4,18 @@ h1 {
   color: black;
 }
 
+#background-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translate(-50%, -50%);
+}
+
 ul.header {
   background-color: #111;
   padding: 0;

@@ -14,7 +14,11 @@ class Home extends React.Component {
   }
 render() {
   return (
-    <div>HOME SCREEN</div>
+    <div>
+    <video id='background-video' autoPlay loop>
+    <source src='https://dl.dropboxusercontent.com/s/126l5o9woivl3u8/GettyImages-500107419.mp4?dl=0' type='video/mp4'/>
+    </video>
+    </div>
   )
 }
 
