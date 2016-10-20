@@ -11,6 +11,11 @@ ul.header {
   overflow: hidden;
   list-style-type: none;
 }
+
+.links:hover {
+	color:white;
+}
+
 .links {
   display: block;
   float: left;
