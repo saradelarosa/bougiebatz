@@ -1,6 +1,6 @@
 
 h1 {
-	font-family: georgia, serif;
+	font-family: avenir;
   color: black;
 }
 
@@ -17,24 +17,38 @@ h1 {
 }
 
 ul.header {
-  background-color: #111;
+  background-color: black;
+  background: rgba(0, 0, 0, 0.7);
   padding: 0;
   margin: 15px;
   overflow: hidden;
   list-style-type: none;
 	text-align: center;
+  border-radius: 10px;
 }
 
 .links:hover {
 	color:white;
 }
 
+.links:visited {
+  color:white;
+}
+
+.newsLink:hover {
+	color:white;
+}
+
+.newsLink:visited {
+  color:white;
+}
+
 .links {
   display: block;
   float: left;
-  color: white;
+  color: black;
   font-size: 20px;
-  font-family: georgia, serif;
+  font-family: avenir;
   text-decoration: none;
   text-align: center;
   padding: 10px 12px;
@@ -44,7 +58,7 @@ ul.header {
   float: left;*/
   color: white;
   font-size: 40px;
-  font-family: georgia, serif;
+  font-family: avenir;
   /*text-decoration: none;*/
   /*text-align: center;*/
   padding: 10px 12px;
