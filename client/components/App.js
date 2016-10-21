@@ -6,13 +6,14 @@ import Medium from './Mediumphotos.js';
 import Small from './Smallphotos.js';
 import PhotoStory from './PhotoStory.js'
 import css from '../styles/style.css';
-import Home from './home.js'
+import Home from './home.js';
+import Saved from './dbLinks.js';
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
 
-    this.state = {}
+    this.state = {};
   }
   render () {
     return (
@@ -23,6 +24,7 @@ class App extends React.Component {
           <li><Link to="/Medium" className="links">Last Week</Link></li>
           <li><Link to="/Small" className="links">This Month</Link></li>
           <li><Link to="/PhotoStory" className="links">PhotoStory</Link></li>
+          <li><Link to="/Saved" className="links">Saved Stories</Link></li>
         </ul>
         <div className="content">
         {this.props.children}
@@ -40,6 +42,7 @@ render((
       <Route path="Medium" component={Medium} />
       <Route path="Small" component={Small} />
       <Route path="PhotoStory" component={PhotoStory} />
+      <Route path="Saved" component={Saved} />
     </Route>
   </Router>
 ), document.getElementById('treetop'))
