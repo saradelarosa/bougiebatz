@@ -170,10 +170,10 @@ var LargePhotos = ({ photos, saveLink }) => (
   <div className="largePhotos">
    {photos.map((photo, i) =>
          <div className="largePhoto"  key={i} >
-           <a href={photo.url} target="_blank">
-             <img className="grow" onClick={saveLink} src={photo.multimedia[3].url} />
+           <a className="show" href={photo.url} target="_blank">
+             <img className='showImg'  onClick={saveLink} src={photo.multimedia[3].url} />
            </a>
-           <div style={hide}> {photo.abstract} </div>
+           <div className="reveal"> {photo.abstract} </div>
          </div>
    )}
    </div>

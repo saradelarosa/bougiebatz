@@ -175,3 +175,95 @@ div .select {
 div input {
   width: 75%;
 }
+
+/*nect three css things are for images in Largephotos*/
+.show:hover + .reveal {
+	display:block;
+}
+/*.show:hover {
+	opacity:0.8;
+}*/
+
+/*.show:focus + .reveal {
+display:block;
+}*/
+/*.show:focus {
+	opacity:0.9;
+}*/
+
+.reveal {
+	display: none;
+	position: fixed;
+  width: 10%;
+  height: auto;
+  z-index: 10;
+	line-height: 100%;
+  top: 30%;
+  left: 1%;
+  background-color: white;
+	opacity: 0.8;
+  border-radius: 5px;
+  text-align: center;
+	word-wrap: normal;
+	border-style: dashed;;
+	border-width: 2px;
+	border-color:grey;
+	padding: 5px;
+	margin: 5px;
+}
+
+.show {
+	transition: all .3s ease-in-out;
+	padding: 3px;
+	margin-top: 4px;
+}
+div .show:hover {
+	 transform: scale(1.05);
+	 z-index: 1;
+	 border-radius: 10px;
+	 border-color: white;
+	 border-width: thick;
+}
+.showImg {
+	padding: 3px;
+	margin-top: 4px;
+	border-radius: 10px;
+}
+
+.savedContainer {
+	display: flex;
+	justify-content:space-between;
+	flex-direction:row wrap;
+	overflow: scroll;
+}
+
+.saved {
+	padding:5px;
+}
+.savedImg {
+	border-radius: 12px;
+}
+
+.showCount:hover + .revealCount {
+	display:block;
+}
+.revealCount {
+	display: none;
+	position: fixed;
+	width: 10%;
+	height: auto;
+	z-index: 10;
+	line-height: 100%;
+	top: 77%;
+	left: 40%;
+	background-color: white;
+	opacity: 0.8;
+	border-radius: 5px;
+	text-align: center;
+	word-wrap: normal;
+	border-style: dashed;;
+	border-width: 2px;
+	border-color:grey;
+	padding: 5px;
+	margin: 5px;
+}
