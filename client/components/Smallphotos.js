@@ -7,9 +7,9 @@ import ImageLayout from 'react-image-layout';
 // import react-component-gallery from "react-component-gallery";
 
 class Small extends React.Component {
-	static contextTypes = {
-    router: React.PropTypes.object
-  }
+	// static contextTypes = {
+  //   router: React.PropTypes.object
+  // }
 	constructor(props) {
 		super(props)
 			this.state = {
@@ -55,10 +55,10 @@ class Small extends React.Component {
 
 	render() {
 		return (
-		<div>	
-		<h1> News From the Month </h1>	
+		<div>
+		<h1> News From the Month </h1>
 	     <PhotoEntry photos={this.state.photos} />
-	    </div> 
+	    </div>
 		)
 	  }
 	}

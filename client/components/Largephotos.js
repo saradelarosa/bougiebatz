@@ -7,9 +7,9 @@ import { default as Fade } from 'react-fade';
 import $ from 'jquery';
 
 class Large extends React.Component {
-  static contextTypes = {
-    router: React.PropTypes.object
-  }
+  // static contextTypes = {
+  //   router: React.PropTypes.object
+  // }
   constructor(props) {
     super(props)
 
