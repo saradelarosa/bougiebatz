@@ -37,11 +37,13 @@ class Saved extends React.Component {
         <h2>Saved Stories</h2>
         <div>
           {this.state.links.map((link, i) =>
+            <Fade>
             <div key={i*10}>
               <a href={link}>
                 <img src={link} />
               </a>
             </div>
+            </Fade>
           )}
         </div>
       </div>
