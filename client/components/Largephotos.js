@@ -7,11 +7,11 @@ import { default as Fade } from 'react-fade';
 import $ from 'jquery';
 
 class Large extends React.Component {
-  static contextTypes = {
-    router: React.PropTypes.object
-  }
+  // static contextTypes = {
+  //   router: React.PropTypes.object
+  // }
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       photos: [],
@@ -84,12 +84,12 @@ class Large extends React.Component {
         { value: 'world', label: 'world' },
         { value: 'yougr money', label: 'your money' }
       ]
-    }
+    };
   }
   getNewImages(value) {
     for(let key in this.state.values) {
       if(key === value) {
-        this.getPhotos('all', value, '24')
+        this.getPhotos('all', value, '24');
       }
     }
   }
@@ -109,13 +109,13 @@ class Large extends React.Component {
     })
     .then((response) => {
       var multimediaPhotos = response.data.results
-        .filter((photo) => photo.multimedia.length === 4)
+        .filter((photo) => photo.multimedia.length === 4);
         // .splice(0,4)
       //there was a problem because some articles multimedia is ''
       //only want to render 4 images so splice
       this.setState({
         photos: multimediaPhotos
-      })
+      });
     })
     .catch(function (error) {
       console.log(error);
@@ -127,7 +127,7 @@ class Large extends React.Component {
   }
 
   saveLink(e) {
-    console.log($(e.currentTarget).attr('src'), "++++++++")
+    console.log($(e.currentTarget).attr('src'), "++++++++");
     axios.post('api/article', {
       articleImageUrl: $(e.currentTarget).attr('src')
     })

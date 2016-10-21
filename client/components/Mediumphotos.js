@@ -8,9 +8,9 @@ import { default as Fade } from 'react-fade';
 
 
 class Medium extends React.Component {
-  static contextTypes = {
-    router: React.PropTypes.object
-  }
+  // static contextTypes = {
+  //   router: React.PropTypes.object
+  // }
   constructor(props) {
     super(props)
 
