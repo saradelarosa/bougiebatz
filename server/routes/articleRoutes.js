@@ -4,7 +4,7 @@ var router = express.Router();
 var Article = require('../models/articleModel')
 
 router.post('/article', function(req, res){
-  console.log("++++++++++ RECIEVED REQUEST ++++++++++++++")
+  console.log("++++++++++ RECIEVED REQUEST POST to /article ++++++++++++++");
   new Article ({
     'articleImageUrl': req.body.articleImageUrl
     // ,
@@ -12,6 +12,16 @@ router.post('/article', function(req, res){
   })
   .save(function(err, article){
     res.status(201).send(article);
+  });
+});
+
+router.get('/article', function(req, res){
+  console.log("++++++++++ RECIEVED GET TO/article +++++++++++++");
+  //get all links from the db
+  Article.find({}, function(err, urls) {
+    res.send(urls.map(function(url) {
+      return url;
+    }));
   });
 });
 
