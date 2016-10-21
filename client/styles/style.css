@@ -229,3 +229,17 @@ div .show:hover {
 	margin-top: 4px;
 	border-radius: 10px;
 }
+
+.savedContainer {
+	display: flex;
+	justify-content:space-between;
+	flex-direction:row wrap;
+	overflow: scroll;
+}
+
+.saved {
+	padding:5px;
+}
+.savedImg {
+	border-radius: 12px;
+}
