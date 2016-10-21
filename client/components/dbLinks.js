@@ -52,10 +52,10 @@ class Saved extends React.Component {
           {this.state.links.map((link, i) =>
             <Fade>
             <div className="saved" key={i*10}>
-              <a href={link.url}>
+              <a className="showCount" href={link.url}>
                 <img className="savedImg" src={link.url} />
               </a>
-              <div> {link.count} </div>
+              <div className="revealCount"> Save Count: {link.count} </div>
             </div>
             </Fade>
           )}

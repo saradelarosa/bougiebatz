@@ -243,3 +243,27 @@ div .show:hover {
 .savedImg {
 	border-radius: 12px;
 }
+
+.showCount:hover + .revealCount {
+	display:block;
+}
+.revealCount {
+	display: none;
+	position: fixed;
+	width: 10%;
+	height: auto;
+	z-index: 10;
+	line-height: 100%;
+	top: 77%;
+	left: 40%;
+	background-color: white;
+	opacity: 0.8;
+	border-radius: 5px;
+	text-align: center;
+	word-wrap: normal;
+	border-style: dashed;;
+	border-width: 2px;
+	border-color:grey;
+	padding: 5px;
+	margin: 5px;
+}
