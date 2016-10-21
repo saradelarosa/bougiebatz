@@ -13,24 +13,32 @@ class Saved extends React.Component {
       links: ['https://www.google.com','https://www.google.com' ]
     };
   }
+//get request to server which will send a get request to the db
   getLinks() {
     axios.get('api/article')
       .then((res) => {
         console.log(res, "dbLinks get res recieved");
-        this.setState({links: res});
+        //res is an object with property data containing array of ulrs
+        //res mapped in articleRoutes.js to just be the url
+        this.setState({links: res.data});
       })
       .catch((err) => {
         console.error(err);
       });
   }
+
+  componentDidMount() {
+    this.getLinks();
+  }
+
   render() {
     return (
       <div>
-        <h2>Saved Links</h2>
+        <h2>Saved Stories</h2>
         <div>
-          {this.state.links.map((link) =>
-            <div>
-              <a href={link}> {link}
+          {this.state.links.map((link, i) =>
+            <div key={i*10}>
+              <a href={link}>
                 <img src={link} />
               </a>
             </div>
