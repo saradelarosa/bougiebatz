@@ -93,6 +93,8 @@ ul.header {
   text-align: center;
 }
 
+.medium-item:hover { transform: scale(1.3); }
+
 .smallPhotos {
  padding: 0;
  margin: 0;
