@@ -9,7 +9,7 @@ var PhotoEntry = ({photos, handleSearchParamChange}) => (
 		<Fade duration={.8}>
      <div key={i}>
        <a href={photo.url}>
-         <img className="smallPhotoItem" src={photo.multimedia[2].url} />
+         <img className="smallPhotoItem" src={photo.multimedia[3].url} />
        </a>
     </div>
 		</Fade>

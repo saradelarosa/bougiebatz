@@ -20,11 +20,12 @@ class App extends React.Component {
       <div>
         <ul className="header">
           <li><Link to="/home" className="newsLink"> Visual News </Link></li>
-          <li><Link to="/Large" className="links">Current</Link></li>
-          <li><Link to="/Medium" className="links">Last Week</Link></li>
-          <li><Link to="/Small" className="links">This Month</Link></li>
+          <li><Link to="/Large" className="links">Daily</Link></li>
+          <li><Link to="/Medium" className="links">Weekly</Link></li>
+          <li><Link to="/Small" className="links">Monthly</Link></li>
           <li><Link to="/PhotoStory" className="links">PhotoStory</Link></li>
           <li><Link to="/Saved" className="links">Saved Stories</Link></li>
+          <li> <a target="_blank" href="https://soundcloud.com/pranay-martin" className="links">News Tunes</a></li>
         </ul>
         <div className="content">
         {this.props.children}
