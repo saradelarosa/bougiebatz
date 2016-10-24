@@ -14,8 +14,13 @@ app.use(bodyParser.urlencoded({
 
 
 var newsRoutes = require('./server/routes/newsRoutes');
+// var userRoutes = require('./server/routes/userRoutes');
+var articleRoutes = require('./server/routes/articleRoutes')
 
 app.use('/api', newsRoutes);
+
+// app.use('/api', userRoutes);
+app.use('/api', articleRoutes)
 
 
 // webpack loads index.html, looks for script src
@@ -23,7 +28,7 @@ app.get('/public/bundle.js', function(req, res){
   res.sendFile(path.join(__dirname, 'client/public/bundle.js'));
 });
 
-app.get('client/styles/style.css', function(req, res){
+app.get('/styles/style.css', function(req, res){
   res.sendFile(path.join(__dirname, 'client/styles/style.css'));
 });
 
@@ -33,3 +38,5 @@ app.get('*', function(req, res){
 });
 
 app.listen(process.env.PORT || 9000);
+
+// <link rel='stylesheet' href='styles/style.css' media='screen' title='no title'>

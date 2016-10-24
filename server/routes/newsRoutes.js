@@ -17,18 +17,21 @@ router.get('/Large', (req, res) => {
     + req.query.source + '/'
     + req.query.section + '/'
     + req.query.time + '.json'
-    + '?limit=' + req.query.limit;
+    + '?limit=' + req.query.limit
+    + '&offset=' + req.query.offset;
 
   var options = { method: 'GET',
     url: reqUrl
   };
   request(options, (error, response, body) => {
-    console.log(body, "+++++body+++++");
     if (error) throw new Error(error);
     res.send(body);
   });
-
 });
+
+
+
+
 //for url in request:
 // first all: all, nyt or iht
 // second all: section
