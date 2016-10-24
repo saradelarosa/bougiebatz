@@ -38,6 +38,7 @@ class App extends React.Component {
 render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
+      <IndexRoute component={Home}/>
       <Route path="home" component={Home} />
       <Route path="Large" component={Large} />
       <Route path="Medium" component={Medium} />
