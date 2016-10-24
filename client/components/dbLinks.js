@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import axios from 'axios';
 import { default as Fade } from 'react-fade';
-import $ from 'jquery';
 
 class Saved extends React.Component {
   constructor(props) {
