@@ -45,6 +45,7 @@ render((
       <Route path="PhotoStory" component={PhotoStory} />
       <Route path="Saved" component={Saved} />
     </Route>
+    <Route path="*" component={Home}/>
   </Router>
 ), document.getElementById('treetop'))
 
