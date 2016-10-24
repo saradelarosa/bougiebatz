@@ -6,7 +6,7 @@ var MediumPhotoEntry = ({mediumPhotos}) => (
     {mediumPhotos.map((photo) =>
       <Fade duration={.8}>
       <a href={photo.url}>
-        <img className="medium-item" src={photo.multimedia[3].url} />
+        <img className="medium-item" src={photo.multimedia[2].url} />
       </a>
       </Fade>
     )}
