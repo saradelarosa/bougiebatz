@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 import Large from './Largephotos.js';
 import Medium from './Mediumphotos.js';
 import Small from './Smallphotos.js';
@@ -45,6 +45,7 @@ render((
       <Route path="Small" component={Small} />
       <Route path="PhotoStory" component={PhotoStory} />
       <Route path="Saved" component={Saved} />
+      <IndexRoute component={Home}/>
     </Route>
     <Route path="*" component={Home}/>
   </Router>
