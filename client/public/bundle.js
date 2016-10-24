@@ -21592,12 +21592,12 @@
 	  _react2.default.createElement(
 	    _reactRouter.Route,
 	    { path: '/', component: App },
-	    _react2.default.createElement(_reactRouter.Route, { path: 'home', component: _home2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'Large', component: _Largephotos2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'Medium', component: _Mediumphotos2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'Small', component: _Smallphotos2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'PhotoStory', component: _PhotoStory2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'Saved', component: _dbLinks2.default })
+	    _react2.default.createElement(_reactRouter.Route, { path: 'Saved', component: _dbLinks2.default }),
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default })
 	  ),
 	  _react2.default.createElement(_reactRouter.Route, { path: '*', component: _home2.default })
 	), document.getElementById('treetop'));
@@ -33520,14 +33520,14 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'medium-photos' },
-	    mediumPhotos.map(function (photo) {
+	    mediumPhotos.map(function (photo, i) {
 	      return _react2.default.createElement(
 	        _reactFade2.default,
 	        { duration: .8 },
 	        _react2.default.createElement(
 	          'a',
-	          { href: photo.url },
-	          _react2.default.createElement('img', { className: 'medium-item', src: photo.multimedia[3].url })
+	          { href: photo.url, key: i },
+	          _react2.default.createElement('img', { className: 'medium-item', src: photo.multimedia[2].url })
 	        )
 	      );
 	    })
@@ -33688,11 +33688,11 @@
 	        { duration: .8 },
 	        _react2.default.createElement(
 	          'div',
-	          { key: i },
+	          null,
 	          _react2.default.createElement(
 	            'a',
 	            { href: photo.url },
-	            _react2.default.createElement('img', { className: 'smallPhotoItem', src: photo.multimedia[3].url })
+	            _react2.default.createElement('img', { className: 'smallPhotoItem', src: photo.multimedia[2].url })
 	          )
 	        )
 	      );
