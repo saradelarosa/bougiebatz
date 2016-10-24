@@ -4,7 +4,6 @@ import { Router, Route, Link, browserHistory } from 'react-router';
 import axios from 'axios';
 import Select from 'react-select';
 import { default as Fade } from 'react-fade';
-import $ from 'jquery';
 
 class Large extends React.Component {
   // static contextTypes = {
