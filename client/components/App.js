@@ -37,9 +37,9 @@ class App extends React.Component {
 
 render((
   <Router history={browserHistory}>
-  {/* <IndexRoute component={Home}/> */}
+  <IndexRoute component={Home}/>
     <Route path="/" component={App}>
-      {/* <Route path="home" component={Home} /> */}
+      <Route path="home" component={Home} />
       <Route path="Large" component={Large} />
       <Route path="Medium" component={Medium} />
       <Route path="Small" component={Small} />

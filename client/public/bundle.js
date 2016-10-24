@@ -21589,9 +21589,11 @@
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRouter.Router,
 	  { history: _reactRouter.browserHistory },
+	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
 	  _react2.default.createElement(
 	    _reactRouter.Route,
 	    { path: '/', component: App },
+	    _react2.default.createElement(_reactRouter.Route, { path: 'home', component: _home2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'Large', component: _Largephotos2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'Medium', component: _Mediumphotos2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'Small', component: _Smallphotos2.default }),
