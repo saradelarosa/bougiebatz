@@ -1,7 +1,7 @@
 var db = require('../db');
 
 var ArticleSchema = new db.Schema({
-  'articleImageUrl': String
+  //'articleImageUrl': String
   // ,
   // 'numberLikes': String
 });
