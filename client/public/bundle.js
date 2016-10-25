@@ -21562,16 +21562,6 @@
 	              { to: '/Saved', className: 'links' },
 	              'Saved Stories'
 	            )
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            ' ',
-	            _react2.default.createElement(
-	              'a',
-	              { target: '_blank', href: 'https://soundcloud.com/pranay-martin', className: 'links' },
-	              'News Tunes'
-	            )
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -27443,8 +27433,8 @@
 
 
 	var LargePhotos = function LargePhotos(_ref) {
-	  var photos = _ref.photos;
-	  var saveLink = _ref.saveLink;
+	  var photos = _ref.photos,
+	      saveLink = _ref.saveLink;
 	  return _react2.default.createElement(
 	    _reactFade2.default,
 	    { duration: .8 },
@@ -28228,6 +28218,10 @@
 	    if (config.cancelToken) {
 	      // Handle cancellation
 	      config.cancelToken.promise.then(function onCanceled(cancel) {
+	        if (!request) {
+	          return;
+	        }
+
 	        request.abort();
 	        reject(cancel);
 	        // Clean up request
@@ -32025,12 +32019,15 @@
 
 	var uppercasePattern = /[A-Z]/g;
 	var msPattern = /^ms-/;
+	var cache = {};
 
 	function hyphenateStyleName(string) {
-	    return string
-	        .replace(uppercasePattern, '-$&')
-	        .toLowerCase()
-	        .replace(msPattern, '-ms-');
+	    return string in cache
+	    ? cache[string]
+	    : cache[string] = string
+	      .replace(uppercasePattern, '-$&')
+	      .toLowerCase()
+	      .replace(msPattern, '-ms-');
 	}
 
 	module.exports = hyphenateStyleName;
@@ -33645,8 +33642,8 @@
 	//creating template f
 
 	var PhotoEntry = function PhotoEntry(_ref) {
-	  var photos = _ref.photos;
-	  var handleSearchParamChange = _ref.handleSearchParamChange;
+	  var photos = _ref.photos,
+	      handleSearchParamChange = _ref.handleSearchParamChange;
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'smallPhotos' },
@@ -34872,14 +34869,14 @@
 
 	var _symbol2 = _interopRequireDefault(_symbol);
 
-	var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default ? "symbol" : typeof obj; };
+	var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj; };
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.default) === "symbol" ? function (obj) {
 	  return typeof obj === "undefined" ? "undefined" : _typeof(obj);
 	} : function (obj) {
-	  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
+	  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
 	};
 
 /***/ },
