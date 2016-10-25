@@ -3,7 +3,41 @@ import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import axios from 'axios';
 import Select from 'react-select';
+import Dropdown from 'react-dropdown';
 import { default as Fade } from 'react-fade';
+
+const options = [{ value:  'all', label: 'all' },
+      { value: 'arts', label: 'arts' },
+      { value: 'blogs', label: 'blogs' },
+      { value: 'books', label: 'books' },
+      { value: 'briefing', label: 'briefing' },
+      { value: 'business', label: 'business' },
+      { value: 'food', label: 'food' },
+      { value: 'health', label: 'health' },
+      { value: 'magazine', label: 'magazine' },
+      { value: 'movies', label: 'movies' },
+      { value: 'multimedia', label: 'multimedia' },
+      { value: 'multimedia/photos', label: 'photos' },
+      { value: 'n.y. / region', label: 'new york' },
+      { value: 'obituaries', label: 'obituaries' },
+      { value: 'open', label: 'open' },
+      { value: 'opinion', label: 'opinion' },
+      { value: 'public editor', label: 'public editor' },
+      { value: 'real estate', label: 'real estate' },
+      { value: 'science', label: 'science' },
+      { value: 'sports', label: 'sports' },
+      { value: 'style', label: 'style' },
+      { value: 'sunday review', label: 'sunday review' },
+      { value: 'technology', label: 'technology' },
+      { value: 'theater', label: 'theater' },
+      { value: 'today’s paper', label: 'today' },
+      { value: 'travel', label: 'travel' },
+      { value: 'u.s.', label: 'u.s.' },
+      { value: 'washington', label: 'washington' },
+      { value: 'week in review', label: 'week in review' },
+      { value: 'well', label: 'well' },
+      { value: 'world', label: 'world' },
+      { value: 'your money', label: 'your money' }];
 
 class Large extends React.Component {
   // static contextTypes = {
@@ -14,86 +48,22 @@ class Large extends React.Component {
 
     this.state = {
       photos: [],
-      values: {
-        all: 'all',
-        arts: 'arts',
-        blogs: 'blogs',
-        books: 'books',
-        briefing: 'briefing',
-        business: 'business',
-        food: 'food',
-        health: 'health',
-        magazine: 'magazine',
-        movies: 'movies',
-        'photos': 'multimedia/photos',
-        'n.y.': 'n.y. / region',
-        obituaries: 'obituaries',
-        open: 'open',
-        opinion: 'opinion',
-        'public editor': 'public editor',
-        'real estate': 'real estate',
-        science: 'science',
-        sports: 'sports',
-        style: 'style',
-        'sunday review': 'sunday review',
-        't magazine': 't magazine',
-        technology: 'technology',
-        theater: 'theater',
-        'today’s paper': 'today’s paper',
-        travel: 'travel',
-        'u.s.': 'u.s.',
-        washington: 'washington',
-        'week in review': 'week in review',
-        well: 'well',
-        world: 'world',
-        'your money': 'your money'
-      },
-      //for dropdown menu
-      options: [
-        { value:  'all', label: 'all' },
-        { value: 'arts', label: 'arts' },
-        { value: 'blogs', label: 'blogs' },
-        { value: 'books', label: 'books' },
-        { value: 'briefing', label: 'briefing' },
-        { value: 'business', label: 'business' },
-        { value: 'food', label: 'food' },
-        { value: 'health', label: 'health' },
-        { value: 'magazine', label: 'magazine' },
-        { value: 'movies', label: 'movies' },
-        { value: 'multimedia', label: 'multimedia' },
-        { value: 'multimedia/photos', label: 'photos' },
-        { value: 'n.y. / region', label: 'new york' },
-        { value: 'obituaries', label: 'obituaries' },
-        { value: 'open', label: 'open' },
-        { value: 'opinion', label: 'opinion' },
-        { value: 'public editor', label: 'public editor' },
-        { value: 'real estate', label: 'real estate' },
-        { value: 'science', label: 'science' },
-        { value: 'sports', label: 'sports' },
-        { value: 'style', label: 'style' },
-        { value: 'sunday review', label: 'sunday review' },
-        { value: 'technology', label: 'technology' },
-        { value: 'theater', label: 'theater' },
-        { value: 'today’s paper', label: 'today' },
-        { value: 'travel', label: 'travel' },
-        { value: 'u.s.', label: 'u.s.' },
-        { value: 'washington', label: 'washington' },
-        { value: 'week in review', label: 'week in review' },
-        { value: 'well', label: 'well' },
-        { value: 'world', label: 'world' },
-        { value: 'yougr money', label: 'your money' }
-      ]
+      selectValue: null
     };
-  }
-  getNewImages(value) {
-    for(let key in this.state.values) {
-      if(key === value) {
-        this.getPhotos('all', value, '24');
-      }
-    }
+
+    this.updateValue = this.updateValue.bind(this);
   }
 
-  getPhotos(source, section, time, limit) {
+  updateValue(updatedValue) {
+    console.log('State changed to ' + updatedValue.value);
+    this.setState({
+      selectValue: updatedValue.value
+    });
+    this.getPhotos('all', updatedValue.value, 24)
+  }
+
+  getPhotos(source, section, time) {
+    console.log('Inside getPhotos', section);
     axios
     .get('api/Large', {
         params: {
@@ -142,14 +112,11 @@ class Large extends React.Component {
       <div>
       <div className="select">
       {/* Select is an npm module that creates... look it up */}
-          <Select
-            placeholder=""
-            options={this.state.options}
-            autosize={false}
-            onInputChange={this.getNewImages.bind(this)}
-            scrollMenuIntoView={false}
-            searchable={true}
-            matchProp={'value'}
+        <Dropdown 
+          options={options}
+          onChange={this.updateValue}
+          value={this.state.selectValue}
+          placeholder='Section'
           />
       </div>
       <div>
