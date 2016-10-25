@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var dbUrl = 'mongodb://root:root@ds153715.mlab.com:53715/heroku_wbq232wz';
+var dbUrl = 'mongodb://heroku_rm47z500:2p9b9kceqhn15vif8r44h78lho@ds031607.mlab.com:31607/heroku_rm47z500';
 
 //connect to remote mongodb database
 var db = mongoose.connect(dbUrl, function(err, res){
