@@ -5,10 +5,10 @@ angular.module('legacyOwls.factory', [])
         var getArticlesFromDB = function () {
             return $http({
                 method: 'GET',
-                url: '/api/article'
+                url: '/database'
             })
             .then( function (resp){
-                return resp;
+                return resp.data.savedStories;
             });
         }
 
