@@ -20,9 +20,10 @@ router.get('/article', function(req, res){
   //get all links from the db
   Article.find({}, function(err, urls) {
     //urls is an array of objects with properties of articleImageUrl
-    res.send(urls.map(function(url) {
-      return url.articleImageUrl;
-    }));
+    // res.send(urls.map(function(url) {
+    //   return url.articleImageUrl;
+    // }));
+    res.send(urls);
   });
 });
 

@@ -1,5 +1,23 @@
 angular.module('legacyOwls.factory', [])
 
+    .factory('SavedArticles', ['$http', function ($http) {
+
+        var getArticlesFromDB = function () {
+            return $http({
+                method: 'GET',
+                url: '/api/article'
+            })
+            .then( function (resp){
+                return resp;
+            });
+        }
+
+        return {
+            getArticlesFromDB: getArticlesFromDB
+        }
+
+    }]) //end of SavedArticles factory
+
     .factory('Articles', ['$http', function ($http) {
 
         var options = [
@@ -167,4 +185,4 @@ angular.module('legacyOwls.factory', [])
                 register: register
             });
 
-        }]) // End of AuthService factory
+    }]) // End of AuthService factory
