@@ -16,15 +16,18 @@ angular.module('legacyOwls.latest', [])
     Articles.getLatest(params)
     .then(function(response) {
       $scope.photos = response.data.results.filter(function(photo) {
-        photo.multimedia.length === 4;
+        return photo.multimedia.length === 4;
       });
-      console.log($scope.photos);
     });
 
   }
 
   // Get the latest news items
   $scope.getLatest();
+
+  $scope.saveStory = function(index) {
+    
+  }
 
   // Look for newest news every 5 minutes
   setInterval($scope.getLatest, 5*60000); 
