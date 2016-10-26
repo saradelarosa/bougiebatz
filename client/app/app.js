@@ -2,6 +2,7 @@ angular.module('legacyOwls', [
   //list other dependencies here
   'legacyOwls.auth',
   'legacyOwls.home',
+   'legacyOwls.savedStory',
   'legacyOwls.factory',
   'ngRoute'
 ])
