@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var cors = require('cors');
-var logger = require('morgan');
+// var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var database = require('./server/models/userModel');
 var passport = require('passport');
@@ -15,11 +15,11 @@ var app = express();
 
 //middleware
 app.use(bodyparser.urlencoded({
-    extended: true
+    extended: false
 }));
  app.use(bodyparser.json());
 //app.use(bodyparser());
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(cookieParser());
 app.use(require('express-session')({
     secret: 'keyboard cat',
