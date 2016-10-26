@@ -1,5 +1,37 @@
 angular.module('legacyOwls.factory', [])
 
+    .factory('Trending', ['$http', function($http) {
+
+        //GET request
+        var get = function(){
+            //code
+        }
+
+        //POST and PUT requests to the article schema
+        var like = function(article) {
+            if (article.likes) {
+                return $http({
+                    method: 'PUT',
+                    url: '/api/articles',
+                    data: article
+                })
+            }
+            else {
+                return $http({
+                    method: 'POST',
+                    url: '/api/articles',
+                    data: article
+                })
+            }
+        }
+
+        return {
+            get: get,
+            like: like
+        }
+
+    }]) // end of Trending factory
+
     .factory('SavedArticles', ['$http', function ($http) {
 
         var getArticlesFromDB = function () {
@@ -195,24 +227,3 @@ angular.module('legacyOwls.factory', [])
             });
 
     }]) // End of AuthService factory
-
-    .factory('Trending', ['$http', function($http) {
-
-        var like = function(article) {
-            if (article.likes) {
-                return $http({
-                    method: 'PUT',
-                    url: '/api/articles',
-                    data: article
-                })
-            }
-            else {
-                return $http({
-                    method: 'POST',
-                    url: '/api/articles',
-                    data: article
-                })
-            }
-        }
-
-    }])
