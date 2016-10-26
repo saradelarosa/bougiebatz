@@ -24,6 +24,11 @@ angular.module('legacyOwls', [
            controller: 'latest',
            access: {restricted: true}
        })
+       .when('/savedStory', {
+           templateUrl: 'app/savedStory/savedStory.html',
+           controller: 'savedStoryController',
+           access: {restricted: true}
+       })
       .when('/login', {
           templateUrl: 'app/auth/login.html',
           controller: 'loginController'
