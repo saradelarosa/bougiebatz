@@ -1,5 +1,5 @@
 angular.module('legacyOwls.latest', [])
-.controller('latest', ['$scope', 'Articles', 'Trending', function($scope, Articles, Trending) {
+.controller('latest', ['$scope', 'Articles', 'Trending', 'SavedArticles', function($scope, Articles, Trending, SavedArticles) {
 
   $scope.options = Articles.options;
   $scope.selectedOption = 'all';
@@ -20,12 +20,27 @@ angular.module('legacyOwls.latest', [])
       });
     });
 
+    // Write out function to get all articles saved
+
   }
 
   // Get the latest news items
   $scope.getLatest();
 
+  // Save the news item
   $scope.saveStory = function(index) {
+    var article = $scope.photos[index];
+    SavedArticles.saveArticleToDB(article)
+    .then(function(response) {
+      console.log("Success");
+    })
+    .catch(function(err) {
+      console.error(err);
+    });
+  }
+
+  // Like the news item
+  $scope.like = function(index) {
     var article = $scope.photos[index];
     Trending.like(article)
     .then(function(response) {
@@ -33,7 +48,7 @@ angular.module('legacyOwls.latest', [])
     })
     .catch(function(err) {
       console.error(err);
-    })
+    });
   }
 
   // Look for newest news every 5 minutes
