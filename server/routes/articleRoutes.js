@@ -5,14 +5,16 @@ var Article = require('../models/articleModel');
 
 router.post('/article', function(req, res){
   console.log("++++++++++ RECIEVED REQUEST POST to /article ++++++++++++++",req.body);
-  new Article ({
-    'articleImageUrl': req.body.articleImageUrl
-    // ,
-    // 'numberLikes': req.body.numberLikes
-  })
-  .save(function(err, article){
-    res.status(201).send(article);
+
+  var likedArticle = new Article({
+    'articleData': req.body
   });
+  
+  likedArticle.save(function(err) {
+    if (err) console.log('Error on save!')
+    else res.sendStatus(201)
+  })
+  
 });
 
 router.get('/article', function(req, res){
