@@ -13,11 +13,12 @@ var database = require('../models/userModel');
 //what's in commented out code is the form of data that is pushed
 //to this empty array when users add a currency to the database
 router.post('/register', function (req, res) {
+    console.log("REQUEST USERNAME??????",req.body.password);
     database.User.register(new database.User({
-        username: req.body.username,
-        savedStory: [
-          // //Each is an object representing a story that the user saved
-        ]
+        username: req.body.username
+        // savedStories: [
+        //   // //Each is an object representing a story that the user saved
+        // ]
     }),
         req.body.password, function (err, account) {
             if (err) {
