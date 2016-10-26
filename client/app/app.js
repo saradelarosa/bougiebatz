@@ -1,10 +1,9 @@
 angular.module('legacyOwls', [
-  //list other dependencies here
-  'legacyOwls.auth',
-  'legacyOwls.home',
-   'legacyOwls.savedStory',
-  'legacyOwls.factory',
-  'ngRoute'
+    'legacyOwls.auth',
+    'legacyOwls.home',
+    'legacyOwls.savedStory',
+    'legacyOwls.factory',
+    'ngRoute'
 ])
 
 .config(function ($routeProvider) {

@@ -26,6 +26,7 @@ app.use(require('express-session')({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.static(__dirname + '/client'));
 
 
 var newsRoutes = require('./server/routes/newsRoutes');
@@ -44,20 +45,20 @@ passport.deserializeUser(database.User.deserializeUser());
 var routes = require('./server/routes/auth.js');
 app.use('/user/', routes);
 
+//
+//// webpack loads index.html, looks for script src
+//app.get('/public/bundle.js', function(req, res){
+//  res.sendFile(path.join(__dirname, 'client/public/bundle.js'));
+//});
 
-// webpack loads index.html, looks for script src
-app.get('/public/bundle.js', function(req, res){
-  res.sendFile(path.join(__dirname, 'client/public/bundle.js'));
-});
-
-app.get('/styles/style.css', function(req, res){
-  res.sendFile(path.join(__dirname, 'client/styles/style.css'));
-});
-
-app.get('*', function(req, res){
-  console.log('REQ.URL IS: ', req.url);
-  res.sendFile(path.join(__dirname, 'client/index.html'));
-});
+//app.get('/styles/style.css', function(req, res){
+//  res.sendFile(path.join(__dirname, 'client/styles/style.css'));
+//});
+//
+//app.get('*', function(req, res){
+//  console.log('REQ.URL IS: ', req.url);
+//  res.sendFile(path.join(__dirname, 'client/index.html'));
+//});
 
 app.listen(process.env.PORT || 9000);
 
