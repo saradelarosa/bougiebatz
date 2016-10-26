@@ -1,5 +1,5 @@
 angular.module('legacyOwls.latest', [])
-.controller('latest', ['$scope', 'Articles', function($scope, Articles) {
+.controller('latest', ['$scope', 'Articles', 'Trending', function($scope, Articles, Trending) {
 
   $scope.options = Articles.options;
   $scope.selectedOption = 'all';
@@ -26,7 +26,14 @@ angular.module('legacyOwls.latest', [])
   $scope.getLatest();
 
   $scope.saveStory = function(index) {
-    
+    var article = $scope.photos[index];
+    Trending.like(article)
+    .then(function(response) {
+      console.log("Success");
+    })
+    .catch(function(err) {
+      console.error(err);
+    })
   }
 
   // Look for newest news every 5 minutes
