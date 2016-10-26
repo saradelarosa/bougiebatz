@@ -3,7 +3,6 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-
 var database = require('../models/userModel');
 
 
@@ -12,14 +11,14 @@ var database = require('../models/userModel');
 //Router for registration. With successful registration,
 //instantiates new user here. savedStory is an empty array
 //what's in commented out code is the form of data that is pushed
-//to this empty array when users save a story
+//to this empty array when users add a currency to the database
 router.post('/register', function (req, res) {
     database.User.register(new database.User({
-            username: req.body.username,
-            savedStories: [
-                // //Each is an object representing different stories that the user saves
-            ]
-        }),
+        username: req.body.username,
+        savedStory: [
+          // //Each is an object representing a story that the user saved
+        ]
+    }),
         req.body.password, function (err, account) {
             if (err) {
                 return res.status(500).json({

@@ -1,29 +1,28 @@
 var express = require('express');
 var path = require('path');
 var cors = require('cors');
-var database = require('./server/models/userModel');
-
-var bodyParser = require('body-parser');
+var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var database = require('./server/models/userModel');
+var passport = require('passport');
+var bodyParser = require('body-parser');
 var expressSession = require('express-session');
 var debug = require('debug')('passport-mongo');
 var hash = require('bcrypt-nodejs');
 var path = require('path');
-var passport = require('passport');
 var localStrategy = require('passport-local');
 
 var app = express();
 
 app.use(bodyParser.json());
-
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.urlencoded({extended: true}));
+// pass the passport middleware
+app.use(logger('dev'));
 app.use(cookieParser());
 app.use(require('express-session')({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -32,6 +31,9 @@ app.use(passport.session());
 var newsRoutes = require('./server/routes/newsRoutes');
 // var userRoutes = require('./server/routes/userRoutes');
 var articleRoutes = require('./server/routes/articleRoutes');
+app.use('/api', newsRoutes);
+// app.use('/api', userRoutes);
+app.use('/api', articleRoutes)
 
 // configure passport
 passport.use(new localStrategy(database.User.authenticate()));
@@ -39,13 +41,8 @@ passport.serializeUser(database.User.serializeUser());
 passport.deserializeUser(database.User.deserializeUser());
 
 // require routes
-var routes = require('./server/config/routes.js');
+var routes = require('./server/routes/auth.js');
 app.use('/user/', routes);
-
-app.use('/api', newsRoutes);
-
-// app.use('/api', userRoutes);
-app.use('/api', articleRoutes)
 
 
 // webpack loads index.html, looks for script src
@@ -64,4 +61,3 @@ app.get('*', function(req, res){
 
 app.listen(process.env.PORT || 9000);
 
-// <link rel='stylesheet' href='styles/style.css' media='screen' title='no title'>
