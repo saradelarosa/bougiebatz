@@ -11,9 +11,11 @@
   </select>
 </div>
 
-<div classname='largePhotos' ng-repeat='photo in photos'>
+<div classname='largePhotos' ng-repeat='($index, photo) in photos'>
   <a className="show" href={{photo.url}} target="_blank">
-   <img className='showImg'  ng-click='saveStory()' src={photo.multimedia[3].url} />
+   <img className='showImg' ng-src={{photo.multimedia[3].url}} />
   </a>
   <div className="reveal">{{photo.abstract}}</div>
+  <button ng-click='saveStory($index)'>Save Story</button>
+  <button ng-click='like($index)'>Like</button>
 </div>

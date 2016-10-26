@@ -12,8 +12,17 @@ angular.module('legacyOwls.factory', [])
             });
         }
 
+        var saveArticleToDB = function (article) {
+            return $http({
+                method: 'POST',
+                url: '/database',
+                data: article    
+            });
+        }
+
         return {
-            getArticlesFromDB: getArticlesFromDB
+            getArticlesFromDB: getArticlesFromDB,
+            saveArticleToDB: saveArticleToDB
         }
 
     }]) //end of SavedArticles factory
@@ -186,3 +195,24 @@ angular.module('legacyOwls.factory', [])
             });
 
     }]) // End of AuthService factory
+
+    .factory('Trending', ['$http', function($http) {
+
+        var like = function(article) {
+            if (article.likes) {
+                return $http({
+                    method: 'PUT',
+                    url: '/api/articles',
+                    data: article
+                })
+            }
+            else {
+                return $http({
+                    method: 'POST',
+                    url: '/api/articles',
+                    data: article
+                })
+            }
+        }
+
+    }])
