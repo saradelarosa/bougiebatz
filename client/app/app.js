@@ -1,17 +1,17 @@
 angular.module('legacyOwls', [
-  //list other dependencies here
-  'legacyOwls.auth',
-  'legacyOwls.home',
-   'legacyOwls.savedStory',
-  'legacyOwls.factory',
-  'ngRoute'
+    'legacyOwls.home',
+    'legacyOwls.auth',
+    'legacyOwls.savedStory',
+    'legacyOwls.latest',
+    'legacyOwls.factory',
+    'ngRoute'
 ])
 
 .config(function ($routeProvider) {
   $routeProvider
       .when('/', {
           templateUrl: 'app/home/home.html',
-          controller: 'home',
+          controller: 'homeController',
       })
       // .when('/latest', {
       //     templateUrl: 'app/latest/latest.html',
