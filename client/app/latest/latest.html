@@ -1,0 +1,12 @@
+<div>
+  <select ng-model='selectedOption' ng-change='getLatest()'>
+    <option ng-repeat='option in options'>{{option}}</option>
+  </select>
+</div>
+
+<div classname='largePhotos' ng-repeat='photo in photos'>
+  <a className="show" href={{photo.url}} target="_blank">
+   <img className='showImg'  ng-click='saveStory()' src={photo.multimedia[3].url} />
+  </a>
+  <div className="reveal">{{photo.abstract}}</div>
+</div>
