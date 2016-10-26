@@ -5,21 +5,21 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "build": "webpack -p",
-    "dev": "webpack -d --watch",
-    "webpack": "webpack --progress --colors --watch"
+    "start": "gulp styles",
+    "start:es6": "gulp start:es6",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bougiebatz/bougiebatz.git"
+    "url": "git+https://github.com/astonishingowls/bougiebatz.git"
   },
-  "author": "jake smith, sam gowda, nav ghuman, julia frandall",
+  "original_author": "jake smith, sam gowda, nav ghuman, julia randall",
+  "updated_authors": "sara sailors, canh trinh, katie barnes, john jung",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bougiebatz/bougiebatz/issues"
+    "url": "https://github.com/astonishingowls/bougiebatz/issues"
   },
-  "homepage": "https://github.com/bougiebatz/bougiebatz#readme",
+  "homepage": "https://github.com/astonishingowls/bougiebatz#readme",
   "dependencies": {
     "angular": "^1.5.8",
     "angular-animate": "^1.5.8",
@@ -36,6 +36,7 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
+    "browser-sync": "^2.17.5",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.1",
     "debug": "^2.2.0",
@@ -43,6 +44,14 @@
     "express-router": "0.0.1",
     "express-session": "^1.14.1",
     "font-awesome-animation": "0.0.8",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean": "^0.3.2",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-shell": "^0.5.2",
+    "gulp-util": "^3.0.7",
     "inline-style-prefixer": "^2.0.4",
     "jquery": "^3.1.1",
     "mongoose": "^4.6.4",

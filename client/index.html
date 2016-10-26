@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-<html ng-app='legacyOwls'>
-  <head>
-    <meta charset="utf-8">
-    <title>Astonishing Owls. Leaving a Legacy of Greatness. </title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/yeti/bootstrap.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../node_modules/font-awesome-animation/dist/font-awesome-animation.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-  </head>
-  <body>
-    <div ng-view></div>
+  <html ng-app='legacyOwls'>
+    <head>
+      <meta charset="utf-8">
+      <title>Astonishing Owls. Leaving a Legacy of Greatness.</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/yeti/bootstrap.min.css" rel="stylesheet">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+      <link href="assets/js/angular-material.min.css">
+      <!--<link rel="stylesheet" href="../node_modules/font-awesome-animation/dist/font-awesome-animation.css">-->
+      <!--<link rel="stylesheet" type="text/css" href="css/style.css"/>-->
+    </head>
+    <body>
+      <div ng-view></div>
+      <div>HAY HAY</div>
 
-    <!-- Angular dependencies -->
-    <script src="../node_modules/angular/angular.js"></script>
-    <script src="../node_modules/angular-animate/angular-animate.js"></script> 
-    <script src="../node_modules/angular-aria/angular-aria.js"></script> 
-    <script src="../node_modules/angular-material/angular-material.js"></script> 
-    <script src="../node_modules/angular-material/angular-material.js"></script>
-    <script src="../node_modules/angular-mocks/angular-mocks.js"></script>
-    <script src="../node_modules/angular-route/angular-route.js"></script>
+      <script src="assets/js/angular.js"></script>
+      <script src="assets/js/angular-animate.min.js"></script>
+      <script src="assets/js/angular-aria.min.js"></script>
+      <script src="assets/js/angular-material.min.js"></script>
+      <script src="assets/js/angular-mocks.js"></script>
+      <script src="assets/js/angular-route.min.js"></script>
 
-    <script src="app/app.js"></script>
-    <script src="app/auth/controllers.js"></script>
-    <script src="app/home/home.js"></script>
-    <script src="app/latest/latest.js"></script>
-    <script src="app/savedStory/savedStory.js"></script>
-    <script src="app/trending/trending.js"></script>
-  </body>
-</html>
+      <script src="app/app.js"></script>
+      <script src="app/auth/controllers.js"></script>
+      <script src="app/home/home.js"></script>
+      <script src="app/factory_functions/factory.js"></script>
+      <script src="app/latest/latest.js"></script>
+      <script src="app/savedStory/savedStory.js"></script>
+      <script src="app/trending/trending.js"></script>
+
+    </body>
+  </html>
