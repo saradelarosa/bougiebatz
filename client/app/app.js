@@ -11,7 +11,13 @@ angular.module('legacyOwls', [
   $routeProvider
       .when('/', {
           templateUrl: 'app/home/home.html',
-          controller: 'homeController'
+          controller: 'homeController',
+          access: {restricted: true}
+      })
+      .when('/home', {
+          templateUrl: 'app/home/home.html',
+          controller: 'homeController',
+          access: {restricted: true}
       })
        .when('/latest', {
            templateUrl: 'app/latest/latest.html',
