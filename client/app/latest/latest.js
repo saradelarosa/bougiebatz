@@ -21,6 +21,12 @@ angular.module('legacyOwls.latest', [])
     });
 
     // Write out function to get all articles saved
+    // Trending.get()
+    // .then(function(response) {
+    //   response.forEach(function(item) {
+        
+    //   });
+    // })
 
   }
 
