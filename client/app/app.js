@@ -1,6 +1,6 @@
 angular.module('legacyOwls', [
-    'legacyOwls.auth',
     'legacyOwls.home',
+    'legacyOwls.auth',
     'legacyOwls.savedStory',
     'legacyOwls.factory',
     'ngRoute'
@@ -10,7 +10,7 @@ angular.module('legacyOwls', [
   $routeProvider
       .when('/', {
           templateUrl: 'app/home/home.html',
-          controller: 'home',
+          controller: 'homeController',
       })
       // .when('/latest', {
       //     templateUrl: 'app/latest/latest.html',
