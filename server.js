@@ -41,6 +41,27 @@ passport.use(new localStrategy(database.User.authenticate()));
 passport.serializeUser(database.User.serializeUser());
 passport.deserializeUser(database.User.deserializeUser());
 
+//These are routers for helper functions that ping the database
+//GET and POST requests to the database are written here
+app.get('/database', (req, res) => {
+  console.log("REQ USER", req.user);
+  var id = req.user._id;
+  database.User.findById(id, function (err, doc){
+    if(err){ console.log("Not appropriately getting info from the database"); }
+    console.log(doc);
+  })
+  .then( (data) => res.status(200).send(data));
+});
+
+app.post('/database', (req, res) => {
+  database.User.update(
+    { _id: req.user._id },
+    { $push: { savedStories: req.body } }
+  )
+  .then( () => res.status(201).send(req.data));
+});
+//End of database stuff
+
 // require routes
 var routes = require('./server/routes/auth.js');
 app.use('/user/', routes);
