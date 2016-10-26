@@ -15,7 +15,9 @@ angular.module('legacyOwls.latest', [])
 
     Articles.getLatest(params)
     .then(function(response) {
+      // photos is an array that is set to the results array received from API
       $scope.photos = response.data.results.filter(function(photo) {
+        // only want the articles that have a photo url - some of them have multimedia = ''
         return photo.multimedia.length === 4;
       });
     });
@@ -24,7 +26,7 @@ angular.module('legacyOwls.latest', [])
     // Trending.get()
     // .then(function(response) {
     //   response.forEach(function(item) {
-        
+
     //   });
     // })
 
