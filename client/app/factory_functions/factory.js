@@ -3,8 +3,14 @@ angular.module('legacyOwls.factory', [])
     .factory('Trending', ['$http', function($http) {
 
         //GET request
-        var get = function(){
-            //code
+        var getAll = function(){
+            return $http({
+                method: 'GET',
+                url: '/api/article'
+            })
+            .then( function (resp){
+                return resp;
+            });
         }
 
         //POST and PUT requests to the article schema
@@ -12,21 +18,21 @@ angular.module('legacyOwls.factory', [])
             if (article.likes) {
                 return $http({
                     method: 'PUT',
-                    url: '/api/articles',
+                    url: '/api/article',
                     data: article
                 })
             }
             else {
                 return $http({
                     method: 'POST',
-                    url: '/api/articles',
+                    url: '/api/article',
                     data: article
                 })
             }
         }
 
         return {
-            get: get,
+            getAll: getAll,
             like: like
         }
 

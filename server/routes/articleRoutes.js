@@ -4,7 +4,7 @@ var router = express.Router();
 var Article = require('../models/articleModel');
 
 router.post('/article', function(req, res){
-  console.log("++++++++++ RECIEVED REQUEST POST to /article ++++++++++++++");
+  console.log("++++++++++ RECIEVED REQUEST POST to /article ++++++++++++++",req.body);
   new Article ({
     'articleImageUrl': req.body.articleImageUrl
     // ,

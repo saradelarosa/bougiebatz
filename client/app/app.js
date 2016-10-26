@@ -4,6 +4,7 @@ angular.module('legacyOwls', [
     'legacyOwls.savedStory',
     'legacyOwls.latest',
     'legacyOwls.factory',
+    'legacyOwls.trending',
     'ngRoute'
 ])
 
@@ -22,6 +23,11 @@ angular.module('legacyOwls', [
        .when('/latest', {
            templateUrl: 'app/latest/latest.html',
            controller: 'latest',
+           access: {restricted: true}
+       })
+       .when('/trending', {
+           templateUrl: 'app/trending/trending.html',
+           controller: 'trendingController',
            access: {restricted: true}
        })
        .when('/savedStory', {
