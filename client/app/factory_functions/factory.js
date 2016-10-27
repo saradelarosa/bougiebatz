@@ -12,20 +12,25 @@ angular.module('legacyOwls.factory', [])
 
         //POST and PUT requests to the article schema
         var like = function(article) {
-            if (article.likes) {
-                return $http({
-                    method: 'PUT',
-                    url: '/api/article',
-                    data: article
-                });
-            }
-            else {
-                return $http({
-                    method: 'POST',
-                    url: '/api/article',
-                    data: article
-                });
-            }
+            // if (article.likes) {
+            //     return $http({
+            //         method: 'PUT',
+            //         url: '/api/article',
+            //         data: article
+            //     });
+            // }
+            // else {
+            //     return $http({
+            //         method: 'POST',
+            //         url: '/api/article',
+            //         data: article
+            //     });
+            // }
+            return $http({
+                method: 'POST',
+                url: '/api/article',
+                data: article
+            });
         }
 
         return {
