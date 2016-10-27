@@ -429,7 +429,7 @@ header.navigation2 {
     width: 150px;
     margin-top: 10px; }
     .logout a:hover {
-      background: white;
+      background: #fff;
       color: #595959;
       border: 2px solid white; }
 
@@ -444,7 +444,7 @@ header.navigation2 {
     width: 150px;
     margin-top: 10px; }
     .switchPage a:hover {
-      background: white;
+      background: #fff;
       color: #595959;
       border: 2px solid white; }
 
@@ -463,7 +463,7 @@ header.navigation2 {
     width: 150px;
     margin-top: 10px; }
     .secondaryNav a:hover {
-      background: white;
+      background: #fff;
       color: #595959;
       border: 2px solid white; }
   .secondaryNav a.current {
@@ -515,7 +515,7 @@ header.navigation2 {
       width: 150px;
       margin-top: 10px; }
       .login_body #login a:hover {
-        background: white;
+        background: #fff;
         color: #595959;
         border: 2px solid white; }
     .login_body #login form button {
@@ -526,12 +526,33 @@ header.navigation2 {
       width: 150px;
       margin-top: 10px; }
       .login_body #login form button:hover {
-        background: white;
+        background: #fff;
         color: #595959;
         border: 2px solid white; }
 
 .main {
-  margin-top: 125px; }
+  text-align: center;
+  margin: 0 auto;
+  float: none;
+  color: #000026;
+  max-width: 1200px; }
+  .main h1 {
+    margin-top: 25px; }
+  .main .search {
+    margin-bottom: 25px; }
+  .main .largePhotos img {
+    width: 100%; }
+  .main .largePhotos .sample a {
+    border: 2px solid #000066;
+    background: none;
+    color: #000066;
+    border-radius: 25px;
+    width: 150px;
+    margin-top: 10px; }
+    .main .largePhotos .sample a:hover {
+      background: #000066;
+      color: #595959;
+      border: 2px solid white; }
 
 .footer {
   text-align: center;
