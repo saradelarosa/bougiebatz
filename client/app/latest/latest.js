@@ -13,22 +13,31 @@ angular.module('legacyOwls.latest', [])
       offset: 0
     }
 
-    Articles.getLatest(params)
-    .then(function(response) {
-      // photos is an array that is set to the results array received from API
-      $scope.photos = response.data.results.filter(function(photo) {
-        // only want the articles that have a photo url - some of them have multimedia = ''
-        return photo.multimedia.length === 4;
+    Trending.getAll()
+    .then(function(res){
+
+      $scope.urls = {};
+      console.log('Inside line 20 ', res.data);
+      res.data.forEach(function(article) {
+        $scope.urls[article.articleData.url] = article.numberLikes;
       });
+
+      console.log($scope.urls);
+
+      Articles.getLatest(params)
+      .then(function(response) {
+        // photos is an array that is set to the results array received from API
+        $scope.photos = response.data.results.filter(function(photo) {
+          // only want the articles that have a photo url - some of them have multimedia = ''
+          
+          // $scope.urls[photo.url] ? photo.likes = $scope.urls[photo.url] : photo.likes = 0;
+          return photo.multimedia.length === 4;
+        });
+
+
+      });
+
     });
-
-    // Write out function to get all articles saved
-    // Trending.get()
-    // .then(function(response) {
-    //   response.forEach(function(item) {
-
-    //   });
-    // })
 
   }
 

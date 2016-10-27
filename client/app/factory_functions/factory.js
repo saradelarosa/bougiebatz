@@ -7,9 +7,6 @@ angular.module('legacyOwls.factory', [])
             return $http({
                 method: 'GET',
                 url: '/api/article'
-            })
-            .then( function (resp){
-                return resp;
             });
         }
 
@@ -20,14 +17,14 @@ angular.module('legacyOwls.factory', [])
                     method: 'PUT',
                     url: '/api/article',
                     data: article
-                })
+                });
             }
             else {
                 return $http({
                     method: 'POST',
                     url: '/api/article',
                     data: article
-                })
+                });
             }
         }
 
@@ -106,7 +103,7 @@ angular.module('legacyOwls.factory', [])
                 method: 'GET',
                 url: '/api/Large',
                 params: params
-            })
+            });
         }
 
         return {
