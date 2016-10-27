@@ -9,11 +9,18 @@ angular.module('legacyOwls.trending', [])
 
       Trending.getAll()
       .then(function(response) {
-        $scope.trendingArticles = response;
+        $scope.trendingArticles = response.data;
+        $scope.trendingArticles.sort((a, b) => { //Have to sort by number of likes decreasing
+          a = a.numberLikes;
+          b = b.numberLikes;
+          return b-a;
+        });
         console.log($scope.trendingArticles);
       });
 
-    }; //end of downloadArticles function
+    }; //end of downloadTrendingArticles function
+
+    $scope.downloadTrendingArticles();
 
   }
 ])

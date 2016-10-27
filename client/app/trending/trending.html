@@ -13,3 +13,11 @@
 <div>
   <button ng-click="downloadTrendingArticles()">Download articles!</button>
 </div>
+
+<div ng-repeat='($index, article) in trendingArticles'>
+  <a href={{article.articleData.url}} target="_blank">
+   <img ng-src={{article.articleData.multimedia[3].url}} />
+  </a>
+  <div>{{article.articleData.abstract}}</div>
+  <div>Likes {{article.numberLikes}}</div>
+</div>
