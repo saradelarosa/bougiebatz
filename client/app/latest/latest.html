@@ -1,23 +1,31 @@
 <header class="navigation2 col-xs-12">
-  <div class="logo col-xs-12 col-md-2">
+  <div class="logo col-xs-6 col-md-2">
     <img src="../../assets/icon.png">
     <p class="title">Legacy Owls</p>
   </div>
   <div class="heading col-xs-12 col-md-8">
     Virtual News
   </div>
-  <div ng-controller="logoutController" class="logout col-xs-12 col-md-2">
+  <div ng-controller="logoutController" class="logout col-xs-6 col-md-2">
     <a ng-click='logout()' class="btn btn-default">Logout</a>
   </div>
 </header>
 
 <div class="secondaryNav col-xs-12">
-  <a class="btn btn-default" ng-disabled="disabled" href="#/latest">Latest</a>
-  <a class="btn btn-default" ng-disabled="disabled" href="#/trending">Trending Stories</a>
-  <a class="btn btn-default" ng-disabled="disabled" href="#/savedStory">Saved Stories</a>
+  <div class="buttonWrapper col-xs-12 col-md-4">
+    <a class="btn btn-default current" ng-disabled="disabled" href="#/latest">Latest</a>
+  </div>
+  <div class="buttonWrapper col-xs-12 col-md-4">
+    <a class="btn btn-default" ng-disabled="disabled" href="#/trending">Trending Stories</a>
+  </div>
+  <div class="buttonWrapper col-xs-12 col-md-4">
+    <a class="btn btn-default" ng-disabled="disabled" href="#/savedStory">Saved Stories</a>
+  </div>
 </div>
 
 <div class="main col-xs-12">
+
+  <h1>Latest News</h1>
   <div>
     <select ng-model='selectedOption' ng-change='getLatest()'>
       <option ng-repeat='option in options'>{{option}}</option>

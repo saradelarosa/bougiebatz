@@ -22,3 +22,13 @@
 
     }
 }
+
+@mixin currentButton($white) {
+    border: 2px solid $white;
+    background: $white;
+    color: $dark-navy;
+    border-radius: 25px;
+    width: 150px;
+    margin-top: 10px;
+
+}
