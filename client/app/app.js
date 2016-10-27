@@ -5,6 +5,7 @@ var legacyOwls = angular.module('legacyOwls', [
     'legacyOwls.latest',
     'legacyOwls.factory',
     'legacyOwls.trending',
+    'legacyOwls.comment',
     'ngRoute'
 ])
 
