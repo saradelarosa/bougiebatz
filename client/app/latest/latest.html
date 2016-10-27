@@ -35,7 +35,7 @@
        <img class='showImg' ng-src={{photo.multimedia[3].url}} />
       </a>
       <div class="sample" ng-controller="modalMainController">
-        <a href class="btn btn-default" ng-click="showYesNo()">See More</a>
+        <a href class="btn btn-default" ng-click="showYesNo($index)">See More</a>
       </div>
 
       <div class="comments" ng-controller="commentBox">
