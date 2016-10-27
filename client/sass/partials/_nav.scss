@@ -5,41 +5,47 @@ header.navigation {
     z-index: 1000;
     background-color: $light-charcoal;
     height: 100px;
+}
 
-    .logo {
+header.navigation2 {
+    top: 0;
+    z-index: 1000;
+    background-color: $light-charcoal;
+    height: 100px;
+}
+
+.logo {
+    display: inline-block;
+    padding-top: 5px;
+
+    img {
+        width: 85px;
+    }
+
+    .title {
         display: inline-block;
-        padding-top: 5px;
 
-        img {
-            width: 85px;
-        }
-
-        .title {
-            display: inline-block;
-
-            @media #{$mq-xs} {
-                display: none;
-            }
-        }
-
-    }
-
-    .logout {
-        float: right;
-        padding-top: 20px;
-
-        a {
-            @include whiteButton($white);
+        @media #{$mq-xs} {
+            display: none;
         }
     }
 
-    .switchPage {
-        float: right;
-        padding-top: 20px;
+}
 
-        a {
-            @include whiteButton($white);
-        }
+.logout {
+    float: right;
+    padding-top: 20px;
+
+    a {
+        @include whiteButton($white);
     }
+}
 
+.switchPage {
+    float: right;
+    padding-top: 20px;
+
+    a {
+        @include whiteButton($white);
+    }
 }
