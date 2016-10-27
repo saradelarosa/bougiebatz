@@ -24,13 +24,16 @@
     </select>
   </div>
 
-  <div classname='largePhotos' ng-repeat='($index, photo) in photos'>
-    <a className="show" href={{photo.url}} target="_blank">
-     <img className='showImg' ng-src={{photo.multimedia[3].url}} />
+  <div class='largePhotos col-xs-12 col-md-4' ng-repeat='($index, photo) in photos'>
+    <a href={{photo.url}} target="_blank">
+     <img class='showImg' ng-src={{photo.multimedia[3].url}} />
     </a>
-    <div className="reveal">{{photo.abstract}}</div>
+    <div class="reveal">{{photo.abstract}}</div>
     <button ng-click='saveStory($index)'>Save Story</button>
     <button ng-disabled='likes[photo.url]' ng-click='like($index)'>Like</button>
+    <div class="sample" ng-controller="modalMainController">
+      <p><a href class="btn btn-default btn-lg " ng-click="showYesNo()">Show Yes No</a></p>
+    </div>
   </div>
 </div>
 
