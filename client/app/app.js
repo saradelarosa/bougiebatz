@@ -5,6 +5,7 @@ var legacyOwls = angular.module('legacyOwls', [
     'legacyOwls.latest',
     'legacyOwls.factory',
     'legacyOwls.trending',
+    'legacyOwls.comment',
     'ngRoute'
 ])
 
@@ -42,7 +43,11 @@ legacyOwls.config(function ($routeProvider) {
            templateUrl: 'app/savedStory/savedStory.html',
            controller: 'savedStoryController',
            access: {restricted: true}
-       })
+       }).when('/comment', {
+          templateUrl: 'app/comment/comment.html',
+          controller: 'commentBox',
+          access: {restricted: true}
+      })
       .otherwise({
           redirectTo: '/'
       });
