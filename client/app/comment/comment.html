@@ -17,7 +17,7 @@
   <a class="btn btn-default" ng-disabled="disabled" href="#/savedStory">Saved Stories</a>
 </div>
 <div  ng-controller="commentBox">
-  <a class="btn btn-default" href="" ng-click="toggle()">Comment Form</a>
+  <a class="btn btn-default" href="" ng-click="toggle($index)">Comment Form</a>
   <!-- <a class="btn btn-default" href="" ng-click="toggle($scope)">Comment Form</a> -->
 
     <div style="background-color: grey;" pageslide ps-open="checked" ps-speed="0.25">
@@ -25,9 +25,11 @@
 
     <div>Show all comments related to clicked article</div>
     <div>{{testComment}}</div>
-    <input type="text" ng-model="userInputComment">
-    <a class='btn btn-default' ng-click="submitComment(); refreshComment()">Submit</a>
-    <a ng-click="toggle()" style="color:black" class="btn" >Close</a>
+    <div style="position:absolute; bottom: 20px;">
+      <input class='input' type="text" ng-model="userInputComment">
+      <a class='btn btn-default' ng-click="submitComment(); refreshComment()">Submit</a>
+      <a ng-click="toggle()" style="color:black" class="btn" >Close</a>
+    </div>
     </div>
   </div>
 </div>

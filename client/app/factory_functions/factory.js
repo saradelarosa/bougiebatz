@@ -260,7 +260,7 @@ angular.module('legacyOwls.factory', [])
 
 
 .factory('Comment', ['$http', function ($http) {
-    console.log('comment called')
+    // console.log('comment called')
     var postComment = function(data){
         console.log(data , ' comment factory data**');
         return $http({
