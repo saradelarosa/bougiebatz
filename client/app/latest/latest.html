@@ -31,6 +31,29 @@
     <div className="reveal">{{photo.abstract}}</div>
     <button ng-click='saveStory($index)'>Save Story</button>
     <button ng-disabled='likes[photo.url]' ng-click='like($index)'>Like</button>
+
+
+
+        <div  ng-controller="commentBox">
+  <a class="btn btn-default" href="" ng-click="toggle($index)">Comment Form</a>
+
+    <div style="background-color: grey;" pageslide ps-open="checked" ps-speed="0.25" ps-key-listener="true">
+    <div style="padding:20px; " >
+
+    <div>Show all comments related to clicked article</div>
+    <div>{{testComment}}</div>
+    <div style="position:absolute; bottom: 20px;">
+      <input class='input' type="text" ng-model="userInputComment">
+      <a class='btn btn-default' ng-click="submitComment(); refreshComment()">Submit</a>
+      <a ng-click="toggle()" style="color:black" class="btn" >Close</a>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+
   </div>
 </div>
 

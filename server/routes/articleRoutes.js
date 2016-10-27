@@ -7,10 +7,10 @@ router.post('/article', function(req, res){
   console.log("++++++++++ RECIEVED REQUEST POST to /article ++++++++++++++");
 
   Article.findOne({"articleData.title": req.body.title}, function(err,article){
-    if(err){ 
+    if(err){
       //error in finding
       res.json(err);
-    } else if(article === null){ 
+    } else if(article === null){
       //means article not in database, so add
       var likedArticle = new Article({
         'numberLikes': 1,
@@ -19,7 +19,7 @@ router.post('/article', function(req, res){
       likedArticle.save(function(err) {
         if (err) console.log('Error on save!')
         else res.sendStatus(201)
-      })      
+      })
     } else {
       console.log("YOU ARE HERE!!!",article)
       var id = article._id.toString();
@@ -32,7 +32,7 @@ router.post('/article', function(req, res){
           console.log("Success incrementing Like!");
         }
       )
-    } 
+    }
   })
 
 });
@@ -48,5 +48,16 @@ router.get('/article', function(req, res){
     res.send(urls);
   });
 });
+
+router.post('/comment', function(req, res){
+  console.log(req.body, ' req.body /comment++')
+})
+
+router.get('/comment', function(req, res){
+  console.log('comment.get called')
+})
+
+
+
 
 module.exports = router;
