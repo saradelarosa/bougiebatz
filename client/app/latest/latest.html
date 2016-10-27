@@ -27,7 +27,7 @@
     </a>
     <div className="reveal">{{photo.abstract}}</div>
     <button ng-click='saveStory($index)'>Save Story</button>
-    <button ng-disabled='user.liked[photo.url]' ng-click='like($index)'>Like</button>
+    <button ng-disabled='likes[photo.url]' ng-click='like($index)'>Like</button>
   </div>
 </div>
 <footer class="footer col-xs-12">
