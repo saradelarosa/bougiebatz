@@ -24,25 +24,14 @@ angular.module('legacyOwls.latest', [])
 
       console.log($scope.urls);
 
-      $scope.likes = {};
-
-      SavedArticles.getLikesFromDB()
-      .then(function(response) {
-        response.forEach(function(article) {
-          $scope.likes[article.url] = true;
-        })
-      });
-
-      console.log($scope.likes);
-
       Articles.getLatest(params)
       .then(function(response) {
         // photos is an array that is set to the results array received from API
         $scope.photos = response.data.results.filter(function(photo) {
           // only want the articles that have a photo url - some of them have multimedia = ''
-          
+
           // $scope.urls[photo.url] ? photo.likes = $scope.urls[photo.url] : photo.likes = 0;
-          return photo.multimedia.length === 4 && photo.item_type !== 'Slideshow';
+          return photo.multimedia.length === 4;
         });
 
 
@@ -70,7 +59,6 @@ angular.module('legacyOwls.latest', [])
   // Like the news item
   $scope.like = function(index) {
     var article = $scope.photos[index];
-
     Trending.like(article)
     .then(function(response) {
       console.log("Success");
@@ -78,19 +66,9 @@ angular.module('legacyOwls.latest', [])
     .catch(function(err) {
       console.error(err);
     });
-
-    SavedArticles.saveLikeToDB(article)
-    .then(function(response) {
-      console.log("Success");
-      $scope.likes[article.url] = true;
-    })
-    .catch(function(err) {
-      console.error(err);
-    });
-
   }
 
   // Look for newest news every 5 minutes
-  setInterval($scope.getLatest, 5*60000); 
+  setInterval($scope.getLatest, 5*60000);
 
 }]);

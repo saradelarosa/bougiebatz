@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var ArticleSchema = new mongoose.Schema({
   'articleData': Object,
   'numberLikes': Number ,
-  'comment': Array
+  'commentData': Array
 });
 
 module.exports = db.model('Article', ArticleSchema);

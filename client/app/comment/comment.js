@@ -64,7 +64,8 @@ angular.module('legacyOwls.comment', ["pageslide-directive"])
           return photo.multimedia.length === 4;
         });
       console.log($scope.articles[idx], ' articlessss')
-      $scope.articleTitle = $scope.articles[idx].title;
+      // $scope.articleTitle = $scope.articles[idx].title;
+      $scope.article = $scope.articles[idx];
 
       });
   }()
@@ -73,12 +74,15 @@ angular.module('legacyOwls.comment', ["pageslide-directive"])
 
 
     $scope.submitComment = function(){
+      var sendToDB = {};
+      sendToDB.article = $scope.article;
       var commentData = {}
-      commentData.articleTitle = $scope.articleTitle
+      commentData.articleTitle = $scope.article.title
       commentData.user = $scope.username = 'Anonymous'; //grab user name
       commentData.comment = $scope.userInputComment;
+      sendToDB.commentData = commentData;
       // $scope.inputComment
-      Comment.postComment(commentData)
+      Comment.postComment(sendToDB)
     }
 
     $scope.refreshComment = function(){
