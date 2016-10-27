@@ -265,7 +265,7 @@ angular.module('legacyOwls.factory', [])
         console.log(data , ' comment factory data**');
         return $http({
             method: 'POST',
-            url: '',
+            url: 'api/comment',
             data: data
         })
     }
@@ -274,7 +274,7 @@ angular.module('legacyOwls.factory', [])
         console.log('getallcomment called');
         return $http({
             method:'GET',
-            url: ' '
+            url: 'api/comment'
         })
         .then(function(resp){
             return resp

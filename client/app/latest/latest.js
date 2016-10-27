@@ -49,7 +49,7 @@ angular.module('legacyOwls.latest', [])
         // photos is an array that is set to the results array received from API
         $scope.photos = response.data.results.filter(function(photo) {
           // only want the articles that have a photo url - some of them have multimedia = ''
-          
+
           photo.likes = $scope.urls[photo.url] ? $scope.urls[photo.url] : 0;
           return photo.multimedia.length === 4 && photo.item_type !== 'Slideshow';
         });
@@ -101,6 +101,6 @@ angular.module('legacyOwls.latest', [])
   }
 
   // Look for newest news every 5 minutes
-  setInterval($scope.getLatest, 5*60000); 
+  setInterval($scope.getLatest, 5*60000);
 
 }]);
