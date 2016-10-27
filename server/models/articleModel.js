@@ -2,9 +2,8 @@ var db = require('../db');
 var mongoose = require('mongoose');
 
 var ArticleSchema = new mongoose.Schema({
-  //'articleImageUrl': String
-  // ,
-  // 'numberLikes': String
+  'articleData': Object,
+  'numberLikes': Number 
 });
 
 module.exports = db.model('Article', ArticleSchema);
