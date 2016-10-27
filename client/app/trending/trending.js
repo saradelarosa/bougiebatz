@@ -18,7 +18,9 @@ angular.module('legacyOwls.trending', [])
         console.log($scope.trendingArticles);
       });
 
-    }; //end of downloadArticles function
+    }; //end of downloadTrendingArticles function
+
+    $scope.downloadTrendingArticles();
 
   }
 ])
