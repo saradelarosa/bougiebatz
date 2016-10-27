@@ -386,56 +386,72 @@ header.navigation {
   z-index: 1000;
   background-color: #595959;
   height: 100px; }
-  header.navigation .logo {
-    display: inline-block;
-    padding-top: 5px; }
-    header.navigation .logo img {
-      width: 85px; }
-    header.navigation .logo .title {
-      display: inline-block; }
-      @media (max-width: 767px) {
-        header.navigation .logo .title {
-          display: none; } }
-  header.navigation .logout {
-    float: right;
-    padding-top: 20px; }
-    header.navigation .logout a {
-      border: 2px solid #fff;
-      background: none;
-      color: #fff;
-      border-radius: 25px;
-      width: 150px;
-      margin-top: 10px; }
-      header.navigation .logout a:hover {
-        background: white;
-        color: #595959;
-        border: 2px solid white; }
-  header.navigation .switchPage {
-    float: right;
-    padding-top: 20px; }
-    header.navigation .switchPage a {
-      border: 2px solid #fff;
-      background: none;
-      color: #fff;
-      border-radius: 25px;
-      width: 150px;
-      margin-top: 10px; }
-      header.navigation .switchPage a:hover {
-        background: white;
-        color: #595959;
-        border: 2px solid white; }
 
-.secondaryNav a {
-  border: 2px solid #fff;
-  background: none;
-  color: #fff;
-  border-radius: 25px;
-  width: 150px;
-  margin-top: 10px; }
-  .secondaryNav a:hover {
-    background: white;
-    color: #595959;
-    border: 2px solid white; }
+header.navigation2 {
+  top: 0;
+  z-index: 1000;
+  background-color: #595959;
+  height: 100px; }
+
+.logo {
+  display: inline-block;
+  padding-top: 5px; }
+  .logo img {
+    width: 85px; }
+  .logo .title {
+    display: inline-block; }
+    @media (max-width: 767px) {
+      .logo .title {
+        display: none; } }
+
+.logout {
+  float: right;
+  padding-top: 20px; }
+  .logout a {
+    border: 2px solid #fff;
+    background: none;
+    color: #fff;
+    border-radius: 25px;
+    width: 150px;
+    margin-top: 10px; }
+    .logout a:hover {
+      background: white;
+      color: #595959;
+      border: 2px solid white; }
+
+.switchPage {
+  float: right;
+  padding-top: 20px; }
+  .switchPage a {
+    border: 2px solid #fff;
+    background: none;
+    color: #fff;
+    border-radius: 25px;
+    width: 150px;
+    margin-top: 10px; }
+    .switchPage a:hover {
+      background: white;
+      color: #595959;
+      border: 2px solid white; }
+
+.secondaryNav {
+  background: #000026;
+  padding-bottom: 15px;
+  padding-top: 8px;
+  text-align: center; }
+  .secondaryNav a {
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 2px solid #fff;
+    background: none;
+    color: #fff;
+    border-radius: 25px;
+    width: 150px;
+    margin-top: 10px; }
+    .secondaryNav a:hover {
+      background: white;
+      color: #595959;
+      border: 2px solid white; }
 
 .fullscreen-bg {
   position: fixed;
@@ -490,15 +506,15 @@ header.navigation {
 .footer {
   text-align: center;
   background-color: #595959;
-  position: fixed;
-  bottom: 0; }
+  bottom: 0;
+  margin-top: 20px; }
   .footer p {
     margin-top: 10px; }
     .footer p i {
       color: red; }
 
 body {
-  background: #333333;
+  background: #e5e5e9;
   color: #fff; }
 
 input {
