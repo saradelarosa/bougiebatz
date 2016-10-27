@@ -553,6 +553,23 @@ header.navigation2 {
       background: #000066;
       color: #595959;
       border: 2px solid white; }
+    .main .largePhotos .sample a:hover {
+      color: #e5e5e9; }
+  .main .largePhotos .comments {
+    margin-bottom: 35px; }
+    .main .largePhotos .comments a {
+      border: 2px solid #000066;
+      background: none;
+      color: #000066;
+      border-radius: 25px;
+      width: 150px;
+      margin-top: 10px; }
+      .main .largePhotos .comments a:hover {
+        background: #000066;
+        color: #595959;
+        border: 2px solid white; }
+      .main .largePhotos .comments a:hover {
+        color: #e5e5e9; }
 
 .footer {
   text-align: center;
@@ -569,7 +586,7 @@ body {
   color: #fff; }
   @media (max-width: 767px), (min-width: 768px) and (max-width: 991px) {
     body {
-      background: #333333; } }
+      background: #e5e5e9; } }
 
 input {
   color: black; }
