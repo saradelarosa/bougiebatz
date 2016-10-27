@@ -60,9 +60,29 @@ angular.module('legacyOwls.factory', [])
             });
         }
 
+        var getLikesFromDB = function () {
+            return $http({
+                method: 'GET',
+                url: '/likes',
+            })
+            .then( function (resp){
+                return resp.data.likedStories;
+            })
+        }
+
+        var saveLikeToDB = function (url) {
+            return $http({
+                method: 'POST',
+                url: '/likes',
+                data: url
+            });
+        }
+
         return {
             getArticlesFromDB: getArticlesFromDB,
-            saveArticleToDB: saveArticleToDB
+            saveArticleToDB: saveArticleToDB,
+            getLikesFromDB: getLikesFromDB,
+            saveLikeToDB: saveLikeToDB
         }
 
     }]) //end of SavedArticles factory

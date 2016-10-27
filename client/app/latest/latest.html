@@ -27,10 +27,9 @@
     </a>
     <div className="reveal">{{photo.abstract}}</div>
     <button ng-click='saveStory($index)'>Save Story</button>
-    <button ng-click='like($index)'>Like</button>
+    <button ng-disabled='user.liked[photo.url]' ng-click='like($index)'>Like</button>
   </div>
 </div>
-
 <footer class="footer col-xs-12">
   <p>Updated with <i class="fa fa-heart faa-pulse animated" aria-hidden="true"></i> by Astonishing Owls Inc. </p>
 </footer>
