@@ -42,7 +42,7 @@ angular.module('legacyOwls.latest', [])
           // only want the articles that have a photo url - some of them have multimedia = ''
           
           // $scope.urls[photo.url] ? photo.likes = $scope.urls[photo.url] : photo.likes = 0;
-          return photo.multimedia.length === 4;
+          return photo.multimedia.length === 4 && photo.item_type !== 'Slideshow';
         });
 
 
