@@ -19,7 +19,8 @@ angular.module('legacyOwls.latest', [])
       $scope.urls = {};
       console.log('Inside line 20 ', res.data);
       res.data.forEach(function(article) {
-        $scope.urls[article.articleData.url] = article.numberLikes;
+        // console.log(article.articleData);
+        if(article.articleData) $scope.urls[article.articleData.url] = article.numberLikes;
       });
 
       console.log($scope.urls);
