@@ -19,6 +19,10 @@ header.navigation2 {
     text-align: center;
     font-size: 60px;
     padding-top: 12px;
+
+    @media #{$mq-xs} {
+        display: none;
+    }
 }
 
 .logo {
