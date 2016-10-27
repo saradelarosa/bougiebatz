@@ -35,7 +35,7 @@ body {
     color: $white;
 
     @media #{$mq-xs, $mq-sm} {
-        background: $charcoal;
+        background: $light-grey;
     }
 }
 
