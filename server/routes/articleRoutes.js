@@ -14,7 +14,8 @@ router.post('/article', function(req, res){
       //means article not in database, so add
       var likedArticle = new Article({
         'numberLikes': 1,
-        'articleData': req.body
+        'articleData': req.body,
+        'commentData': []
       });
       likedArticle.save(function(err) {
         if (err) console.log('Error on save!')
