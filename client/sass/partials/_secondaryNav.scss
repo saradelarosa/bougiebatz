@@ -1,4 +1,5 @@
 .secondaryNav {
+<<<<<<< 9c34b2995664024a677baf010db46e8590438161
     background: $dark-navy;
     padding-bottom: 15px;
     padding-top: 8px;
@@ -6,6 +7,9 @@
     a {
         margin-left: 5px;
         margin-right: 5px;
+=======
+    a {
+>>>>>>> Feat(secondary_nav): adding nav to various pages
         @include whiteButton($white);
     }
 }
