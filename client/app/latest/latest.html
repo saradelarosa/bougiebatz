@@ -1,10 +1,19 @@
-<header class="navigation col-xs-12">
-  <div ng-controller="logoutController" class="logout">
-    <a ng-click='logout()' class="btn btn-default">Logout</a>
-  </div>
-</header>
+<!--<header class="navigation col-xs-12">-->
+  <!--<div class="logo">-->
+    <!--<img src="../../assets/icon.png">-->
+    <!--<p class="title">Legacy Owls</p>-->
+  <!--</div>-->
+  <!--<div ng-controller="logoutController" class="logout">-->
+    <!--<a ng-click='logout()' class="btn btn-default">Logout</a>-->
+  <!--</div>-->
+<!--</header>-->
+<div class="secondaryNav col-xs-12">
+  <a class="btn btn-default" ng-disabled="disabled" href="#/latest">Latest</a>
+  <a class="btn btn-default" ng-disabled="disabled" href="#/trending">Trending Stories</a>
+  <a class="btn btn-default" ng-disabled="disabled" href="#/savedStory">Saved Stories</a>
+</div>
 
-<section>
+<div class="main col-xs-12">
   <div>
     <select ng-model='selectedOption' ng-change='getLatest()'>
       <option ng-repeat='option in options'>{{option}}</option>
@@ -19,4 +28,4 @@
     <button ng-click='saveStory($index)'>Save Story</button>
     <button ng-click='like($index)'>Like</button>
   </div>
-</section>
+</div>

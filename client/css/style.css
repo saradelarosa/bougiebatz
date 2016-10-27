@@ -425,6 +425,18 @@ header.navigation {
         color: #595959;
         border: 2px solid white; }
 
+.secondaryNav a {
+  border: 2px solid #fff;
+  background: none;
+  color: #fff;
+  border-radius: 25px;
+  width: 150px;
+  margin-top: 10px; }
+  .secondaryNav a:hover {
+    background: white;
+    color: #595959;
+    border: 2px solid white; }
+
 .fullscreen-bg {
   position: fixed;
   top: 0;
@@ -471,6 +483,9 @@ header.navigation {
       background: white;
       color: #595959;
       border: 2px solid white; }
+
+.main {
+  margin-top: 125px; }
 
 .footer {
   text-align: center;
