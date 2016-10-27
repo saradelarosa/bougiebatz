@@ -14,3 +14,14 @@
 <div>
   <button ng-click="downloadArticles()">Download articles!</button>
 </div>
+
+<div ng-repeat='article in savedArticles'>
+  <a href={{article.url}} target="_blank">
+   <img ng-src={{article.multimedia[3].url}} />
+  </a>
+  <div>
+    <p>{{article.title}}</p>
+    <p>{{article.byline}}</p>
+    <p>Abstract: {{article.abstract}}</p>
+  </div>
+</div>

@@ -9,11 +9,15 @@ angular.module('legacyOwls.savedStory', [])
 
       SavedArticles.getArticlesFromDB()
       .then(function(response) {
+        console.log("response to getting articles???",response);
         $scope.savedArticles = response;
         console.log($scope.savedArticles);
       });
 
     }; //end of downloadArticles function
+
+    //run downloadArticles
+    $scope.downloadArticles();
 
   }
 ])
