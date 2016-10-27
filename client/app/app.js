@@ -12,7 +12,8 @@ var legacyOwls = angular.module('legacyOwls', [
 legacyOwls.config(function ($routeProvider) {
   $routeProvider
       .when('/', {
-          templateUrl: 'app/home/home.html',
+          templateUrl: 'app/latest/latest.html',
+          controller: 'latest',
           access: {restricted: true}
       })
       .when('/login', {
