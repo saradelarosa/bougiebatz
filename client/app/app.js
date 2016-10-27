@@ -5,8 +5,11 @@ var legacyOwls = angular.module('legacyOwls', [
     'legacyOwls.latest',
     'legacyOwls.factory',
     'legacyOwls.trending',
+    'legacyOwls.modal',
     'legacyOwls.comment',
-    'ngRoute'
+    'ngRoute',
+    'angularModalService',
+    'ngAnimate'
 ])
 
 legacyOwls.config(function ($routeProvider) {
@@ -67,3 +70,4 @@ legacyOwls.run(function ($rootScope, $location, $route, AuthService) {
                 });
         });
 });
+
