@@ -403,6 +403,9 @@ header.navigation2 {
   text-align: center;
   font-size: 60px;
   padding-top: 12px; }
+  @media (max-width: 767px) {
+    .heading {
+      display: none; } }
 
 .logo {
   display: inline-block;
@@ -463,6 +466,13 @@ header.navigation2 {
       background: white;
       color: #595959;
       border: 2px solid white; }
+  .secondaryNav a.current {
+    border: 2px solid #fff;
+    background: #fff;
+    color: #000026;
+    border-radius: 25px;
+    width: 150px;
+    margin-top: 10px; }
 
 .fullscreen-bg__video {
   position: fixed;
