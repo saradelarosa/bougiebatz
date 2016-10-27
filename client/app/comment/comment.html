@@ -1,3 +1,18 @@
+<header class="navigation2 col-xs-12">
+  <div class="logo">
+    <img src="../../assets/icon.png">
+    <p class="title">Legacy Owls</p>
+  </div>
+  <div ng-controller="logoutController" class="logout">
+    <a ng-click='logout()' class="btn btn-default">Logout</a>
+  </div>
+</header>
+
+<div class="secondaryNav col-xs-12">
+  <a class="btn btn-default" ng-disabled="disabled" href="#/latest">Latest</a>
+  <a class="btn btn-default" ng-disabled="disabled" href="#/trending">Trending Stories</a>
+  <a class="btn btn-default" ng-disabled="disabled" href="#/savedStory">Saved Stories</a>
+</div>
 <div  ng-controller="commentBox">
   <a class="btn btn-default" href="" ng-click="toggle()">Comment Form</a>
   <!-- <a class="btn btn-default" href="" ng-click="toggle($scope)">Comment Form</a> -->
