@@ -1,4 +1,4 @@
-angular.module('legacyOwls', [
+var legacyOwls = angular.module('legacyOwls', [
     'legacyOwls.home',
     'legacyOwls.auth',
     'legacyOwls.savedStory',
@@ -7,17 +7,25 @@ angular.module('legacyOwls', [
     'ngRoute'
 ])
 
-.config(function ($routeProvider) {
+legacyOwls.config(function ($routeProvider) {
   $routeProvider
       .when('/', {
           templateUrl: 'app/home/home.html',
-          controller: 'homeController',
           access: {restricted: true}
       })
-      .when('/home', {
-          templateUrl: 'app/home/home.html',
-          controller: 'homeController',
+      .when('/login', {
+          templateUrl: 'app/auth/login.html',
+          controller: 'loginController',
+          access: {restricted: false}
+      })
+      .when('/logout', {
+          controller: 'logoutController',
           access: {restricted: true}
+      })
+      .when('/register', {
+          templateUrl: 'app/auth/register.html',
+          controller: 'registerController',
+          access: {restricted: false}
       })
        .when('/latest', {
            templateUrl: 'app/latest/latest.html',
@@ -29,25 +37,13 @@ angular.module('legacyOwls', [
            controller: 'savedStoryController',
            access: {restricted: true}
        })
-      .when('/login', {
-          templateUrl: 'app/auth/login.html',
-          controller: 'loginController'
-      })
-      .when('/logout', {
-          controller: 'logoutController',
-          access: {restricted: true}
-      })
-      .when('/register', {
-          templateUrl: 'app/auth/register.html',
-          controller: 'registerController'
-      })
       .otherwise({
           redirectTo: '/'
       });
 
-})
+});
 
-.run(function ($rootScope, $location, $route, AuthService) {
+legacyOwls.run(function ($rootScope, $location, $route, AuthService) {
     $rootScope.$on('$routeChangeStart',
         function (event, next, current) {
             AuthService.getUserStatus()

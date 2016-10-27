@@ -20,7 +20,7 @@ router.get('/Large', (req, res) => {
     + '?limit=' + req.query.limit
     + '&offset=' + req.query.offset;
 
-  var options = { 
+  var options = {
     method: 'GET',
     url: reqUrl
   };

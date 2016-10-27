@@ -19,7 +19,7 @@ var paths = {
         html: ['compiled/app/**/*.html', 'compiled/index.html'],
         styles: ['compiled/styles/style.css']
     },
-    server: 'server.js'
+    server: 'server/server.js'
 };
 
 
