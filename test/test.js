@@ -1,8 +1,16 @@
-var express = require('express');
-var app = require('../server');
+// var express = require('express');
+// var app = require('../server');
 
-var db = require('../server/db');
+// var db = require('../server/db');
 
+angular.module('testing', []);
+
+angular.module('testing')
+  .factory('Person', function () {
+    return function Person (name) {
+      this.name = name;
+    };
+  });
 
 ///////////////////////////////////////////////////
 //ASTONISHING OWLS. WE'RE ASTONISHING. WE'RE OWLS.
@@ -12,12 +20,20 @@ var db = require('../server/db');
 //ASTONISHING OWLS. WE'RE ASTONISHING. WE'RE OWLS.
 ///////////////////////////////////////////////////
 
-describe ('', function(){
-  //write all tests starting here
+describe('Person', function () {
 
-  beforeEach(function(done){
-    //build this out. what do we want to happen
-    //before each of the tests are written?
+  var Person;
+  beforeEach(module('testing'));
+  beforeEach(inject(function (_Person_) {
+    Person = _Person_;
+  }));
+
+  describe('Constructor', function () {
+
+    it('assigns a name', function () {
+      expect(new Person('Ben')).to.have.property('name', 'Ben');
+    });
+
   });
 
 });
