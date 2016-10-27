@@ -9,7 +9,7 @@ var models = {};
 var userSchema = new mongoose.Schema({
   //we don't need the username and hashed password templated here because passport
   //does that for you
-  savedStories: Array
+  savedSearch: Array
 });
 userSchema.plugin(passportLocalMongoose);
 models.User = mongoose.model('User', userSchema);
