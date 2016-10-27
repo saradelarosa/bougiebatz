@@ -61,6 +61,24 @@ app.post('/database', (req, res) => {
   )
   .then( () => res.status(201).send(req.data));
 });
+
+app.get('/likes', (req, res) => {
+  console.log("REQ USER", req.user);
+  var id = req.user._id;
+  database.User.findById(id, function (err, doc) {
+    if(err) console.log("Something went wrong");
+    console.log(doc);
+  })
+  .then( (data) => res.status(200).send(data));
+})
+
+app.post('/likes', (req, res) => {
+  database.User.update(
+    { _id: req.user._id },
+    { $push: { likedStories: req.body } }  
+  )
+  .then( () => res.status(201).send(req.data));
+});
 //End of database stuff
 
 // require routes
