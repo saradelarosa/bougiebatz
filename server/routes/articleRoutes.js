@@ -78,9 +78,9 @@ router.get('/article', function(req, res){
 //   })
 // })
 router.post('/comment', function(req, res){
-  console.log("++++++++++ RECIEVED REQUEST POST to /article ++++++++++++++");
+  console.log("++++++++++ RECIEVED REQUEST POST to /article ++++++++++++++", req.body);
 
-  Article.findOne({"articleData.title": req.body.title}, function(err,article){
+  Article.findOne({"articleData.title": req.body.article.title}, function(err,article){
     if(err){
       //error in finding
       res.json(err);
@@ -101,7 +101,7 @@ router.post('/comment', function(req, res){
       var id = article._id.toString();
       Article.findOneAndUpdate(
         { _id: id },
-        { push: { commentData: req.body.commentData } },
+        { $push: { commentData: req.body.commentData } },
         { new: true },
         function(err,success){
           if(err) { console.log(err); }
