@@ -7,6 +7,7 @@ router.post('/article', function(req, res){
   console.log("++++++++++ RECIEVED REQUEST POST to /article ++++++++++++++",req.body);
 
   var likedArticle = new Article({
+    'numberLikes': 1,
     'articleData': req.body
   });
   
@@ -14,7 +15,17 @@ router.post('/article', function(req, res){
     if (err) console.log('Error on save!')
     else res.sendStatus(201)
   })
-  
+
+});
+
+router.put('/article', function(req, res){
+  console.log("++++++++++ RECIEVED REQUEST PUT to /article ++++++++++++++",req);
+
+  Article.update(
+    { _id: req._id },
+    { $inc: { numberLikes: 1 } }
+  )
+
 });
 
 router.get('/article', function(req, res){
