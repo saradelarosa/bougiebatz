@@ -1,10 +1,7 @@
 var mongoose = require('mongoose');
 var mongodb = require('mongodb');
 
-var dbUrl = process.env.MONGOURI || 'mongodb://heroku_rm47z500:2p9b9kceqhn15vif8r44h78lho@ds031607.mlab.com:31607/heroku_rm47z500'
-//var dbUrl = process.env.MONGOURI || 'mongodb://sarasailors:admin@ds031925.mlab.com:31925/heroku_nkhcxv83'
-
-
+var dbUrl = process.env.MONGOLAB_OLIVE_URI || 'mongodb://heroku_51kstk8r:mvc2uaain1ktom8tretqv5b5si@ds139665.mlab.com:39665/heroku_51kstk8r'
 
 mongoose.connect(dbUrl, function (err, res) {
   if (err) console.error('ERROR connecting to: ' + dbUrl + '. ' + err)
