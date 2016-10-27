@@ -51,7 +51,7 @@ angular.module('legacyOwls.factory', [])
             return $http({
                 method: 'POST',
                 url: '/database',
-                data: article    
+                data: article
             });
         }
 
@@ -231,4 +231,33 @@ angular.module('legacyOwls.factory', [])
 
             }
 
-        }]);
+        }])
+
+
+.factory('Comment', ['$http', function ($http) {
+    console.log('comment called')
+    var postComment = function(data){
+        console.log(data , ' comment factory data**');
+        return $http({
+            method: 'POST',
+            url: '',
+            data: data
+        })
+    }
+
+    var getAllComment = function(){
+        console.log('getallcomment called');
+        return $http({
+            method:'GET',
+            url: ' '
+        })
+        .then(function(resp){
+            return resp
+        })
+    }
+    return ({
+        postComment: postComment,
+        getAllComment: getAllComment
+    })
+
+}]);
