@@ -30,10 +30,19 @@ angular.module('legacyOwls.latest', [])
       .then(function(response) {
         response.forEach(function(article) {
           $scope.likes[article.url] = true;
-        })
+        });
       });
 
       console.log($scope.likes);
+
+      $scope.saved = {};
+
+      SavedArticles.getArticlesFromDB()
+      .then(function(response) {
+        response.forEach(function(article) {
+          $scope.saved[article.url] = true;
+        });
+      })
 
       Articles.getLatest(params)
       .then(function(response) {
@@ -41,10 +50,9 @@ angular.module('legacyOwls.latest', [])
         $scope.photos = response.data.results.filter(function(photo) {
           // only want the articles that have a photo url - some of them have multimedia = ''
           
-          // $scope.urls[photo.url] ? photo.likes = $scope.urls[photo.url] : photo.likes = 0;
+          photo.likes = $scope.urls[photo.url] ? $scope.urls[photo.url] : 0;
           return photo.multimedia.length === 4 && photo.item_type !== 'Slideshow';
         });
-
 
       });
 
@@ -61,6 +69,7 @@ angular.module('legacyOwls.latest', [])
     SavedArticles.saveArticleToDB(article)
     .then(function(response) {
       console.log("Success");
+      $scope.saved[article.url] = true;
     })
     .catch(function(err) {
       console.error(err);
@@ -74,6 +83,7 @@ angular.module('legacyOwls.latest', [])
     Trending.like(article)
     .then(function(response) {
       console.log("Success");
+      $scope.photos[index].likes++;
     })
     .catch(function(err) {
       console.error(err);

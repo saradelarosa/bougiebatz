@@ -28,9 +28,12 @@
     <a className="show" href={{photo.url}} target="_blank">
      <img className='showImg' ng-src={{photo.multimedia[3].url}} />
     </a>
-    <div className="reveal">{{photo.abstract}}</div>
-    <button ng-click='saveStory($index)'>Save Story</button>
-    <button ng-disabled='likes[photo.url]' ng-click='like($index)'>Like</button>
+    <p className="abstract">{{photo.abstract}}</p>
+    <p>Likes: {{photo.likes}}</p>
+    <button ng-show='!saved[photo.url]' ng-click='saveStory($index)'>Save Story</button>
+    <button ng-disabled='saved[photo.url]' ng-show='saved[photo.url]'>Saved</button>
+    <button ng-show='!likes[photo.url]' ng-click='like($index)'>Like</button>
+    <button ng-disabled='likes[photo.url]' ng-show='likes[photo.url]'>Liked</button>
   </div>
 </div>
 
