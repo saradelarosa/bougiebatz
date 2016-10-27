@@ -25,6 +25,7 @@
     "angular-aria": "^1.5.8",
     "angular-material": "^1.1.1",
     "angular-mocks": "^1.5.8",
+    "angular-pageslide-directive": "^2.1.1",
     "angular-route": "^1.5.8",
     "axios": "^0.15.0",
     "babel-core": "^6.17.0",
