@@ -24,7 +24,16 @@ angular.module('legacyOwls.latest', [])
 
       console.log($scope.urls);
 
+      $scope.likes = {};
+
       SavedArticles.getLikesFromDB()
+      .then(function(response) {
+        response.forEach(function(article) {
+          $scope.likes[article.url] = true;
+        })
+      });
+
+      console.log($scope.likes);
 
       Articles.getLatest(params)
       .then(function(response) {
@@ -70,9 +79,10 @@ angular.module('legacyOwls.latest', [])
       console.error(err);
     });
 
-    SavedArticles.saveLikeToDB(article.url)
+    SavedArticles.saveLikeToDB(article)
     .then(function(response) {
       console.log("Success");
+      $scope.likes[article.url] = true;
     })
     .catch(function(err) {
       console.error(err);
