@@ -20,6 +20,13 @@ angular.module('testing')
 //ASTONISHING OWLS. WE'RE ASTONISHING. WE'RE OWLS.
 ///////////////////////////////////////////////////
 
+var Person, visitor;
+beforeEach(module('myApp'));
+beforeEach(module(function ($provide) {
+  visitor = {};
+  $provide.value('visitor', visitor);
+}));
+
 describe('Person', function () {
 
   var Person;
