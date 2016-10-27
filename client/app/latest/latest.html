@@ -29,8 +29,10 @@
      <img class='showImg' ng-src={{photo.multimedia[3].url}} />
     </a>
     <div class="reveal">{{photo.abstract}}</div>
-    <button ng-click='saveStory($index)'>Save Story</button>
-    <button ng-disabled='likes[photo.url]' ng-click='like($index)'>Like</button>
+    <button ng-show='!saved[photo.url]' ng-click='saveStory($index)'>Save Story</button>
+    <button ng-disabled='saved[photo.url]' ng-show='saved[photo.url]'>Saved</button>
+    <button ng-show='!likes[photo.url]' ng-click='like($index)'>Like</button>
+    <button ng-disabled='likes[photo.url]' ng-show='likes[photo.url]'>Liked</button>
     <div class="sample" ng-controller="modalMainController">
       <p><a href class="btn btn-default btn-lg " ng-click="showYesNo()">Show Yes No</a></p>
     </div>

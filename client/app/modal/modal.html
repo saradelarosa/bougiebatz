@@ -8,6 +8,14 @@
             </div>
             <div class="modal-body">
                 <p>It's your call...</p>
+                    <a href={{photo.url}} target="_blank">
+                     <img class='showImg' ng-src={{photo.multimedia[3].url}} />
+                    </a>
+                    <div class="reveal">{{photo.abstract}}</div>
+                    <button ng-show='!saved[photo.url]' ng-click='saveStory($index)'>Save Story</button>
+                    <button ng-disabled='saved[photo.url]' ng-show='saved[photo.url]'>Saved</button>
+                    <button ng-show='!likes[photo.url]' ng-click='like($index)'>Like</button>
+                    <button ng-disabled='likes[photo.url]' ng-show='likes[photo.url]'>Liked</button>
             </div>
             <div class="modal-footer">
                 <button type="button" ng-click="close(false)" class="btn btn-default" data-dismiss="modal">No</button>
