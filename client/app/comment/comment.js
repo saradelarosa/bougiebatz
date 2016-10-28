@@ -14,7 +14,7 @@ angular.module('legacyOwls.comment', ["pageslide-directive"])
     $scope.articles;
     $scope.refreshComment;
     $scope.titleOfFound
-
+    $scope.newComment = [];
 
 ///////////////////////////////
 /////For Trending Articles/////
@@ -47,7 +47,7 @@ angular.module('legacyOwls.comment', ["pageslide-directive"])
     //Slide in out Check function.
     $scope.checked = !$scope.checked
     $scope.idx = index;
-
+    $scope.newComment = []; //clear previous comments
     $scope.getLatest = function() {
       var params = {
         source: 'all',
@@ -77,20 +77,6 @@ angular.module('legacyOwls.comment', ["pageslide-directive"])
 
        }();
 
-    //   $scope.submitComment = function(){
-    //     var sendToDB = {};
-    //     sendToDB.article = $scope.article;
-    //     var commentData = {}
-    //     commentData.articleTitle = $scope.article.title
-    //     commentData.user = $scope.username = 'Anonymous'; //grab user name
-    //     commentData.comment = $scope.userInputComment;
-    //     sendToDB.commentData = commentData;
-    //     // $scope.inputComment
-    //     Comment.postComment(sendToDB)
-    //     $scope.userInputComment = '';
-    //     $scope.refreshComment()
-
-    // }
 
       });
   }()
@@ -103,10 +89,10 @@ angular.module('legacyOwls.comment', ["pageslide-directive"])
       commentData.user = $scope.username = 'Anonymous'; //grab user name
       commentData.comment = $scope.userInputComment;
       sendToDB.commentData = commentData;
-      // $scope.inputComment
+
       Comment.postComment(sendToDB)
+      $scope.newComment.push($scope.userInputComment);
       $scope.userInputComment = '';
-      // $scope.refreshComment()
 
     }
 
