@@ -23,20 +23,30 @@
   </div>
 </div>
 
-<div>
-  <button ng-click="downloadTrendingArticles()">Download articles!</button>
-</div>
+<div class="main col-xs-12">
+  <h1 class="col-xs-12">Trending stories</h1>
 
-<div ng-repeat='article in trendingArticles'>
-  <a href={{article.articleData.url}} target="_blank">
-   <img ng-src={{article.articleData.multimedia[3].url}} />
-  </a>
-  <div>
-    <p>{{article.articleData.title}}</p>
-    <p>{{article.articleData.byline}}</p>
-    <p>Abstract: {{article.articleData.abstract}}</p>
-    <p>Likes:  {{article.numberLikes}}</p>
+  <div class="trendingButton col-xs-12">
+    <a class="btn btn-default" ng-disabled="disabled" ng-click="downloadTrendingArticles()">Refresh</a>
   </div>
+
+  <div class='photos col-xs-12' ng-repeat='article in trendingArticles'>
+    <div class='col-md-4'>
+      <a href={{article.articleData.url}} target="_blank">
+       <img ng-src={{article.articleData.multimedia[3].url}} />
+      </a>  
+    </div>
+
+    <div class='textbox col-md-8'>
+      <h3>{{article.articleData.title}}</h3>
+      <p>{{article.articleData.byline}}</p>
+      <p class="articleAbstract">Article abstract:</p>
+      <p class="articleSummary">{{article.articleData.abstract}}</p>
+      <p class="articleSummary">Likes:  {{article.numberLikes}}</p>
+    </div>      
+
+  </div>
+
 </div>
 
 <footer class="footer col-xs-12">
