@@ -44,6 +44,7 @@
           <div class="commentContainer">
             <h4>Comments</h4>
               <div ng-repeat="comment in testComment track by $index"> {{comment.comment}}</div>
+              <div ng-repeat="cmt in newComment track by $index">{{cmt}}</div>
               <div class="inputBox">
                 <input class='input' type="text" ng-model="userInputComment">
                 <a class='btn btn-default' ng-click="submitComment(); refreshComment()">Submit</a>
