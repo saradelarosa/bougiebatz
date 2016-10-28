@@ -4,8 +4,8 @@
   "description": "visual news application",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit ",
-    "start": "gulp styles",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "gulp start",
     "start:es6": "gulp start:es6"
   },
   "repository": {
