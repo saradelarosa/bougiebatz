@@ -11,7 +11,7 @@
                      <img class='showImg' ng-src={{photo.multimedia[3].url}} />
                 </a>
                 <p>{{photo.abstract}}</p>
-                <p>Likes: {{photo.likes}}</p>
+                <p><i class="fa fa-thumbs-up faa-bounce animated" aria-hidden="true"></i> {{photo.likes}}</p>
                 <a class='btn btn-default enabled' ng-show='!photo.saved' ng-click='saveStory()'>Save Story</a>
                 <a class='btn btn-default disabled' ng-disabled='photo.saved' ng-show='photo.saved'>Saved</a>
                 <a class='btn btn-default enabled' ng-show='!photo.liked' ng-click='like()'>Like</a>
