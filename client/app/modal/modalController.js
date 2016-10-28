@@ -8,7 +8,6 @@ angular.module('legacyOwls.modal', [])
 
         Trending.like($scope.photo)
         .then(function(response) {
-          console.log("Success");
           $scope.photo.likes++;
         })
         .catch(function(err) {
@@ -17,7 +16,6 @@ angular.module('legacyOwls.modal', [])
 
         SavedArticles.saveLikeToDB($scope.photo)
         .then(function(response) {
-          console.log("Success");
           $scope.photo.liked = true;
         })
         .catch(function(err) {
