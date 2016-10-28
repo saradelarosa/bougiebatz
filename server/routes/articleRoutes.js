@@ -78,8 +78,8 @@ router.get('/article', function(req, res){
 //     }
 //   })
 // })
+var articleId_;
 router.post('/comment', function(req, res){
-  console.log("++++++++++ RECIEVED REQUEST POST to /article ++++++++++++++", req.body);
 
   Article.findOne({"articleData.title": req.body.article.title}, function(err,article){
     if(err){
@@ -98,8 +98,10 @@ router.post('/comment', function(req, res){
         else res.sendStatus(201)
       })
     } else {
-      console.log("YOU ARE HERE!!!",article)
+      // console.log("YOU ARE HERE!!!",article)
       var id = article._id.toString();
+      articleId_ = id;
+
       Article.findOneAndUpdate(
         { _id: id },
         { $push: { commentData: req.body.commentData } },
@@ -114,11 +116,37 @@ router.post('/comment', function(req, res){
 
 });
 
-
-
-
 router.get('/comment', function(req, res){
-  console.log('comment.get called')
+
+    var articleObject = JSON.parse(req.query.article)
+    // console.log(articleObject)
+
+    Article.find({}, function(err, found) {
+
+      //Filtering array of Article objects by Title
+      var filtered = found.filter(function(article){
+        console.log(articleObject.title)
+        console.log('$$$$$$$$$$$$$$$$$$')
+        return article.articleData.title === articleObject.title;
+      })
+      if(filtered.length !== 0){
+        res.send(filtered[0].commentData);
+      }
+
+      if(filtered.length === 0){
+        var commentArticle = new Article({
+          'numberLikes': 0,
+          'articleData': articleObject,
+          'commentData': ''
+      });
+      commentArticle.save(function(err) {
+        if (err) console.log('Error on save!')
+        else res.sendStatus(201)
+      })
+      }
+
+  });
+
 })
 
 
