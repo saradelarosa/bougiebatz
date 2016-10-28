@@ -7,7 +7,8 @@
     "test": "gulp karma",
     "test:es6": "gulp karma:es6",
     "start": "gulp styles",
-    "start:es6": "gulp start:es6"
+    "start:es6": "gulp start:es6",
+    "postinstall": "npm install --dev && gulp",
   },
   "repository": {
     "type": "git",
