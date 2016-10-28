@@ -1,3 +1,4 @@
+//Module that controls savedStory.html page
 angular.module('legacyOwls.savedStory', [])
 
 .controller('savedStoryController', 
@@ -7,11 +8,12 @@ angular.module('legacyOwls.savedStory', [])
 
     $scope.downloadArticles = function(){
 
+      //call factory function .getArticlesFromDB
+      //to download a user's saved articles from its savedStories array
+      //then reassigns that to .savedArticles
       SavedArticles.getArticlesFromDB()
       .then(function(response) {
-        console.log("response to getting articles???",response);
         $scope.savedArticles = response;
-        console.log($scope.savedArticles);
       });
 
     }; //end of downloadArticles function
