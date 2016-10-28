@@ -82,7 +82,7 @@ app.post('/likes', (req, res) => {
 //End of database stuff
 
 // require routes for authentication
-var routes = require('./routes/auth.js');
+var routes = require('./routes/authRoutes.js');
 app.use('/user/', routes);
 
 

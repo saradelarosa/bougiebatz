@@ -1,8 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
+//require "likes" model
 var Article = require('../models/articleModel');
 
+//post request to the database
+//logic is somewhat more involved here
+//when a POST request hits, you first use .findOne to determine whether the
+//article is in the database in the first place. if it's not, then
+//you are instantiating a new data entry
+//otherwise, you are using findOneAndUpdate using the _id that is passed out
+//as a result of .findOne, and then incrementing the 'likes' for that article
 router.post('/article', function(req, res){
 
   Article.findOne({"articleData.title": req.body.title}, function(err,article){
