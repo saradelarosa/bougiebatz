@@ -1,3 +1,19 @@
+.trendingButton {
+
+    padding-bottom: 15px;
+    padding-top: 8px;
+    text-align: right;
+    margin-bottom: 15px;
+
+
+    a {
+        margin-left: 5px;
+        margin-right: 5px;
+        @include currentButton($white);
+    }
+
+}
+
 .main {
     text-align: center;
     margin-top: 35px;
@@ -22,4 +38,18 @@
         }
     }
 
+}
+
+.textbox {
+    background-color: white;
+    height: 233px;
+}
+
+.articleSummary {
+    text-align: left;
+}
+
+.articleAbstract {
+    text-align: left;
+    font-weight: 800;
 }

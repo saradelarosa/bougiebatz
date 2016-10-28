@@ -25,8 +25,9 @@
 
   <div class="main col-xs-12">
     <h1 class="col-xs-12">Trending stories</h1>
-    <div class="col-xs-12">
-      <a class="btn btn-default" ng-click="downloadTrendingArticles()">Refresh trending articles</a>
+
+    <div class="trendingButton col-xs-12">
+      <a class="btn btn-default" ng-disabled="disabled" ng-click="downloadTrendingArticles()">Refresh</a>
     </div>
 
     <div class='photos col-xs-12' ng-repeat='article in trendingArticles'>
@@ -36,11 +37,12 @@
         </a>  
       </div>
 
-      <div class='col-md-8'>
-        <h2>{{article.articleData.title}}</h2>
+      <div class='textbox col-md-8'>
+        <h3>{{article.articleData.title}}</h3>
         <p>{{article.articleData.byline}}</p>
-        <p>Article summary: {{article.articleData.abstract}}</p>
-        <p>Likes:  {{article.numberLikes}}</p>
+        <p class="articleAbstract">Article abstract:</p>
+        <p class="articleSummary">{{article.articleData.abstract}}</p>
+        <p class="articleSummary">Likes:  {{article.numberLikes}}</p>
       </div>      
 
     </div>
