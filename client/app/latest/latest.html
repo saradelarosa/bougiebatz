@@ -42,8 +42,8 @@
         <a class="btn btn-default" href="" ng-click="toggle($index)">Comment Form</a>
         <div class="commentForm" pageslide ps-open="checked" ps-speed="0.25" ps-key-listener="true">
           <div class="commentContainer">
-            <div>Show all comments related to clicked article</div>
-            <div>{{testComment}}</div>
+            <h4>Comments</h4>
+              <div ng-repeat="comment in testComment track by $index"> {{comment.comment}}</div>
               <div class="inputBox">
                 <input class='input' type="text" ng-model="userInputComment">
                 <a class='btn btn-default' ng-click="submitComment(); refreshComment()">Submit</a>
