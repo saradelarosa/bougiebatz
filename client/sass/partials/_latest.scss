@@ -32,3 +32,16 @@
         }
     }
 }
+
+.commentForm {
+    background-color: grey;
+
+    .commentContainer {
+        padding: 20px;
+
+        .inputBox {
+            position: absolute;
+            bottom: 20px;
+        }
+    }
+}
