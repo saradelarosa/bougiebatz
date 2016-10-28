@@ -1,5 +1,7 @@
 angular.module('legacyOwls.auth', [])
 
+//This is the login controller, that takes the username and password as $scope and confirms valid or invalid
+
 .controller('loginController',
     ['$scope', '$location', 'AuthService',
         function ($scope, $location, AuthService) {
@@ -30,6 +32,8 @@ angular.module('legacyOwls.auth', [])
 
         }])
 
+    //logout controller stops the session and continues to login path
+
 .controller('logoutController',
     ['$scope', '$location', 'AuthService',
         function ($scope, $location, AuthService) {
@@ -45,6 +49,8 @@ angular.module('legacyOwls.auth', [])
             };
 
         }])
+
+    //similar to login for authorization purposes
 
 .controller('registerController',
     ['$scope', '$location', 'AuthService',
