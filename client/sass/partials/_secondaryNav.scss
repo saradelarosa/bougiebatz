@@ -12,6 +12,6 @@
     }
 
     a.current {
-        @include currentButton($white);
+        @include currentButton($white, $dark-navy);
     }
 }

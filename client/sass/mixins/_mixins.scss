@@ -22,14 +22,28 @@
     }
 }
 
-@mixin currentButton($white) {
-    border: 2px solid $white;
-    background: $white;
-    color: $dark-navy;
+@mixin currentHover($color, $color2) {
+    border: 2px solid $color;
+    background: $color;
+    color: $color2;
     border-radius: 25px;
     width: 150px;
     margin-top: 10px;
 
+    &:hover {
+        background: none;
+        color: $color2;
+        border: 2px solid white;
+    }
+}
+
+@mixin currentButton($color, $color2) {
+    border: 2px solid $color;
+    background: $color;
+    color: $color2;
+    border-radius: 25px;
+    width: 150px;
+    margin-top: 10px;
 }
 
 @mixin disabledButton($color, $color2) {
