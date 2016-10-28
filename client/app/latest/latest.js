@@ -17,9 +17,8 @@ angular.module('legacyOwls.latest', [])
     .then(function(res){
 
       $scope.urls = {};
-      console.log('Inside line 20 ', res.data);
+      // console.log('Inside line 20 ', res.data);
       res.data.forEach(function(article) {
-        // console.log(article.articleData);
         if(article.articleData) $scope.urls[article.articleData.url] = article.numberLikes;
       });
 
@@ -102,6 +101,6 @@ angular.module('legacyOwls.latest', [])
   }
 
   // Look for newest news every 5 minutes
-  setInterval($scope.getLatest, 5*60000);
+  // setInterval($scope.getLatest, 5*60000);
 
 }]);

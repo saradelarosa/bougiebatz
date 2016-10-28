@@ -1,0 +1,41 @@
+.modal {
+    text-align: center;
+    margin: 0 auto;
+    float: none;
+    color: $dark-navy;
+
+    .modal-dialog {
+
+        h4 {
+            margin-top: 25px;
+            font-weight: bold;
+        }
+
+        .modal-body {
+
+            img {
+                width: 100%;
+                max-width: 1200px;
+                margin-bottom: 25px;
+            }
+
+            a.enabled {
+                @include whiteButton($navy, $light-grey);
+            }
+
+            a.disabled {
+                @include disabledButton($navy, $light-grey);
+            }
+        }
+
+    }
+
+    .modal-footer {
+
+        button {
+            @include whiteButton($navy, $light-grey);
+        }
+
+    }
+
+}

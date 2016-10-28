@@ -4,23 +4,21 @@
             <div class="modal-header">
                 <button type="button" class="close" ng-click="close(false)" data-dismiss="modal"
                         aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Yes or No?</h4>
+                <h4 class="modal-title">{{photo.title}}</h4>
             </div>
-            <div class="modal-body">
-                <p>It's your call...</p>
-                    <a href={{photo.url}} target="_blank">
+            <div class="modal-body col-xs-12">
+                <a href={{photo.url}} target="_blank">
                      <img class='showImg' ng-src={{photo.multimedia[3].url}} />
-                    </a>
-                    <p>{{photo.abstract}}</p>
-                    <p>Likes {{photo.likes}}</p>
-                    <button ng-show='!photo.saved' ng-click='saveStory()'>Save Story</button>
-                    <button ng-disabled='photo.saved' ng-show='photo.saved'>Saved</button>
-                    <button ng-show='!photo.liked' ng-click='like()'>Like</button>
-                    <button ng-disabled='photo.liked' ng-show='photo.liked'>Liked</button>
+                </a>
+                <p>{{photo.abstract}}</p>
+                <p>Likes: {{photo.likes}}</p>
+                <a class='btn btn-default enabled' ng-show='!photo.saved' ng-click='saveStory()'>Save Story</a>
+                <a class='btn btn-default disabled' ng-disabled='photo.saved' ng-show='photo.saved'>Saved</a>
+                <a class='btn btn-default enabled' ng-show='!photo.liked' ng-click='like()'>Like</a>
+                <a class='btn btn-default disabled' ng-disabled='photo.liked' ng-show='photo.liked'>Liked</a>
             </div>
             <div class="modal-footer">
                 <button type="button" ng-click="close(false)" class="btn btn-default" data-dismiss="modal">Close</button>
-                <!--<button type="button" ng-click="close(true)" class="btn btn-primary" data-dismiss="modal">Yes</button> -->
             </div>
         </div>
     </div>
