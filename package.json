@@ -4,7 +4,6 @@
   "description": "visual news application",
   "main": "server.js",
   "scripts": {
-//    "test": "echo \"Error: no test specified\" && exit 0",
     "test": "gulp karma",
     "test:es6": "gulp karma:es6",
     "start": "gulp styles",
