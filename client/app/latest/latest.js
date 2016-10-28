@@ -23,7 +23,7 @@ angular.module('legacyOwls.latest', [])
         if(article.articleData) $scope.urls[article.articleData.url] = article.numberLikes;
       });
 
-      console.log($scope.urls);
+      // console.log($scope.urls);
 
       $scope.likes = {};
 
@@ -34,7 +34,7 @@ angular.module('legacyOwls.latest', [])
         });
       });
 
-      console.log($scope.likes);
+      // console.log($scope.likes);
 
       $scope.saved = {};
 
