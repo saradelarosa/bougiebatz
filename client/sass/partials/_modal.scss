@@ -27,6 +27,8 @@
             }
 
             a.disabled {
+                display: block;
+                margin: 0 auto;
                 @include disabledButton($navy, $light-grey);
             }
         }

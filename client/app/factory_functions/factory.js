@@ -270,11 +270,12 @@ angular.module('legacyOwls.factory', [])
         })
     }
 
-    var getAllComment = function(){
+    var getAllComment = function(article){
         console.log('getallcomment called');
         return $http({
             method:'GET',
-            url: 'api/comment'
+            url: 'api/comment',
+            params: {article:article}
         })
         .then(function(resp){
             return resp

@@ -4,12 +4,16 @@ angular.module('legacyOwls.comment', ["pageslide-directive"])
 
   ['$scope', '$location', 'Trending','Articles','Comment',
   function($scope, $location, Trending, Articles, Comment){
-    $scope.testComment = 'Testing';
+    $scope.testComment ;
+
     $scope.articleNumber;
     $scope.articleId;
     $scope.idx;
     $scope.articleTitle;
-
+    $scope.article;
+    $scope.articles;
+    $scope.refreshComment;
+    $scope.titleOfFound
 
 
 ///////////////////////////////
@@ -42,7 +46,7 @@ angular.module('legacyOwls.comment', ["pageslide-directive"])
 
     //Slide in out Check function.
     $scope.checked = !$scope.checked
-    var idx = index;
+    $scope.idx = index;
 
     $scope.getLatest = function() {
       var params = {
@@ -55,21 +59,41 @@ angular.module('legacyOwls.comment', ["pageslide-directive"])
 
       Articles.getLatest(params)
       .then(function(response) {
-        // photos is an array that is set to the results array received from API
         $scope.articles = response.data.results.filter(function(photo) {
           // only want the articles that have a photo url - some of them have multimedia = ''
           // $scope.urls[photo.url] ? photo.likes = $scope.urls[photo.url] : photo.likes = 0;
           return photo.multimedia.length === 4;
         });
-      console.log($scope.articles[idx], ' articlessss')
-      // $scope.articleTitle = $scope.articles[idx].title;
-      $scope.article = $scope.articles[idx];
+      $scope.article = $scope.articles[$scope.idx];
+
+      //Receive all comments when toggle is clicked.
+      $scope.refreshComment = function(){
+        //receive all comment data
+        Comment.getAllComment($scope.article).then(function(res){
+           console.log(res, ' RES, comment.js')
+            $scope.testComment = res.data;
+
+        })
+
+       }();
+
+    //   $scope.submitComment = function(){
+    //     var sendToDB = {};
+    //     sendToDB.article = $scope.article;
+    //     var commentData = {}
+    //     commentData.articleTitle = $scope.article.title
+    //     commentData.user = $scope.username = 'Anonymous'; //grab user name
+    //     commentData.comment = $scope.userInputComment;
+    //     sendToDB.commentData = commentData;
+    //     // $scope.inputComment
+    //     Comment.postComment(sendToDB)
+    //     $scope.userInputComment = '';
+    //     $scope.refreshComment()
+
+    // }
 
       });
   }()
-  }//End of Toggle Button for Latest
-
-
 
     $scope.submitComment = function(){
       var sendToDB = {};
@@ -81,18 +105,12 @@ angular.module('legacyOwls.comment', ["pageslide-directive"])
       sendToDB.commentData = commentData;
       // $scope.inputComment
       Comment.postComment(sendToDB)
+      $scope.userInputComment = '';
+      // $scope.refreshComment()
+
     }
 
-    $scope.refreshComment = function(){
-      //receive all comment data
-      Comment.getAllComment()
-      $scope.username = 'grabUserName';
-      $scope.userInputComment
-      // $scope.inputComment
-    }
+  }//End of Toggle Button for Latest
 
-
-
-  setInterval($scope.getLatest, 5*60000);
   }
 ])
