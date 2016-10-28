@@ -24,20 +24,70 @@
 </div>
 
 <div>
-  <button ng-click="downloadArticles()">Download articles!</button>
+  <button ng-click="downloadArticles()">Refresh saved articles</button>
 </div>
 
-<div ng-repeat='article in savedArticles'>
-  <a href={{article.url}} target="_blank">
-   <img ng-src={{article.multimedia[3].url}} />
-  </a>
-  <div>
-    <p>{{article.title}}</p>
-    <p>{{article.byline}}</p>
-    <p>Abstract: {{article.abstract}}</p>
+<div class="main col-xs-12">
+
+  <h1 class="col-xs-12">Most liked news, trending</h1>
+
+  <div ng-repeat='article in savedArticles'>
+    <a href={{article.url}} target="_blank">
+     <img ng-src={{article.multimedia[3].url}} />
+    </a>
+    <div>
+      <p>{{article.title}}</p>
+      <p>{{article.byline}}</p>
+      <p>Abstract: {{article.abstract}}</p>
+    </div>
   </div>
+
 </div>
 
 <footer class="footer col-xs-12">
   <p>Updated with <i class="fa fa-heart faa-pulse animated" aria-hidden="true"></i> by Astonishing Owls Inc. </p>
 </footer>
+
+<!-- <div class="main col-xs-12">
+
+  <h1>Latest News</h1>
+  <div>
+    <select ng-model='selectedOption' ng-change='getLatest()'>
+      <option ng-repeat='option in options'>{{option}}</option>
+    </select>
+  </div>
+
+  <div class='largePhotos col-xs-12 col-md-4' ng-repeat='($index, photo) in photos'>
+    <a href={{photo.url}} target="_blank">
+     <img class='showImg' ng-src={{photo.multimedia[3].url}} />
+    </a>
+    <div class="reveal">{{photo.abstract}}</div>
+    <button ng-show='!saved[photo.url]' ng-click='saveStory($index)'>Save Story</button>
+    <button ng-disabled='saved[photo.url]' ng-show='saved[photo.url]'>Saved</button>
+    <button ng-show='!likes[photo.url]' ng-click='like($index)'>Like</button>
+    <button ng-disabled='likes[photo.url]' ng-show='likes[photo.url]'>Liked</button>
+    <div class="sample" ng-controller="modalMainController">
+      <p><a href class="btn btn-default btn-lg " ng-click="showYesNo()">Show Yes No</a></p>
+    </div>
+
+
+
+  <div  ng-controller="commentBox">
+    <a class="btn btn-default" href="" ng-click="toggle($index)">Comment Form</a>
+
+      <div style="background-color: grey;" pageslide ps-open="checked" ps-speed="0.25" ps-key-listener="true">
+      <div style="padding:20px; " >
+
+      <div>Show all comments related to clicked article</div>
+      <div>{{testComment}}</div>
+      <div style="position:absolute; bottom: 20px;">
+      <input class='input' type="text" ng-model="userInputComment">
+      <a class='btn btn-default' ng-click="submitComment(); refreshComment()">Submit</a>
+      <a ng-click="toggle()" style="color:black" class="btn" >Close</a>
+      </div>
+      </div>
+  </div>
+  </div>
+
+  </div>
+</div>
