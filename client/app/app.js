@@ -1,5 +1,4 @@
 var legacyOwls = angular.module('legacyOwls', [
-    'legacyOwls.home',
     'legacyOwls.auth',
     'legacyOwls.savedStory',
     'legacyOwls.latest',
