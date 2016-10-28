@@ -1,10 +1,15 @@
 angular.module('legacyOwls.latest', [])
 .controller('latest', ['$scope', 'Articles', 'Trending', 'SavedArticles', function($scope, Articles, Trending, SavedArticles) {
 
+  // Receives different sections as options to see in latest
   $scope.options = Articles.options;
+  // Default option is all
   $scope.selectedOption = 'all';
 
+  // getLatest fires on change
   $scope.getLatest = function() {
+
+    // The parameters of the NYT API call
     var params = {
       source: 'all',
       section: $scope.selectedOption,
@@ -13,19 +18,20 @@ angular.module('legacyOwls.latest', [])
       offset: 0
     }
 
+    // Gets all of the articles that are trending (saved in database)
     Trending.getAll()
     .then(function(res){
 
       $scope.urls = {};
-      // console.log('Inside line 20 ', res.data);
+
+      // Add the urls that are trending to the $scope.urls object
       res.data.forEach(function(article) {
         if(article.articleData) $scope.urls[article.articleData.url] = article.numberLikes;
       });
 
-      // console.log($scope.urls);
-
       $scope.likes = {};
 
+      // Add the urls of the articles the specific user liked to $scope.likes
       SavedArticles.getLikesFromDB()
       .then(function(response) {
         response.forEach(function(article) {
@@ -33,10 +39,9 @@ angular.module('legacyOwls.latest', [])
         });
       });
 
-      // console.log($scope.likes);
-
       $scope.saved = {};
 
+      // Add the urls of the articles the specific user saved to $scope.saved
       SavedArticles.getArticlesFromDB()
       .then(function(response) {
         response.forEach(function(article) {
@@ -49,7 +54,7 @@ angular.module('legacyOwls.latest', [])
         // photos is an array that is set to the results array received from API
         $scope.photos = response.data.results.filter(function(photo) {
           // only want the articles that have a photo url - some of them have multimedia = ''
-
+          // also do not want anything that is part of a Slideshow
           photo.likes = $scope.urls[photo.url] ? $scope.urls[photo.url] : 0;
           return photo.multimedia.length === 4 && photo.item_type !== 'Slideshow';
         });
@@ -68,7 +73,6 @@ angular.module('legacyOwls.latest', [])
     var article = $scope.photos[index];
     SavedArticles.saveArticleToDB(article)
     .then(function(response) {
-      console.log("Success");
       $scope.saved[article.url] = true;
     })
     .catch(function(err) {
@@ -82,7 +86,6 @@ angular.module('legacyOwls.latest', [])
 
     Trending.like(article)
     .then(function(response) {
-      console.log("Success");
       $scope.photos[index].likes++;
     })
     .catch(function(err) {
@@ -91,7 +94,6 @@ angular.module('legacyOwls.latest', [])
 
     SavedArticles.saveLikeToDB(article)
     .then(function(response) {
-      console.log("Success");
       $scope.likes[article.url] = true;
     })
     .catch(function(err) {
