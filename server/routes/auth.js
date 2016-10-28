@@ -7,12 +7,20 @@ var passport = require('passport');
 var database = require('../models/userModel.js');
 
 
+//Router for registration. With successful registration,
+//instantiates new user here. savedSearch is an empty array
+//what's in commented out code is the form of data that is pushed
+//to this empty array when users add a currency to the database
 router.post('/register', function (req, res) {
     console.log("REQUEST USERNAME??????",req.body.password);
     database.User.register(new database.User({
             username: req.body.username,
             savedStories: []
         }),
+
+        //here we create/authenticate the username, password and add the savedStories empty array for
+        // the user to push to when adding stories to persist on the database
+
 
         req.body.password, function (err, account) {
             if (err) {

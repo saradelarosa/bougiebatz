@@ -11,6 +11,7 @@ var legacyOwls = angular.module('legacyOwls', [
     'ngAnimate'
 ])
 
+//This is where we have defined restricted or not restricted access to various routes
 legacyOwls.config(function ($routeProvider) {
   $routeProvider
       .when('/', {
@@ -56,6 +57,9 @@ legacyOwls.config(function ($routeProvider) {
       });
 
 });
+
+//This runs the authorization from the route change and confirms that user is
+// logged (therefore authenticated) before allowing the route to change
 
 legacyOwls.run(function ($rootScope, $location, $route, AuthService) {
     $rootScope.$on('$routeChangeStart',
