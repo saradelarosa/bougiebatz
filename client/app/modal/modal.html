@@ -11,15 +11,16 @@
                     <a href={{photo.url}} target="_blank">
                      <img class='showImg' ng-src={{photo.multimedia[3].url}} />
                     </a>
-                    <div class="reveal">{{photo.abstract}}</div>
-                    <button ng-show='!saved[photo.url]' ng-click='saveStory($index)'>Save Story</button>
-                    <button ng-disabled='saved[photo.url]' ng-show='saved[photo.url]'>Saved</button>
-                    <button ng-show='!likes[photo.url]' ng-click='like($index)'>Like</button>
-                    <button ng-disabled='likes[photo.url]' ng-show='likes[photo.url]'>Liked</button>
+                    <p>{{photo.abstract}}</p>
+                    <p>Likes {{photo.likes}}</p>
+                    <button ng-show='!photo.saved' ng-click='saveStory()'>Save Story</button>
+                    <button ng-disabled='photo.saved' ng-show='photo.saved'>Saved</button>
+                    <button ng-show='!photo.liked' ng-click='like()'>Like</button>
+                    <button ng-disabled='photo.liked' ng-show='photo.liked'>Liked</button>
             </div>
             <div class="modal-footer">
-                <button type="button" ng-click="close(false)" class="btn btn-default" data-dismiss="modal">No</button>
-                <button type="button" ng-click="close(true)" class="btn btn-primary" data-dismiss="modal">Yes</button>
+                <button type="button" ng-click="close(false)" class="btn btn-default" data-dismiss="modal">Close</button>
+                <!--<button type="button" ng-click="close(true)" class="btn btn-primary" data-dismiss="modal">Yes</button> -->
             </div>
         </div>
     </div>
