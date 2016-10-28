@@ -464,7 +464,7 @@ header.navigation2 {
     margin-top: 10px; }
     .secondaryNav a:hover {
       background: #fff;
-      color: #595959;
+      color: #000026;
       border: 2px solid white; }
   .secondaryNav a.current {
     border: 2px solid #fff;
@@ -516,7 +516,7 @@ header.navigation2 {
       margin-top: 10px; }
       .login_body #login a:hover {
         background: #fff;
-        color: #595959;
+        color: #000066;
         border: 2px solid white; }
     .login_body #login form button {
       border: 2px solid #fff;
@@ -527,7 +527,7 @@ header.navigation2 {
       margin-top: 10px; }
       .login_body #login form button:hover {
         background: #fff;
-        color: #595959;
+        color: #000066;
         border: 2px solid white; }
 
 .main {
@@ -551,10 +551,8 @@ header.navigation2 {
     margin-top: 10px; }
     .main .largePhotos .sample a:hover {
       background: #000066;
-      color: #595959;
+      color: #e5e5e9;
       border: 2px solid white; }
-    .main .largePhotos .sample a:hover {
-      color: #e5e5e9; }
   .main .largePhotos .comments {
     margin-bottom: 35px; }
     .main .largePhotos .comments a {
@@ -566,10 +564,8 @@ header.navigation2 {
       margin-top: 10px; }
       .main .largePhotos .comments a:hover {
         background: #000066;
-        color: #595959;
+        color: #e5e5e9;
         border: 2px solid white; }
-      .main .largePhotos .comments a:hover {
-        color: #e5e5e9; }
 
 .footer {
   text-align: center;

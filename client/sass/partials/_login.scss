@@ -44,12 +44,12 @@
         }
 
         a {
-            @include whiteButton($white);
+            @include whiteButton($white, $navy);
         }
 
         form {
             button {
-                @include whiteButton($white);
+                @include whiteButton($white, $navy);
             }
         }
     }

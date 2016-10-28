@@ -7,7 +7,7 @@
     height: $height;
 }
 
-@mixin whiteButton($color) {
+@mixin whiteButton($color, $color2) {
     border: 2px solid $color;
     background: none;
     color: $color;
@@ -17,7 +17,7 @@
 
     &:hover {
         background: $color;
-        color: $light-charcoal;
+        color: $color2;
         border: 2px solid white;
     }
 }
