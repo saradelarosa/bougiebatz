@@ -14,8 +14,10 @@ angular.module('legacyOwls.trending', [])
           a = a.numberLikes;
           b = b.numberLikes;
           return b-a;
+        }).filter(function(article){
+          console.log();
+          return (article.numberLikes > 0);
         });
-        console.log($scope.trendingArticles);
       });
 
     }; //end of downloadTrendingArticles function
