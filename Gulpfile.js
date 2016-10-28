@@ -4,7 +4,7 @@ var clean = require('gulp-clean');
 var nodemon = require('gulp-nodemon');
 var babel = require('gulp-babel');
 var browserSync = require('browser-sync').create();
-// var KarmaServer = require('karma').Server;
+var KarmaServer = require('karma').Server;
 var gutil = require('gulp-util');
 
 
