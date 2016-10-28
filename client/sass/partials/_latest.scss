@@ -19,21 +19,15 @@
 
         .sample {
             a {
-                @include whiteButton($navy);
+                @include whiteButton($navy, $light-grey);
 
-                &:hover {
-                    color: $light-grey;
-                }
             }
         }
         .comments {
             margin-bottom: 35px;
             a {
-                @include whiteButton($navy);
+                @include whiteButton($navy, $light-grey);
 
-                &:hover {
-                    color: $light-grey;
-                }
             }
         }
     }
