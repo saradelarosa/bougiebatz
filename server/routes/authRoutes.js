@@ -15,7 +15,8 @@ router.post('/register', function (req, res) {
     console.log("REQUEST USERNAME??????",req.body.password);
     database.User.register(new database.User({
             username: req.body.username,
-            savedStories: []
+            savedStories: [],
+            likedStories: []
         }),
 
         //here we create/authenticate the username, password and add the savedStories empty array for
