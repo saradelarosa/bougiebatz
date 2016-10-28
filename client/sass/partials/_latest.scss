@@ -34,14 +34,23 @@
 }
 
 .commentForm {
-    background-color: grey;
+    background-color: $dark-navy;
 
     .commentContainer {
         padding: 20px;
 
+        a {
+            @include whiteButton($white, $dark-navy);
+        }
+
         .inputBox {
             position: absolute;
             bottom: 20px;
+            //
+            //a.closeBtn {
+            //    color: white !important;
+            //    @include whiteButton($white, $dark-navy);
+            //}
         }
     }
 }
