@@ -47,16 +47,12 @@ angular.module('legacyOwls.modal', [])
 
 .controller('modalMainController', ['$scope', 'ModalService', 'Photo', function ($scope, ModalService, Photo) {
 
-    // console.log($scope.photos);
-
-    $scope.yesNoResult = null;
-
     $scope.showYesNo = function (index) {
 
         var photo = $scope.photos[index];
 
         photo.saved = $scope.saved[photo.url] ? true : false;
-        photo.liked = $scope.likes[photo.url] ? true: false;
+        photo.liked = $scope.likes[photo.url] ? true : false;
 
         Photo.savePhoto(photo);
 
@@ -66,7 +62,13 @@ angular.module('legacyOwls.modal', [])
         }).then(function (modal) {
             modal.element.modal();
             modal.close.then(function (result) {
-                $scope.yesNoResult = result ? "You said Yes" : "You said No";
+                // console.log('inside modalController',$scope.photo);
+                if ($scope.photo.liked && !$scope.likes[photo.url]) {
+                    $scope.likes[photo.url] = true; 
+                }
+                if ($scope.photo.saved && !$scope.saved[photo.url]) {
+                    $scope.saved[photo.url] = true;
+                }
             });
         });
 
