@@ -24,10 +24,12 @@
 </div>
 
 <div>
-  <button ng-click="downloadArticles()">Download articles!</button>
+  <button ng-click="downloadArticles()">Refresh saved articles</button>
 </div>
 
 <div class="main col-xs-12">
+
+  <h1 class="col-xs-12">Most liked news, trending</h1>
 
   <div ng-repeat='article in savedArticles'>
     <a href={{article.url}} target="_blank">
