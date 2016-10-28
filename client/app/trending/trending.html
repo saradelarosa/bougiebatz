@@ -11,33 +11,41 @@
   </div>
 </header>
 
-<div class="secondaryNav col-xs-12">
-  <div class="buttonWrapper col-xs-12 col-md-4">
-    <a class="btn btn-default" ng-disabled="disabled" href="#/latest">Latest</a>
+  <div class="secondaryNav col-xs-12">
+    <div class="buttonWrapper col-xs-12 col-md-4">
+      <a class="btn btn-default" ng-disabled="disabled" href="#/latest">Latest</a>
+    </div>
+    <div class="buttonWrapper col-xs-12 col-md-4">
+      <a class="btn btn-default current" ng-disabled="disabled" href="#/trending">Trending Stories</a>
+    </div>
+    <div class="buttonWrapper col-xs-12 col-md-4">
+      <a class="btn btn-default" ng-disabled="disabled" href="#/savedStory">Saved Stories</a>
+    </div>
   </div>
-  <div class="buttonWrapper col-xs-12 col-md-4">
-    <a class="btn btn-default current" ng-disabled="disabled" href="#/trending">Trending Stories</a>
-  </div>
-  <div class="buttonWrapper col-xs-12 col-md-4">
-    <a class="btn btn-default" ng-disabled="disabled" href="#/savedStory">Saved Stories</a>
-  </div>
-</div>
 
-<div>
-  <button ng-click="downloadTrendingArticles()">Download articles!</button>
-</div>
+  <div class="main col-xs-12">
+    <h1 class="col-xs-12">Trending stories</h1>
+    <div class="col-xs-12">
+      <a class="btn btn-default" ng-click="downloadTrendingArticles()">Refresh trending articles</a>
+    </div>
 
-<div ng-repeat='article in trendingArticles'>
-  <a href={{article.articleData.url}} target="_blank">
-   <img ng-src={{article.articleData.multimedia[3].url}} />
-  </a>
-  <div>
-    <p>{{article.articleData.title}}</p>
-    <p>{{article.articleData.byline}}</p>
-    <p>Abstract: {{article.articleData.abstract}}</p>
-    <p>Likes:  {{article.numberLikes}}</p>
+    <div class='photos col-xs-12' ng-repeat='article in trendingArticles'>
+      <div class='col-md-4'>
+        <a href={{article.articleData.url}} target="_blank">
+         <img ng-src={{article.articleData.multimedia[3].url}} />
+        </a>  
+      </div>
+
+      <div class='col-md-8'>
+        <h2>{{article.articleData.title}}</h2>
+        <p>{{article.articleData.byline}}</p>
+        <p>Article summary: {{article.articleData.abstract}}</p>
+        <p>Likes:  {{article.numberLikes}}</p>
+      </div>      
+
+    </div>
+
   </div>
-</div>
 
 <footer class="footer col-xs-12">
   <p>Updated with <i class="fa fa-heart faa-pulse animated" aria-hidden="true"></i> by Astonishing Owls Inc. </p>
