@@ -17,8 +17,9 @@
 
 .main-trending {
     text-align: center;
+    margin: 0 auto;
     float: none;
-    color: $dark-navy;
+    color: $navy;
     max-width: 1200px;
 
     h1 {
@@ -48,7 +49,7 @@
     .textbox {
         background-color: $white;
         height: 233px;
-        border: 2px solid $dark-navy;
+        border: 2px solid $navy;
         border-radius: 20px;
 
         @media #{$mq-xs} {
@@ -59,12 +60,12 @@
 
         .articleSummary {
             text-align: left;
-            color: $dark-navy;
+            color: $navy;
         }
         .articlelikes {
             text-align: left;
             font-size: 20px;
-            color: $dark-navy;
+            color: $navy;
 
             i {
                 font-size: 20px;

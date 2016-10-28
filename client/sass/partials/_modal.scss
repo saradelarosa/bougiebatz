@@ -2,16 +2,16 @@
     text-align: center;
     margin: 0 auto;
     float: none;
-    color: $dark-navy;
+    color: $navy;
 
     .modal-dialog {
 
         h4 {
             margin-top: 25px;
-            font-weight: bold;
         }
 
         .modal-body {
+            padding: 20px 20px 0px 20px;
 
             img {
                 width: 100%;
@@ -21,6 +21,9 @@
 
             a.enabled {
                 @include whiteButton($navy, $light-grey);
+                display: block;
+                margin: 0 auto;
+                margin-top: 10px;
             }
 
             a.disabled {
@@ -31,11 +34,10 @@
     }
 
     .modal-footer {
-
+        text-align: center;
         button {
             @include whiteButton($navy, $light-grey);
         }
-
     }
 
 }
