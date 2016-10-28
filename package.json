@@ -4,11 +4,9 @@
   "description": "visual news application",
   "main": "server.js",
   "scripts": {
-    "test": "gulp karma",
-    "test:es6": "gulp karma:es6",
+    "test": "echo \"Error: no test specified\" && exit ",
     "start": "gulp styles",
-    "start:es6": "gulp start:es6",
-    "postinstall": "npm install --dev"
+    "start:es6": "gulp start:es6"
   },
   "repository": {
     "type": "git",
