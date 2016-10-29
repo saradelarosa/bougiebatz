@@ -3,7 +3,7 @@
 header.navigation {
     position: absolute;
     z-index: 1000;
-    background-color: $light-charcoal;
+    //background-color: $light-charcoal;
     height: 100px;
 }
 
@@ -31,14 +31,6 @@ header.navigation2 {
 
     img {
         width: 85px;
-    }
-
-    .title {
-        display: inline-block;
-
-        @media #{$mq-xs} {
-            display: none;
-        }
     }
 
 }
