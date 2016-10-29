@@ -45,7 +45,7 @@ angular.module('legacyOwls.latest', [])
       SavedArticles.getArticlesFromDB()
       .then(function(response) {
         response.forEach(function(article) {
-          $scope.saved[article.url] = true; //  Add saved articles to $scope.saved object
+          $scope.saved[article.url] = true; // Add saved articles to $scope.saved object
         });
       })
 
