@@ -53,12 +53,9 @@ angular.module('legacyOwls.latest', [])
       .then(function(response) {
         // photos is an array that is set to the results array received from API
         $scope.photos = response.data.results.filter(function(photo) {
-<<<<<<< HEAD
           // only want the articles that have a photo url - some of them have multimedia = ''
           // also do not want anything that is part of a Slideshow
-=======
           // wanted to know if user has liked articles pulled from API
->>>>>>> latestDoc
           photo.likes = $scope.urls[photo.url] ? $scope.urls[photo.url] : 0;
           // only want the articles that have a photo url - some of them have multimedia = ''
           // also do not want anything that is part of a Slideshow
