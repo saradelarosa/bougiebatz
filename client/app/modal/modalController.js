@@ -28,7 +28,6 @@ angular.module('legacyOwls.modal', [])
 
         SavedArticles.saveArticleToDB($scope.photo)
         .then(function(response) {
-          console.log("Success");
           $scope.photo.saved = true;
         })
         .catch(function(err) {
