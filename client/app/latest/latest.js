@@ -12,9 +12,9 @@ angular.module('legacyOwls.latest', [])
     // The parameters of the NYT API call
     var params = {
       source: 'all',
-      section: $scope.selectedOption,
-      time: '24',
-      limit: 40,
+      section: $scope.selectedOption, // Option in the dropdown menu
+      time: '24', // Gets results from the last 24 hours
+      limit: 40, // Limit getting to 40 results
       offset: 0
     }
 
@@ -35,7 +35,7 @@ angular.module('legacyOwls.latest', [])
       SavedArticles.getLikesFromDB()
       .then(function(response) {
         response.forEach(function(article) {
-          $scope.likes[article.url] = true;
+          $scope.likes[article.url] = true; // Add liked articles to $scope.likes object
         });
       });
 
@@ -45,7 +45,7 @@ angular.module('legacyOwls.latest', [])
       SavedArticles.getArticlesFromDB()
       .then(function(response) {
         response.forEach(function(article) {
-          $scope.saved[article.url] = true;
+          $scope.saved[article.url] = true; // Add saved articles to $scope.saved object
         });
       })
 
@@ -53,9 +53,15 @@ angular.module('legacyOwls.latest', [])
       .then(function(response) {
         // photos is an array that is set to the results array received from API
         $scope.photos = response.data.results.filter(function(photo) {
+<<<<<<< HEAD
           // only want the articles that have a photo url - some of them have multimedia = ''
           // also do not want anything that is part of a Slideshow
+=======
+          // wanted to know if user has liked articles pulled from API
+>>>>>>> latestDoc
           photo.likes = $scope.urls[photo.url] ? $scope.urls[photo.url] : 0;
+          // only want the articles that have a photo url - some of them have multimedia = ''
+          // also do not want anything that is part of a Slideshow
           return photo.multimedia.length === 4 && photo.item_type !== 'Slideshow';
         });
 
@@ -71,8 +77,10 @@ angular.module('legacyOwls.latest', [])
   // Save the news item
   $scope.saveStory = function(index) {
     var article = $scope.photos[index];
+    // Saves the whole article object to the database
     SavedArticles.saveArticleToDB(article)
     .then(function(response) {
+      // Add articles to $scope.saved after successful saving to database
       $scope.saved[article.url] = true;
     })
     .catch(function(err) {
@@ -83,9 +91,10 @@ angular.module('legacyOwls.latest', [])
   // Like the news item
   $scope.like = function(index) {
     var article = $scope.photos[index];
-
+    // Saves the whole article object to the database
     Trending.like(article)
     .then(function(response) {
+      // Increments number of likes for the article
       $scope.photos[index].likes++;
     })
     .catch(function(err) {
