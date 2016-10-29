@@ -25,8 +25,8 @@ router.post('/article', function(req, res){
         'commentData': []
       });
       likedArticle.save(function(err) {
-        if (err) console.log('Error on save!')
-        else res.sendStatus(201)
+        if (err) console.log('Error on save!');
+        else res.sendStatus(201);
       })
     } else {
       var id = article._id.toString();
@@ -35,8 +35,8 @@ router.post('/article', function(req, res){
         { $inc: { numberLikes: 1 } },
         { new: true },
         function(err,success){
-          if(err) { console.log(err); }
-          console.log("Success incrementing Like!");
+          if(err) console.log(err);
+          else res.sendStatus(200);
         }
       )
     }
