@@ -80,6 +80,7 @@ router.post('/comment', function(req, res){
         function(err,success){
           if(err) { console.log(err); }
           console.log("Success Comment added!");
+          res.sendStatus(200);
         }
       )
     }

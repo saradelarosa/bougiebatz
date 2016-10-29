@@ -77,7 +77,7 @@ angular.module('legacyOwls.comment', ["pageslide-directive"])
           return photo.multimedia.length === 4;
         });
       $scope.article = $scope.articles[$scope.idx];
-      console.log($scope.article, ' LINE 81, comment.js ')
+      // console.log($scope.article, ' LINE 81, comment.js ')
 
       //refreshComment is called when toggle is clicked at same time..
       $scope.refreshComment = function(){
@@ -85,7 +85,7 @@ angular.module('legacyOwls.comment', ["pageslide-directive"])
         //Comment.getallComment calls factory comment function to make a get request to
         //database to retrieve all data to regarding to specific article that is clicked based on clicked index / article.
         Comment.getAllComment($scope.article).then(function(res){
-           console.log(res, ' RES, comment.js')
+           // console.log(res, ' RES, comment.js')
             $scope.testComment = res.data;
         })
        }();
