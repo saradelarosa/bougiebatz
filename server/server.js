@@ -19,7 +19,7 @@ var app = express();
 app.use(bodyparser.urlencoded({
     extended: false
 }));
- app.use(bodyparser.json());
+app.use(bodyparser.json());
 app.use(logger('dev'));
 app.use(cookieParser());
 app.use(require('express-session')({
@@ -45,13 +45,16 @@ passport.deserializeUser(database.User.deserializeUser());
 //These are routers for helper functions that ping the database
 //GET and POST requests to the database are written here
 app.get('/database', (req, res) => {
-  console.log("REQ USER", req.user);
+  // console.log("REQ USER", req.user);
   var id = req.user._id;
   database.User.findById(id, function (err, doc){
-    if(err){ console.log("Not appropriately getting info from the database"); }
-    console.log(doc);
-  })
-  .then( (data) => res.status(200).send(data));
+    if(err) {
+      console.log("Not appropriately getting info from the database"); 
+      throw new Error(err);
+    }
+    // console.log(doc);
+    res.status(200).send(doc);
+  });
 });
 
 app.post('/database', (req, res) => {
@@ -59,17 +62,20 @@ app.post('/database', (req, res) => {
     { _id: req.user._id },
     { $push: { savedStories: req.body } }
   )
-  .then( () => res.status(201).send(req.data));
+  .then(res.status(201).send(req.data));
 });
 
 app.get('/likes', (req, res) => {
-  console.log("REQ USER", req.user);
+  // console.log("REQ USER", req.user);
   var id = req.user._id;
   database.User.findById(id, function (err, doc) {
-    if(err) console.log("Something went wrong");
-    console.log(doc);
-  })
-  .then( (data) => res.status(200).send(data));
+    if(err) {
+      console.log("Something went wrong");
+      throw new Error(err);
+    }
+    // console.log(doc);
+    res.status(200).send(doc);
+  });
 })
 
 app.post('/likes', (req, res) => {
@@ -77,7 +83,7 @@ app.post('/likes', (req, res) => {
     { _id: req.user._id },
     { $push: { likedStories: req.body } }  
   )
-  .then( () => res.status(201).send(req.data));
+  .then(res.status(201).send(req.data));
 });
 //End of database stuff
 

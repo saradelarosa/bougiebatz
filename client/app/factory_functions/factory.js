@@ -262,7 +262,7 @@ angular.module('legacyOwls.factory', [])
 .factory('Comment', ['$http', function ($http) {
     // console.log('comment called')
     var postComment = function(data){
-        console.log(data , ' comment factory data**');
+        // console.log(data , ' comment factory data**');
         return $http({
             method: 'POST',
             url: 'api/comment',
@@ -271,20 +271,18 @@ angular.module('legacyOwls.factory', [])
     }
 
     var getAllComment = function(article){
-        console.log('getallcomment called');
+        // console.log('getallcomment called');
         return $http({
             method:'GET',
             url: 'api/comment',
             params: {article:article}
-        })
-        .then(function(resp){
-            return resp
-        })
+        });
     }
-    return ({
+
+    return {
         postComment: postComment,
         getAllComment: getAllComment
-    })
+    }
 
 }])
 
