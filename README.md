@@ -1,9 +1,15 @@
-Team:
+Legacy Team:
   Product Owner: Sara Sailors
   Development Team: Katie Barnes, John Jung
   Scrumlord: Canh Trinh
 
 Team Name: Legacy-Owls
+
+Original Project Authors:
+    - Sam Gowda
+    - Jake Smith
+    - Nav Ghuman
+    - Julia Randall
 
 Project: 
   - To take the existing visual news app and add features 
@@ -28,7 +34,9 @@ What's in this repo?
     had some issues with Bower and using chocolatey on her windows computer
 
 * Client_old:
-  - Client files written by the old team, written in React
+  - Client files written by the original team, written in React
+  - Webpack is commented out here, but will be used to run this project if you want react and webpack
+  - Run npm start in one tab and webpack -w in another
   - Kept intact within the project repository in case there is desire to switch back to React
 
 * Server:
